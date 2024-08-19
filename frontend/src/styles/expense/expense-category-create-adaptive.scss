@@ -1,0 +1,93 @@
+@media screen and (max-width: 650px) {
+
+  .expenses-create-section {
+    padding: 100px 30px;
+
+    .expense-create-title {
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .expense-create-input {
+      width: 250px;
+      height: 30px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 24px; /* 160% */
+      padding: 7px 16px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+    }
+
+    .expense-create-action {
+      column-gap: 10px;
+      .income-create-new {
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        border-radius: 4px;
+      }
+
+      .expense-create-cancel {
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        border-radius: 4px;
+
+      }
+
+    }
+
+
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  .expenses-create-section {
+    padding: 60px 30px;
+
+    .expense-create-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .expense-create-input {
+      width: 175px;
+      height: 30px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 400;
+      line-height: 24px; /* 160% */
+      padding: 7px 16px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+    }
+
+    .expense-create-action {
+      column-gap: 10px;
+      .expense-create-new {
+        padding: 5px 10px;
+        font-size: 9px;
+        font-weight: 500;
+        border-radius: 4px;
+      }
+
+      .expense-create-cancel {
+        padding: 5px 10px;
+        font-size: 9px;
+        font-weight: 500;
+        border-radius: 4px;
+
+      }
+
+    }
+
+
+  }
+
+}

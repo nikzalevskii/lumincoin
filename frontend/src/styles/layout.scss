@@ -1,0 +1,320 @@
+.content-layout {
+  display: flex;
+
+  .aside {
+    box-sizing: border-box;
+    font-size: 14px;
+
+    .aside-div {
+      height: 100vh;
+      border-right: 1px solid #D9D9D9;
+      //font-size: 14px;
+      width: 224px;
+
+      .logo {
+
+        padding-top: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #D9D9D9;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .aside-block {
+      padding-right: 20px;
+      padding-left: 20px;
+
+      .nav {
+        margin-top: 60px;
+
+
+        .nav-link {
+          display: flex;
+          align-items: center;
+          column-gap: 10px;
+          //padding: 12px 16px;
+        }
+
+        .main-page {
+          position: relative;
+        }
+
+        .main-page:before {
+          position: relative;
+          top: 1px;
+          width: 15px;
+          height: 15px;
+          content: "";
+          background-image: url("../static/images/sidebar_main-active.svg");
+        }
+
+        .main-active-off-picture {
+          color: black;
+        }
+
+        .main-active-off-picture:before {
+          background-image: url("../static/images/sidebar_main-base.svg");
+        }
+
+        .incomes-expenses-page {
+          position: relative;
+        }
+
+        .incomes-expenses-page:before {
+          position: relative;
+          top: 1px;
+          width: 15px;
+          height: 15px;
+          content: "";
+          background-image: url("../static/images/sidebar_balance-base.svg");
+          /*background-image: url("images/sidebar_main-base.svg");*/
+        }
+
+        .ie-active-off-picture div {
+          color: white;
+        }
+
+        .ie-active-off-picture:before {
+          background-image: url("../static/images/sidebar_balance-active.svg");
+        }
+
+
+
+        .category-block {
+
+          .category {
+            //display: block;
+            //text-decoration: none;
+            padding: 12px 16px;
+            cursor: pointer;
+
+
+            .category-div {
+              //padding: 12px 16px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              position: relative;
+              cursor: pointer;
+
+              .categories-text {
+                position: relative;
+                text-decoration: none;
+                display: block;
+                color: black;
+
+              }
+
+              .categories-text:after {
+                position: relative;
+                top: 4px;
+                left: 60px;
+                width: 15px;
+                height: 15px;
+                content: "";
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-image: url("../static/images/sidebar_category-arrow-base.svg");
+              }
+
+              .categories-text-active:after {
+                background-image: url("../static/images/sidebar_category-arrow-active.svg");
+                transform: rotate(90deg);
+                top: 7px;
+              }
+
+            }
+          }
+
+        }
+
+        .category-block-active {
+          border: 1px solid #0D6EFD;
+          border-radius: 0px 0px 5px 5px;
+          background-color: #0D6EFD;
+
+          .category-div {
+            #categories-text {
+              color: white;
+              .categories-text:after {
+                background-image: url("../static/images/sidebar_category-arrow-active.svg");
+                transform: rotate(90deg);
+                top: 7px;
+              }
+            }
+
+          }
+
+          .orders-collapse {
+            .income-block {
+              background-color: #0D6EFD;
+
+              a {
+                color: white;
+              }
+            }
+
+            .expense-block {
+
+              a {
+                color: #0D6EFD;
+              }
+            }
+          }
+
+
+        }
+
+        .category-expense-active {
+          .orders-collapse {
+            #income-block {
+              background-color: white;
+
+              a {
+                color: #0D6EFD;
+              }
+            }
+
+            #expense-block {
+              background-color: #0D6EFD;
+
+              a {
+                color: white;
+              }
+            }
+          }
+          .show {
+            display: block;
+          }
+
+        }
+
+        .category-income-active {
+          .orders-collapse {
+            #income-block {
+              background-color: #0D6EFD;
+              color: white;
+              #income-block-link {
+                color: white;
+              }
+            }
+
+            #expense-block {
+              background-color: white;
+
+              a {
+                color: #0D6EFD;
+              }
+            }
+          }
+
+          .show {
+            display: block;
+          }
+
+
+        }
+
+
+        .category-active {
+          border-radius: 5px 5px 5px 5px;
+          border: 1px solid #0D6EFD;
+          background: #0D6EFD;
+          //.
+          color: white;
+
+          .income-block {
+            background-color: #0D6EFD;
+          }
+
+          .expense-block {
+            background-color: white;
+          }
+
+
+        }
+
+        .collapse-list {
+          display: none;
+          transition: 0.2s;
+
+          li {
+            cursor: pointer;
+          }
+        }
+
+        .categories-menu-show {
+          display: block;
+        }
+
+
+        .collapse-list li {
+
+          a {
+            padding: 12px 16px;
+          }
+        }
+
+      }
+
+    }
+
+    .balance {
+      padding-left: 20px;
+      padding-right: 20px;
+      position: absolute;
+      z-index: 1;
+      bottom: 105px;
+      column-gap: 10px;
+
+      .balance-text {
+        color: #052C65;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .balance-value {
+        color: #0D6EFD;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+
+    .dropdown {
+      padding-top: 20px;
+      padding-bottom: 24px;
+      border-top: 1px solid #D9D9D9;
+      position: absolute;
+      z-index: 1;
+      bottom: 16px;
+      width: inherit;
+      display: flex;
+      //justify-content: center;
+
+      .dropdown-toggle {
+        cursor: pointer;
+        margin-left: 20px;
+
+        .username {
+          color: #052C65;
+          //font-size: 14px;
+          font-weight: 400;
+          line-height: 24px; /* 171.429% */
+        }
+
+      }
+
+    }
+  }
+
+
+
+}
+
+
+

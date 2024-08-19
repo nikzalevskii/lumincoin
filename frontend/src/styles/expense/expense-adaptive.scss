@@ -1,0 +1,299 @@
+@media screen and (max-width: 770px) {
+
+  .expenses-section {
+    padding: 100px 60px;
+
+    .expense-title {
+
+      font-size: 40px;
+
+    }
+
+    .expenses {
+      margin-top: 40px;
+
+      gap: 20px;
+
+
+      .expense {
+        width: 275px;
+        height: 121px;
+
+        padding: 20px;
+        border-radius: 12px;
+
+        .expense-text {
+
+          font-size: 28px;
+
+          margin-bottom: 10px;
+        }
+        .expense-actions {
+
+          column-gap: 10px;
+          .expense-category-edit {
+
+            padding: 12px 16px;
+            border-radius: 5px;
+
+            font-size: 14px;
+
+          }
+          .expense-category-delete {
+
+            padding: 12px 16px;
+            border-radius: 5px;
+
+            font-size: 14px;
+          }
+
+
+        }
+
+
+      }
+
+
+
+    }
+
+    .expense-popup {
+      z-index: 2;
+      top: calc(50% - 92px);
+      left: calc(50% - 265px);
+      border-radius: 12px;
+      padding: 40px;
+      width: 530px;
+      height: 184px;
+      .expense-popup-title {
+        max-width: 450px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .expense-popup-actions {
+        column-gap: 12px;
+
+        .expense-popup-delete-yes {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        .expense-popup-delete-no {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 610px) {
+
+  .expenses-section {
+    padding: 80px 40px;
+
+    .expense-title {
+
+      font-size: 35px;
+
+    }
+
+    .expenses {
+      margin-top: 30px;
+
+      gap: 15px;
+
+
+      .expense {
+        width: 275px;
+        height: 90px;
+
+        padding: 10px;
+        border-radius: 8px;
+
+        .expense-text {
+
+          font-size: 20px;
+
+          margin-bottom: 10px;
+        }
+        .expense-actions {
+
+          column-gap: 8px;
+          .expense-category-edit {
+
+            padding: 6px 8px;
+            border-radius: 3px;
+
+            font-size: 12px;
+
+          }
+          .expense-category-delete {
+
+            padding: 6px 8px;
+            border-radius: 3px;
+
+            font-size: 12px;
+          }
+
+
+        }
+
+
+      }
+
+
+    }
+
+    .expense-popup {
+      z-index: 2;
+      top: calc(50% - 92px);
+      left: calc(50% - 265px);
+      border-radius: 12px;
+      padding: 40px;
+      width: 530px;
+      height: 184px;
+      .expense-popup-title {
+        max-width: 450px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .expense-popup-actions {
+        column-gap: 12px;
+
+        .expense-popup-delete-yes {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        .expense-popup-delete-no {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 475px) {
+
+  .expenses-section {
+    padding: 80px 0px 80px 20px;
+
+    .expense-title {
+
+      font-size: 25px;
+
+    }
+
+    .expenses {
+      margin-top: 20px;
+
+      gap: 10px;
+
+
+      .expense {
+        width: 150px;
+        height: 55px;
+
+        padding: 6px;
+        border-radius: 7px;
+
+        .expense-text {
+
+          font-size: 14px;
+
+          margin-bottom: 8px;
+        }
+        .expense-actions {
+
+          column-gap: 8px;
+          .expense-category-edit {
+
+            padding: 3px 5px;
+            border-radius: 3px;
+
+            font-size: 8px;
+
+          }
+          .expense-category-delete {
+
+            padding: 3px 5px;
+            border-radius: 3px;
+
+            font-size: 8px;
+          }
+
+
+        }
+
+
+      }
+
+
+    }
+
+    .expense-popup {
+      z-index: 2;
+      top: calc(50% - 92px);
+      left: calc(50% - 265px);
+      border-radius: 12px;
+      padding: 40px;
+      width: 530px;
+      height: 184px;
+      .expense-popup-title {
+        max-width: 450px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .expense-popup-actions {
+        column-gap: 12px;
+
+        .expense-popup-delete-yes {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        .expense-popup-delete-no {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+
+
+
+}
+
+

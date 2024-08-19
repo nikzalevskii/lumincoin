@@ -1,0 +1,65 @@
+.incomes-create-section {
+  padding: 100px 60px;
+
+  .income-create-title {
+    color: #052C65;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .income-create-input {
+    width: 397px;
+    height: 38px;
+    border-radius: 4px;
+    border: 1px solid #CED4DA;
+    box-sizing: border-box;
+
+    color: #6C757D;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    padding: 7px 16px;
+    outline: none;
+    margin-bottom: 20px;
+    margin-top: 40px;
+
+  }
+
+  .income-create-action {
+    display: flex;
+    column-gap: 10px;
+    .income-create-new {
+      cursor: pointer;
+      text-decoration: none;
+      padding: 12px 16px;
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+      border-radius: 5px;
+      background: #198754;
+      box-sizing: border-box;
+      border: none;
+    }
+
+    .income-create-cancel {
+      cursor: pointer;
+      text-decoration: none;
+      padding: 12px 16px;
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+      border-radius: 5px;
+      background: #DC3545;
+      box-sizing: border-box;
+      border: none;
+    }
+
+  }
+
+
+}

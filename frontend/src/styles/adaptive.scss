@@ -1,0 +1,359 @@
+
+@media screen and (max-width: 1500px) {
+  .main-section {
+    padding: 80px 50px;
+
+    .main-title {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+
+    .flow-period {
+      margin-bottom: 30px;
+      gap: 15px;
+
+      .flow-period-common {
+
+        padding: 9px 12px;
+        border-radius: 4px;
+
+        font-size: 14px;
+        letter-spacing: 0.457px;
+      }
+
+      .flow-period-active {
+
+      }
+
+      .flow-period-select {
+        gap: 10px;
+
+        .flow-period-select-since-text, .flow-period-select-to-text {
+          font-size: 14px;
+          letter-spacing: 0.457px;
+        }
+
+        .flow-period-select-since-data, .flow-period-select-to-data {
+          font-size: 14px;
+          letter-spacing: 0.457px;
+        }
+      }
+    }
+    .plots {
+      font-size: 8px;
+      gap: 10px;
+
+      .plot-income{
+        .myChartIncome {
+          width: 350px;
+          height: 467px;
+        }
+      }
+
+
+      .plot-expense {
+        .myChartExpense {
+          //width: 450px;
+          //height: 467px;
+          width: 350px;
+          //height: 360px;
+        }
+      }
+
+    }
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 770px) {
+
+  .plots {
+    .plot-income {
+      .myChartIncome {
+        width: 350px;
+        height: 360px;
+      }
+    }
+
+    .plot-expense {
+      .myChartExpense {
+        width: 350px;
+        height: 360px;
+      }
+    }
+  }
+
+  .content-layout {
+    //font-size: 10px;
+    .aside {
+      .aside-div {
+        max-width: 160px;
+        font-size: 10px;
+
+        //.aside-div > * {
+        //  font-size: 8px;
+        //}
+
+        .aside-block {
+          padding-right: 5px;
+          padding-left: 5px;
+        }
+
+
+      }
+    }
+  }
+
+  .content-layout {
+    .aside {
+      .dropdown {
+        width: 160px;
+
+        .username-layout {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+
+}
+
+@media screen and (max-width: 590px) {
+
+  .main-section {
+    padding: 40px 25px;
+
+    .main-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+
+    .flow-period {
+      margin-bottom: 15px;
+      gap: 10px;
+
+      .flow-period-common {
+
+        padding: 5px 7px;
+        border-radius: 4px;
+
+        font-size: 8px;
+        letter-spacing: 0.457px;
+      }
+
+      .flow-period-active {
+
+      }
+
+      .flow-period-select {
+        gap: 5px;
+
+        .flow-period-select-since-text, .flow-period-select-to-text {
+          font-size: 8px;
+          letter-spacing: 0.457px;
+        }
+
+        .flow-period-select-since-data, .flow-period-select-to-data {
+          font-size: 8px;
+          letter-spacing: 0.457px;
+        }
+      }
+    }
+    .plots {
+      font-size: 8px;
+      gap: 0px;
+
+      .plot-income{
+        .myChartIncome {
+          width: 180px;
+          //height: 467px;
+        }
+      }
+
+
+      .plot-expense {
+        .myChartExpense {
+          width: 180px;
+        }
+      }
+
+    }
+  }
+
+
+  .content-layout {
+    .aside {
+      .aside-div {
+        max-width: 130px;
+        font-size: 7px;
+
+        .logo {
+          .logo-picture {
+            width: 70px;
+          }
+
+        }
+
+        //.aside-div > * {
+        //  font-size: 8px;
+        //}
+
+        .aside-block {
+          padding-right: 3px;
+          padding-left: 3px;
+
+          #categories-text:after {
+            top: 2px;
+            left: 7px;
+            width: 9px;
+            height: 9px;
+            background-size: 9px 9px;
+            z-index: 3;
+          }
+
+        }
+
+
+      }
+    }
+  }
+
+  .content-layout {
+    .aside {
+      .dropdown {
+        width: 130px;
+
+        .username-picture {
+          width: 10px;
+          height: 10px;
+        }
+
+        .username-layout {
+          font-size: 8px;
+        }
+      }
+      .dropdown-menu {
+        min-width: 0px;
+        font-size: 11px;
+        width: 70px;
+      }
+    }
+  }
+
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+
+  .content-layout {
+    .aside {
+      .aside-div {
+        max-width: 100px;
+        font-size: 6px;
+
+        .logo {
+
+          padding-top: 20px;
+          padding-bottom: 0px;
+
+          .logo-picture {
+
+          }
+
+        }
+
+
+        .aside-block {
+          padding-right: 5px;
+          padding-left: 5px;
+
+          .nav {
+
+          margin-top: 20px;
+
+          .nav-item {
+
+            .main-page, .incomes-expenses-page {
+              //width: 90px;
+              padding: 3px 4px;
+            }
+
+            //column-gap: 4px;
+            .main-page:before, .incomes-expenses-page:before {
+              top: 1px;
+              width: 10px;
+              height: 10px;
+              background-size: 8px 8px;
+              background-repeat: no-repeat;
+              column-gap: 4px;
+              left: 8px;
+
+            }
+
+
+          }
+
+          .category-block {
+
+            .categories {
+              padding: 6px 8px;
+
+              #categories-text:after {
+                top: 2px;
+                left: 7px;
+                width: 7px;
+                height: 7px;
+                background-size: 7px 7px;
+                z-index: 3;
+              }
+            }
+
+
+          }
+
+
+        }
+      }
+
+      }
+    }
+  }
+
+  .content-layout {
+    .aside {
+      .dropdown {
+        width: 100px;
+
+        .dropdown-toggle {
+          margin-left: 10px;
+
+          .username-picture {
+
+          }
+
+          .username-layout {
+            font-size: 7px;
+          }
+        }
+
+        .dropdown-menu {
+          min-width: 0px;
+          font-size: 9px;
+          width: 70px;
+        }
+
+
+      }
+    }
+  }
+
+
+}

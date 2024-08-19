@@ -1,0 +1,53 @@
+<main class="login-main d-flex justify-content-center align-items-center">
+    <div class="login-content">
+        <img src="images/logo.png" alt="">
+        <h1 class="login-title">Вход</h1>
+        <div id="common-error" class="error invalid-feedback text-center mb-3">Неправильно введены данные</div>
+        <form class="needs-validation" novalidate>
+            <div class="login-form">
+                <div class="login-block">
+                    <div class="login-block-content">
+                        <img src="images/icon-name.svg" alt="">
+                        <input class="login-input form-control" type="text" placeholder="ФИО" id="name">
+                    </div>
+                    <div class="invalid-feedback">Введите корректно ФИО (с большой буквы)</div>
+                </div>
+                <div class="login-block">
+                    <div class="login-block-content">
+                        <img src="images/icon-email.svg" alt="">
+                        <input class="login-input form-control" type="email" placeholder="Электронная почта" id="email">
+                    </div>
+                    <div class="invalid-feedback">Введите корректный email</div>
+                </div>
+
+                <div class="login-block">
+                    <div class="login-block-content">
+                        <img src="images/icon-password.svg" alt="">
+                        <input class="login-input form-control" type="text" placeholder="Пароль" id="password">
+                    </div>
+                    <div class="invalid-feedback">Пароль должен содержать минимум 8 символов, 1 заглавную букву и 1 цифру</div>
+                </div>
+
+                <div class="login-block">
+                    <div class="login-block-content">
+                        <img src="images/icon-password.svg" alt="">
+                        <input class="login-input form-control" type="text" placeholder="Подтверждение пароля"
+                               id="passwordRepeat">
+                    </div>
+                    <div class="invalid-feedback">Пароли не совпадают</div>
+                </div>
+                <div class="login-checkbox d-flex align-items-center">
+                    <input id="remember" class="login-input-checkbox" type="checkbox" placeholder="Пароль">
+                    <label for="remember">Запомнить меня</label>
+                </div>
+                <div class="login-button-block">
+                    <button class="btn-login" type="button" id="process-button" disabled>Войти</button>
+                </div>
+                <div class="login-have-account d-flex">
+                    <div>Уже есть аккаунт?</div>
+                    <a href="/login">Войдите в систему</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>

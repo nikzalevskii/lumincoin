@@ -1,0 +1,72 @@
+<div class="content-layout">
+    <aside class="aside">
+        <div class="aside-div d-flex flex-column flex-shrink-0">
+            <div class="logo">
+                <a href="/"
+                   class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <img class="logo-picture" src="/images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="aside-block">
+                <!--        <hr>-->
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active main-page" id="main-page" aria-current="page">
+                            <div>
+                                Главная
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/incomes&expenses" id="incomes-expenses-page" class="nav-link link-body-emphasis incomes-expenses-page">
+                            <div>
+                                Доходы & Расходы
+                            </div>
+                        </a>
+                    </li>
+                    <li class="category-block mb-1 nav-item " id="category-block">
+                        <div id="categories" class="categories category align-items-center border-0 collapsed"
+                             data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                            <div id="category-div" class="category-div">
+                                <a href="/income" class="categories-text" id="categories-text">Категории</a>
+                            </div>
+                        </div>
+                        <div class="orders-collapse collapse-list collapse" id="orders-collapse" style="">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                <li id="income-block" class="income-block"><a id="income-block-link" href="javascript:void(0)"
+                                       class="income-block-link d-inline-flex text-decoration-none rounded">Доходы</a>
+                                </li>
+                                <li id="expense-block" class="expense-block"><a href="javascript:void(0)"
+                                       class="d-inline-flex text-decoration-none rounded">Расходы</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="balance d-flex">
+                <div class="balance-text">Баланс:</div>
+                <div class="balance-value" id="balance-value">500$</div>
+            </div>
+            <!--        <hr>-->
+            <div class="dropdown" id="user-block">
+<!--            <div class="dropdown" id="user-block">-->
+                <div class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://cdn4.iconfinder.com/data/icons/gray-user-management/512/rounded-1024.png" alt=""
+                         width="32" height="32" class="username-picture rounded-circle me-2">
+                        <div class="username-layout" id="username-layout">Roman Chernov</div>
+                </div>
+<!--                <ul class="text-small " id="drop-logout">-->
+                <ul class="dropdown-menu text-small shadow" id="drop-logout">
+                    <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </aside>
+    <div class="content-wrapper" id="content-layout">
+
+    </div>
+</div>

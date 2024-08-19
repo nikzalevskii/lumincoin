@@ -1,0 +1,338 @@
+@media screen and (max-width: 770px) {
+
+  .incomes-section {
+    padding: 100px 60px;
+
+    .income-title {
+
+      font-size: 40px;
+
+    }
+
+    .incomes {
+      margin-top: 40px;
+
+      gap: 20px;
+
+
+      .income {
+        width: 275px;
+        height: 121px;
+
+        padding: 20px;
+        border-radius: 12px;
+
+        .income-text {
+
+          font-size: 28px;
+
+          margin-bottom: 10px;
+        }
+        .income-actions {
+
+          column-gap: 10px;
+          .income-category-edit {
+
+            padding: 12px 16px;
+            border-radius: 5px;
+
+            font-size: 14px;
+
+          }
+          .income-category-delete {
+
+            padding: 12px 16px;
+            border-radius: 5px;
+
+            font-size: 14px;
+          }
+
+
+        }
+
+
+      }
+
+      .income-new {
+
+        .income-text {
+
+        }
+        .income-actions {
+
+        }
+        .income-add {
+
+        }
+
+
+      }
+
+    }
+
+    .income-popup {
+      z-index: 2;
+      top: calc(50% - 92px);
+      left: calc(50% - 265px);
+      border-radius: 12px;
+      padding: 40px;
+      width: 530px;
+      height: 184px;
+      .income-popup-title {
+        max-width: 450px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .income-popup-actions {
+        column-gap: 12px;
+
+        .income-popup-delete-yes {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        .income-popup-delete-no {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 610px) {
+
+  .incomes-section {
+    padding: 80px 40px;
+
+    .income-title {
+
+      font-size: 35px;
+
+    }
+
+    .incomes {
+      margin-top: 30px;
+
+      gap: 15px;
+
+
+      .income {
+        width: 275px;
+        height: 90px;
+
+        padding: 10px;
+        border-radius: 8px;
+
+        .income-text {
+
+          font-size: 20px;
+
+          margin-bottom: 10px;
+        }
+        .income-actions {
+
+          column-gap: 8px;
+          .income-category-edit {
+
+            padding: 6px 8px;
+            border-radius: 3px;
+
+            font-size: 12px;
+
+          }
+          .income-category-delete {
+
+            padding: 6px 8px;
+            border-radius: 3px;
+
+            font-size: 12px;
+          }
+
+
+        }
+
+
+      }
+
+      .income-new {
+
+        .income-text {
+
+        }
+        .income-actions {
+
+        }
+        .income-add {
+
+        }
+
+
+      }
+
+    }
+
+    .income-popup {
+      z-index: 2;
+      top: calc(50% - 92px);
+      left: calc(50% - 265px);
+      border-radius: 12px;
+      padding: 40px;
+      width: 530px;
+      height: 184px;
+      .income-popup-title {
+        max-width: 450px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .income-popup-actions {
+        column-gap: 12px;
+
+        .income-popup-delete-yes {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        .income-popup-delete-no {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 475px) {
+
+  .incomes-section {
+    padding: 80px 0px 80px 20px;
+
+    .income-title {
+
+      font-size: 25px;
+
+    }
+
+    .incomes {
+      margin-top: 20px;
+
+      gap: 10px;
+
+
+      .income {
+        width: 150px;
+        height: 55px;
+
+        padding: 6px;
+        border-radius: 7px;
+
+        .income-text {
+
+          font-size: 14px;
+
+          margin-bottom: 8px;
+        }
+        .income-actions {
+
+          column-gap: 8px;
+          .income-category-edit {
+
+            padding: 3px 5px;
+            border-radius: 3px;
+
+            font-size: 8px;
+
+          }
+          .income-category-delete {
+
+            padding: 3px 5px;
+            border-radius: 3px;
+
+            font-size: 8px;
+          }
+
+
+        }
+
+
+      }
+
+      .income-new {
+
+        .income-text {
+
+        }
+        .income-actions {
+
+        }
+        .income-add {
+
+        }
+
+
+      }
+
+    }
+
+    .income-popup {
+      z-index: 2;
+      top: calc(50% - 92px);
+      left: calc(50% - 265px);
+      border-radius: 12px;
+      padding: 40px;
+      width: 530px;
+      height: 184px;
+      .income-popup-title {
+        max-width: 450px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .income-popup-actions {
+        column-gap: 12px;
+
+        .income-popup-delete-yes {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        .income-popup-delete-no {
+          padding: 16px 12px;
+          border-radius: 5px;
+          font-size: 14px;
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+
+
+
+}

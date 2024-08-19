@@ -1,0 +1,792 @@
+@media screen and (max-width: 1220px) {
+
+  .flow-section {
+    padding: 50px 30px;
+
+    .flow-title {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .flow-action {
+      column-gap: 5px;
+      margin-bottom: 25px;
+
+      .flow-create-income {
+        padding: 8px 12px;
+        font-size: 12px;
+        border-radius: 4px;
+      }
+
+      .flow-create-expense {
+        padding: 8px 12px;
+        font-size: 12px;
+        border-radius: 4px;
+      }
+
+    }
+
+    .flow-period {
+      margin-bottom: 25px;
+      gap: 15px;
+
+      .flow-period-common {
+        padding: 7px 10px;
+        border-radius: 4px;
+
+        color: #6C757D;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.457px;
+      }
+
+      .flow-period-active {
+        color: white;
+      }
+
+      .flow-period-select {
+        gap: 10px;
+
+        .flow-period-select-since-text, .flow-period-select-to-text {
+          font-size: 12px;
+          letter-spacing: 0.457px;
+        }
+
+        .flow-period-select-since-data, .flow-period-select-to-data {
+          font-size: 12px;
+          letter-spacing: 0.457px;
+        }
+
+
+      }
+    }
+
+    .flow-table {
+
+      .flow-table-header-block {
+
+        .flow-table-header-text {
+          padding-left: 15px;
+          padding-right: 15px;
+          font-size: 12px;
+          letter-spacing: 1.2px;
+        }
+
+
+      }
+
+      .flow-table-block {
+        .flow-table-text {
+          font-size: 12px;
+        }
+
+        .flow-income {
+          font-size: 12px;
+          line-height: 23px; /* 143.75% */
+        }
+
+        .flow-expense {
+          font-size: 12px;
+          line-height: 23px; /* 143.75% */
+        }
+
+        .flow-table-icons {
+          a {
+            margin-right: 10px;
+
+            .flow-table-icons-delete {
+
+            }
+          }
+
+          a {
+            .flow-table-icons-edit {
+            }
+          }
+
+        }
+
+
+      }
+
+
+    }
+
+
+  }
+
+  .item-popup {
+    top: calc(50% - 92px);
+    left: calc(50% - 265px);
+    border-radius: 12px;
+    padding: 40px;
+    width: 530px;
+    height: 184px;
+
+    .item-popup-title {
+      max-width: 450px;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .item-popup-actions {
+      column-gap: 12px;
+
+      .item-popup-delete-yes {
+        padding: 16px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .item-popup-delete-no {
+        padding: 16px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+
+      }
+
+    }
+
+
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+
+  .flow-section {
+    padding: 50px 30px;
+
+    .flow-title {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .flow-action {
+      column-gap: 5px;
+      margin-bottom: 25px;
+
+      .flow-create-income {
+        padding: 8px 12px;
+        font-size: 10px;
+        border-radius: 4px;
+      }
+
+      .flow-create-expense {
+        padding: 8px 12px;
+        font-size: 10px;
+        border-radius: 4px;
+      }
+
+    }
+
+    .flow-period {
+      margin-bottom: 25px;
+      gap: 15px;
+
+      .flow-period-common {
+        padding: 7px 10px;
+        border-radius: 4px;
+
+        color: #6C757D;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.457px;
+      }
+
+      .flow-period-active {
+        color: white;
+      }
+
+      .flow-period-select {
+        gap: 10px;
+
+        .flow-period-select-since-text, .flow-period-select-to-text {
+          font-size: 10px;
+          letter-spacing: 0.457px;
+        }
+
+        .flow-period-select-since-data, .flow-period-select-to-data {
+          font-size: 10px;
+          letter-spacing: 0.457px;
+        }
+
+
+      }
+    }
+
+    .flow-table {
+
+      .flow-table-header-block {
+
+        .flow-table-header-text {
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 10px;
+          letter-spacing: 1.1px;
+        }
+
+
+      }
+
+      .flow-table-block {
+        .flow-table-text {
+          font-size: 10px;
+        }
+
+        .flow-income {
+          font-size: 10px;
+          line-height: 20px;
+        }
+
+        .flow-expense {
+          font-size: 10px;
+          line-height: 20px;
+        }
+
+        .flow-table-icons {
+          a {
+            margin-right: 10px;
+
+            .flow-table-icons-delete {
+
+            }
+          }
+
+          a {
+            .flow-table-icons-edit {
+            }
+          }
+
+        }
+
+
+      }
+
+
+    }
+
+
+  }
+
+  .item-popup {
+    top: calc(50% - 92px);
+    left: calc(50% - 265px);
+    border-radius: 12px;
+    padding: 40px;
+    width: 530px;
+    height: 184px;
+
+    .item-popup-title {
+      max-width: 450px;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .item-popup-actions {
+      column-gap: 12px;
+
+      .item-popup-delete-yes {
+        padding: 16px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .item-popup-delete-no {
+        padding: 16px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+
+      }
+
+    }
+
+
+  }
+
+}
+
+@media screen and (max-width: 810px) {
+
+  .flow-section {
+    padding: 80px 15px 0px 15px;
+
+    .flow-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .flow-action {
+      column-gap: 3px;
+      margin-bottom: 15px;
+
+      .flow-create-income {
+        padding: 4px 6px;
+        font-size: 7px;
+        border-radius: 3px;
+      }
+
+      .flow-create-expense {
+        padding: 4px 6px;
+        font-size: 7px;
+        border-radius: 3px;
+      }
+
+    }
+
+    .flow-period {
+      flex-wrap: wrap;
+      padding-bottom: 15px;
+      gap: 8px;
+
+      .flow-period-common {
+        padding: 4px 5px;
+        border-radius: 2px;
+
+        color: #6C757D;
+        font-size: 7px;
+        font-weight: 500;
+        letter-spacing: 0.457px;
+      }
+
+      .flow-period-active {
+        color: white;
+      }
+
+      .flow-period-select {
+        gap: 6px;
+
+        .flow-period-select-since-text, .flow-period-select-to-text {
+          font-size: 7px;
+          letter-spacing: 0.457px;
+        }
+
+        .flow-period-select-since-data, .flow-period-select-to-data {
+          font-size: 7px;
+          letter-spacing: 0.457px;
+        }
+
+
+      }
+    }
+
+    .flow-table {
+
+      .flow-table-header-block {
+
+        .flow-table-header-text {
+          padding-left: 5px;
+          padding-right: 5px;
+          font-size: 6px;
+        }
+
+
+      }
+
+      .flow-table-block {
+        .flow-table-text {
+
+          font-size: 6px;
+        }
+
+        .flow-income {
+          font-size: 6px;
+          line-height: 10px;
+        }
+
+        .flow-expense {
+          font-size: 6px;
+          line-height: 10px;
+        }
+
+        .flow-table-icons {
+          a {
+            margin-right: 10px;
+
+            .flow-table-icons-delete {
+              width: 8px;
+            }
+          }
+
+          a {
+            .flow-table-icons-edit {
+              width: 8px;
+            }
+          }
+
+        }
+
+
+      }
+
+
+    }
+
+
+  }
+
+  .item-popup {
+    top: calc(50% - 50px);
+    left: calc(50% - 150px);
+    border-radius: 12px;
+    padding: 40px;
+    width: 300px;
+    height: 100px;
+
+    .item-popup-title {
+      max-width: 250px;
+      font-size: 10px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .item-popup-actions {
+      column-gap: 6px;
+
+      .item-popup-delete-yes {
+        padding: 8px 6px;
+        border-radius: 3px;
+        font-size: 10px;
+      }
+
+      .item-popup-delete-no {
+        padding: 8px 6px;
+        border-radius: 3px;
+        font-size: 10px;
+
+      }
+
+    }
+
+
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .flow-section {
+    padding: 60px 15px 0px 15px;
+
+    .flow-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .flow-action {
+      column-gap: 3px;
+      margin-bottom: 15px;
+
+      .flow-create-income {
+        padding: 4px 6px;
+        font-size: 7px;
+        border-radius: 3px;
+      }
+
+      .flow-create-expense {
+        padding: 4px 6px;
+        font-size: 7px;
+        border-radius: 3px;
+      }
+
+    }
+
+    .flow-period {
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      padding-bottom: 0px;
+      gap: 8px;
+
+      .flow-period-common {
+        padding: 2px 3px;
+        border-radius: 2px;
+
+        color: #6C757D;
+        font-size: 5px;
+        font-weight: 400;
+        letter-spacing: 0.1px;
+      }
+
+      .flow-period-active {
+        color: white;
+      }
+
+      .flow-period-select {
+        gap: 3px;
+
+        .flow-period-select-since-text, .flow-period-select-to-text {
+          font-size: 4px;
+          letter-spacing: 0.2px;
+        }
+
+        .flow-period-select-since-data, .flow-period-select-to-data {
+          font-size: 4px;
+          letter-spacing: 0.2px;
+        }
+
+
+      }
+    }
+
+    .flow-table {
+
+      .flow-table-header-block {
+
+        .flow-table-header-text {
+          padding-left: 3px;
+          padding-right: 3px;
+          font-size: 4px;
+        }
+
+
+      }
+
+      .flow-table-block {
+        .flow-table-text {
+
+          font-size: 4px;
+          letter-spacing: 0.1px;
+        }
+
+        .flow-income {
+          font-size: 4px;
+          line-height: 8px;
+        }
+
+        .flow-expense {
+          font-size: 4px;
+          line-height: 8px;
+        }
+
+        .flow-table-icons {
+          a {
+            margin-right: 5px;
+
+            .flow-table-icons-delete {
+              width: 5px;
+            }
+          }
+
+          a {
+            .flow-table-icons-edit {
+              width: 5px;
+            }
+          }
+
+        }
+
+
+      }
+
+
+    }
+
+    .table > :not(caption) > * > * {
+      padding: 5px;
+    }
+
+
+  }
+
+  .item-popup {
+    top: calc(50% - 50px);
+    left: calc(50% - 150px);
+    border-radius: 12px;
+    padding: 40px;
+    width: 300px;
+    height: 100px;
+
+    .item-popup-title {
+      max-width: 250px;
+      font-size: 10px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .item-popup-actions {
+      column-gap: 6px;
+
+      .item-popup-delete-yes {
+        padding: 8px 6px;
+        border-radius: 3px;
+        font-size: 10px;
+      }
+
+      .item-popup-delete-no {
+        padding: 8px 6px;
+        border-radius: 3px;
+        font-size: 10px;
+
+      }
+
+    }
+
+
+  }
+
+}
+
+@media screen and (max-width: 385px) {
+
+  .flow-section {
+    padding: 60px 15px 0px 15px;
+
+    .flow-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .flow-action {
+      column-gap: 3px;
+      margin-bottom: 15px;
+
+      .flow-create-income {
+        padding: 3px 5px;
+        font-size: 5px;
+        border-radius: 3px;
+      }
+
+      .flow-create-expense {
+        padding: 3px 5px;
+        font-size: 5px;
+        border-radius: 3px;
+      }
+
+    }
+
+    .flow-period {
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+      padding-bottom: 0px;
+      gap: 3px;
+
+      .flow-period-common {
+        padding: 2px 3px;
+        border-radius: 2px;
+
+        color: #6C757D;
+        font-size: 5px;
+        font-weight: 400;
+        letter-spacing: 0.1px;
+      }
+
+      .flow-period-active {
+        color: white;
+      }
+
+      .flow-period-select {
+        gap: 3px;
+
+        .flow-period-select-since-text, .flow-period-select-to-text {
+          font-size: 4px;
+          letter-spacing: 0.2px;
+        }
+
+        .flow-period-select-since-data, .flow-period-select-to-data {
+          font-size: 4px;
+          letter-spacing: 0.2px;
+        }
+
+
+      }
+    }
+
+    .flow-table {
+      padding: 0px 2px 0px 2px;
+
+      .flow-table-header-block {
+
+        .flow-table-header-text {
+          padding-left: 1px;
+          padding-right: 1px;
+          font-size: 4px;
+        }
+
+
+      }
+
+      .flow-table-block {
+        .flow-table-text {
+
+          font-size: 4px;
+          letter-spacing: 0.0001px;
+        }
+
+        .flow-income {
+          font-size: 4px;
+          line-height: 6px;
+        }
+
+        .flow-expense {
+          font-size: 4px;
+          line-height: 6px;
+        }
+
+        .flow-table-icons {
+          a {
+            margin-right: 5px;
+
+            .flow-table-icons-delete {
+              width: 5px;
+            }
+          }
+
+          a {
+            .flow-table-icons-edit {
+              width: 5px;
+            }
+          }
+
+        }
+
+
+      }
+
+
+    }
+    .table > :not(caption) > * > * {
+      padding: 2px;
+    }
+
+
+  }
+
+  .item-popup {
+    top: calc(50% - 50px);
+    left: calc(50% - 150px);
+    border-radius: 12px;
+    padding: 40px;
+    width: 300px;
+    height: 100px;
+
+    .item-popup-title {
+      max-width: 250px;
+      font-size: 10px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .item-popup-actions {
+      column-gap: 6px;
+
+      .item-popup-delete-yes {
+        padding: 8px 6px;
+        border-radius: 3px;
+        font-size: 10px;
+      }
+
+      .item-popup-delete-no {
+        padding: 8px 6px;
+        border-radius: 3px;
+        font-size: 10px;
+
+      }
+
+    }
+
+
+  }
+
+}

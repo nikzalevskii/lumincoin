@@ -1,0 +1,238 @@
+.flow-section {
+  padding: 100px 60px;
+
+  .flow-title {
+    color: #052C65;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 40px;
+  }
+
+  .flow-action {
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 40px;
+
+    .flow-create-income {
+      cursor: pointer;
+      text-decoration: none;
+      padding: 12px 16px;
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+      border-radius: 5px;
+      background: #198754;
+      box-sizing: border-box;
+      border: none;
+    }
+
+    .flow-create-expense {
+      cursor: pointer;
+      text-decoration: none;
+      padding: 12px 16px;
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+      border-radius: 5px;
+      background: #DC3545;
+      box-sizing: border-box;
+      border: none;
+    }
+
+  }
+
+  .flow-period {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+
+    .flow-period-common {
+      cursor: pointer;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 4px;
+      border: 1px solid #6C757D;
+      box-sizing: border-box;
+
+      color: #6C757D;
+
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.457px;
+    }
+
+    .flow-period-active {
+      background-color: #6C757D;
+      color: white;
+    }
+
+    .flow-period-select {
+
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      .flow-period-select-since-text, .flow-period-select-to-text {
+        color: #000;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.457px;
+      }
+
+      .flow-period-select-since-data, .flow-period-select-to-data {
+        cursor: pointer;
+        color: #6C757D;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.457px;
+        text-decoration: underline;
+      }
+
+
+    }
+  }
+
+  .flow-table {
+
+    .flow-table-header-block {
+      //display: flex;
+      //gap: 60px;
+      text-align: center;
+
+      .flow-table-header-text {
+        text-align: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        color: #052C65;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1.333px;
+      }
+
+
+    }
+
+    .flow-table-block {
+      .flow-table-text {
+        text-align: center;
+
+      }
+
+      .flow-income {
+        color: #198754;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23px; /* 143.75% */
+      }
+
+      .flow-expense {
+        color: #DC3545;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23px; /* 143.75% */
+      }
+
+      .flow-table-icons {
+        a {
+          text-decoration: none;
+          margin-right: 10px;
+          .flow-table-icons-delete {
+            cursor: pointer;
+
+          }
+        }
+
+        a {
+          text-decoration: none;
+          .flow-table-icons-edit {
+            cursor: pointer;
+          }
+        }
+
+      }
+
+
+    }
+
+
+  }
+
+
+}
+
+.item-popup {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 92px);
+  left: calc(50% - 265px);
+  border-radius: 12px;
+  border: 1px #CED4DA;
+  box-sizing: border-box;
+  background: #FFF;
+  padding: 40px;
+  width: 530px;
+  height: 184px;
+  .item-popup-title {
+    max-width: 450px;
+    color: #290661;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 20px;
+  }
+  .item-popup-actions {
+    display: flex;
+    column-gap: 12px;
+    justify-content: center;
+
+    .item-popup-delete-yes {
+      text-decoration: none;
+      padding: 16px 12px;
+      border-radius: 5px;
+      background: #198754;
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .item-popup-delete-no {
+      text-decoration: none;
+      padding: 16px 12px;
+      border-radius: 5px;
+      background: #DC3545;
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+
+    }
+
+  }
+
+
+}

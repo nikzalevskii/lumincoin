@@ -1,0 +1,105 @@
+.main-section {
+  padding: 100px 60px;
+
+  .main-title {
+    color: #052C65;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 40px;
+  }
+
+
+  .flow-period {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+
+    .flow-period-common {
+      cursor: pointer;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 4px;
+      border: 1px solid #6C757D;
+      box-sizing: border-box;
+
+      color: #6C757D;
+
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.457px;
+    }
+
+    .flow-period-active {
+      background-color: #6C757D;
+      color: white;
+    }
+
+    .flow-period-select {
+
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      .flow-period-select-since-text, .flow-period-select-to-text {
+        color: #000;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.457px;
+      }
+
+      .flow-period-select-since-data, .flow-period-select-to-data {
+        cursor: pointer;
+        color: #6C757D;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.457px;
+        text-decoration: underline;
+      }
+    }
+  }
+  .plots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+
+    .plot-income{
+      .myChartIncome {
+        width: 450px;
+        height: 467px;
+      }
+    }
+
+    .line-1 {
+      //width: 100px;
+      //border-right: 1px solid;
+      //background-image: linear-gradient(#000, #000);
+      //background-size: 2px 100%;
+      //background-repeat: no-repeat;
+      //background-position: center center;
+    }
+
+    .line-2 {
+
+    }
+
+    .plot-expense {
+      .myChartExpense {
+        width: 450px;
+        height: 467px;
+      }
+    }
+
+  }
+}
