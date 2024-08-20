@@ -32,7 +32,8 @@ export class Form {
                 name: 'password',
                 id: 'password',
                 element: null,
-                regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                // regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
                 valid: false,
             },
         ];
@@ -49,7 +50,8 @@ export class Form {
                 name: 'password_repeat',
                 id: 'passwordRepeat',
                 element: null,
-                regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                // regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
                 equal: this.passwordElement,
                 valid: false,
             });
@@ -114,6 +116,7 @@ export class Form {
                     console.log(result);
                     if (result) {
                         if (result.error || !result.user.id || !result.user.email || !result.user.name || !result.user.lastName) {
+                            this.commonErrorElement.innerText = result.message;
                             this.commonErrorElement.style.display = 'block';
                             // throw new Error(result.message);
                             return;
@@ -135,6 +138,7 @@ export class Form {
                     console.log(result);
                     if (result) {
                         if (result.error || !result.tokens.accessToken || !result.tokens.refreshToken || !result.user.name || !result.user.lastName || !result.user.id) {
+                            this.commonErrorElement.innerText = result.message;
                             this.commonErrorElement.style.display = 'block';
                             // throw new Error(result.message);
                             return;
