@@ -6,7 +6,9 @@
     font-size: 14px;
 
     .aside-div {
-      height: 100vh;
+      //height: 100vh;
+      height: 100%;
+      position: relative;
       border-right: 1px solid #D9D9D9;
       //font-size: 14px;
       width: 224px;

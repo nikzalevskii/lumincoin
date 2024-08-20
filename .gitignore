@@ -1,0 +1,14 @@
+# Node.js
+frontend/node_modules/
+
+# Build and output directories
+frontend/dist/
+
+/.phpstorm/
+/.idea/
+
+# Environment Variables
+.env
+
+# Logs
+*.log
