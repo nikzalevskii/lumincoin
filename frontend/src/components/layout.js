@@ -1,5 +1,14 @@
 export class Layout {
     constructor(activatedRoute) {
+        this.userDropdown = document.getElementsByClassName('dropdown-toggle')[0];
+        this.userText = document.getElementById('username-layout');
+        this.userBlock = document.getElementById('user-block');
+        // console.log(this.userText.offsetWidth);
+        // console.log(this.userBlock.offsetWidth);
+        if (this.userText.offsetWidth / this.userBlock.offsetWidth > 0.7) {
+            this.userDropdown.style.whiteSpace = 'normal';
+        }
+
         if (activatedRoute.route === '/') {
             document.getElementById('incomes-expenses-page').classList.remove('active');
             document.getElementById('main-page').classList.add('active');

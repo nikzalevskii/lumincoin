@@ -305,6 +305,8 @@
       .dropdown-toggle {
         cursor: pointer;
         margin-left: 20px;
+        //white-space: normal;
+        width: min-content;
 
         .username {
           color: #052C65;
