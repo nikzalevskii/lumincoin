@@ -4,20 +4,6 @@ export class Income {
 
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this))
 
-        document.getElementById('categories').classList.add('collapsed');
-        document.getElementById('orders-collapse').classList.add('show');
-        document.getElementById('category-block').classList.add('category-block-active');
-        document.getElementById('category-block').classList.add('category-income-active');
-
-        document.getElementById('main-page').classList.remove('active');
-        document.getElementById('main-page').classList.add('main-active-off-picture');
-        document.getElementById('categories-text').classList.add('categories-text-active');
-        // document.getElementById('incomes-expenses-page').classList.remove('active');
-        // document.getElementById('incomes-expenses-page').classList.remove('ie-active-off-picture');
-
-
-        console.log('INCOME');
-
         document.getElementById('add-income').addEventListener("click", this.newIncomeCategory.bind(this));
 
         this.incomesDelete = document.getElementsByClassName('income-category-delete');

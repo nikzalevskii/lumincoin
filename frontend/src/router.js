@@ -6,11 +6,11 @@ import {Income} from "./components/income/income";
 import {IncomeCategoryCreate} from "./components/income/income-category-create";
 import {Expense} from "./components/expense/expense";
 import {ExpenseCategoryCreate} from "./components/expense/expense-category-create";
-import {IncomesAndExpenses} from "./components/incomes&expenses/incomes-and-expenses";
+import {IncomesAndExpenses} from "./components/incomes-expenses/incomes-and-expenses";
 import {Plots} from "./components/plots";
-import {Layout} from "./components/layout";
 import {IncomeCategoryEdit} from "./components/income/income-category-edit";
 import {ExpenseCategoryEdit} from "./components/expense/expense-category-edit";
+import {Layout} from "./components/layout";
 
 export class Router {
     constructor() {
@@ -27,9 +27,9 @@ export class Router {
                 filePathTemplate: '/templates/pages/dashboard.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
+                    new Layout(this.newRoute);
                     new Dashboard(this.openNewRoute.bind(this));
                     new Plots();
-                    new Layout();
                 },
                 unload: () => {
 
@@ -74,9 +74,9 @@ export class Router {
                 filePathTemplate: '/templates/pages/income-category/income.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
+                    new Layout(this.newRoute);
                     new Dashboard();
                     new Income(this.openNewRoute.bind(this));
-                    new Layout();
                 },
                 unload: () => {
 
@@ -91,10 +91,9 @@ export class Router {
                 filePathTemplate: '/templates/pages/income-category/income-category-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
                     new IncomeCategoryCreate(this.openNewRoute.bind(this));
-                    new Layout();
                 },
                 unload: () => {
 
@@ -109,7 +108,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/income-category/income-category-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
                     new IncomeCategoryEdit(this.openNewRoute.bind(this));
 
@@ -128,7 +127,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/income-category/income.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
                     new Income(this.openNewRoute.bind(this));
 
@@ -147,7 +146,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/expense-category/expense.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
                     new Expense(this.openNewRoute.bind(this));
                 },
@@ -164,9 +163,9 @@ export class Router {
                 filePathTemplate: '/templates/pages/expense-category/expense-category-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
-                    new ExpenseCategoryCreate();
+                    new ExpenseCategoryCreate(this.openNewRoute.bind(this));
                 },
                 unload: () => {
 
@@ -181,7 +180,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/expense-category/expense-category-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
                     new ExpenseCategoryEdit(this.openNewRoute.bind(this));
 
@@ -200,7 +199,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/expense-category/expense-category-delete.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
 
                 },
@@ -212,15 +211,14 @@ export class Router {
 
             },
             {
-                route: '/incomes&expenses',
+                route: '/incomes-expenses',
                 title: 'Доходы и расходы',
-                filePathTemplate: '/templates/pages/incomes&expenses/incomes&expenses.html',
+                filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
                     new IncomesAndExpenses(this.openNewRoute.bind(this));
-                    new Layout();
 
                 },
                 unload: () => {
@@ -231,12 +229,12 @@ export class Router {
 
             },
             {
-                route: '/incomes&expenses/createitem',
+                route: '/incomes-expenses/createitem',
                 title: 'Создание дохода/расхода',
-                filePathTemplate: '/templates/pages/incomes&expenses/createitem.html',
+                filePathTemplate: '/templates/pages/incomes-expenses/createitem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
 
                 },
@@ -248,12 +246,12 @@ export class Router {
 
             },
             {
-                route: '/incomes&expenses/edititem',
+                route: '/incomes-expenses/edititem',
                 title: 'Редактирование дохода/расхода',
-                filePathTemplate: '/templates/pages/incomes&expenses/edititem.html',
+                filePathTemplate: '/templates/pages/incomes-expenses/edititem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new Layout();
+                    new Layout(this.newRoute);
                     new Dashboard();
 
                 },
@@ -264,9 +262,7 @@ export class Router {
                 scripts: [''],
 
             },
-
         ];
-
     }
 
     initEvents() {
@@ -302,23 +298,26 @@ export class Router {
 
     async activateRoute(e, oldRoute = null) {
         if (oldRoute) {
-            const currentRoute = this.routes.find(item => item.route === oldRoute);
-            if (currentRoute.styles && currentRoute.styles.length > 0) {
-                currentRoute.styles.forEach(style => {
+            // this.previousRoute = this.routes.find(item => item.route === oldRoute);
+            this.currentRoute = this.routes.find(item => item.route === oldRoute);
+            if (this.currentRoute.styles && this.currentRoute.styles.length > 0) {
+                this.currentRoute.styles.forEach(style => {
                     document.querySelector(`link[href='/css/${style}']`).remove();
                 });
             }
-            if (currentRoute.unload && typeof currentRoute.unload === 'function') {
-                currentRoute.unload();
+            if (this.currentRoute.unload && typeof this.currentRoute.unload === 'function') {
+                this.currentRoute.unload();
             }
         }
 
         const urlRoute = window.location.pathname;
-        const newRoute = this.routes.find(item => item.route === urlRoute);
+        this.newRoute = this.routes.find(item => item.route === urlRoute);
+        // this.previousRoute = this.routes.find(item => item.route === oldRoute);
+        // console.log(this.newRoute);
 
-        if (newRoute) {
-            if (newRoute.styles && newRoute.styles.length > 0) {
-                newRoute.styles.forEach(style => {
+        if (this.newRoute) {
+            if (this.newRoute.styles && this.newRoute.styles.length > 0) {
+                this.newRoute.styles.forEach(style => {
                     const link = document.createElement('link');
                     link.rel = 'stylesheet';
                     link.href = '/css/' + style;
@@ -327,17 +326,19 @@ export class Router {
                 });
             }
 
-            if (newRoute.title) {
-                this.titlePageElement.innerText = newRoute.title + ' | Lumincoin';
+            if (this.newRoute.title) {
+                this.titlePageElement.innerText = this.newRoute.title + ' | Lumincoin';
             }
 
-            if (newRoute.filePathTemplate) {
+            if (this.newRoute.filePathTemplate) {
                 let contentBlock = this.contentPageElement;
-                if (newRoute.useLayout) {
-                    this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
+                if (this.newRoute.useLayout) {
+                    if (!this.currentRoute || !this.currentRoute.useLayout) {
+                        this.contentPageElement.innerHTML = await fetch(this.newRoute.useLayout).then(response => response.text());
+                    }
                     contentBlock = document.getElementById('content-layout');
                 }
-                contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
+                contentBlock.innerHTML = await fetch(this.newRoute.filePathTemplate).then(response => response.text());
 
             }
 
@@ -353,8 +354,8 @@ export class Router {
 
             }
 
-            if (newRoute.load && typeof newRoute.load === 'function') {
-                newRoute.load();
+            if (this.newRoute.load && typeof this.newRoute.load === 'function') {
+                this.newRoute.load();
             }
 
 
