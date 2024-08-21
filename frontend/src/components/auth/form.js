@@ -113,9 +113,14 @@ export class Form {
                         passwordRepeat: this.passwordRepeatElement.value
                     });
 
-                    console.log(result);
+                    // console.log(result);
                     if (result) {
                         if (result.error || !result.user.id || !result.user.email || !result.user.name || !result.user.lastName) {
+                            if (result.message === 'User with given email already exist') {
+                                this.commonErrorElement.innerText = 'Пользователь с данным email уже существует';
+                                this.commonErrorElement.style.display = 'block';
+                                return;
+                            }
                             this.commonErrorElement.innerText = result.message;
                             this.commonErrorElement.style.display = 'block';
                             // throw new Error(result.message);

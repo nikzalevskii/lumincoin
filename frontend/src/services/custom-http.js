@@ -27,14 +27,14 @@ export class CustomHttp {
             }
             // console.log(response.message);
             // return null;
-            let errorMessage;
-            try {
-                const errorData = await response.json();
-                errorMessage = errorData.message || 'Something went wrong';
-            } catch (e) {
-                errorMessage = 'Unexpected error format';
-            }
-            throw new Error(errorMessage);
+            // let errorMessage;
+            // try {
+            //     const errorData = await response.json();
+            //     errorMessage = errorData.message || 'Something went wrong';
+            // } catch (e) {
+            //     errorMessage = 'Unexpected error format';
+            // }
+            // throw new Error(errorMessage);
         }
 
         return await response.json();
