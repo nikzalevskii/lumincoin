@@ -42,7 +42,8 @@ export class CustomHttp {
             if (response.status === 401 && useAuth) {
                 if (!token) {
                 // токена нет
-                    return result.redirect = '/login';
+                    result.redirect = '/login';
+                    return result;
                 }
             }
             if (response.status === 401) {
@@ -50,7 +51,9 @@ export class CustomHttp {
                 if (result) {
                     return await this.request(url, method, useAuth, body);
                 } else {
-                    return null;
+                    // return null;
+                    result.redirect = '/login';
+                    return result;
                 }
             }
             // console.log(response.message);

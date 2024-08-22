@@ -4,7 +4,7 @@ export class Dashboard {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
         // console.log(Auth.getAuthInfo().length === 0);
-        if (!Auth.getUserInfo()) {
+        if (!Auth.getUserInfo(Auth.accessTokenKey) || !Auth.getUserInfo(Auth.refreshTokenKey)) {
             this.toSignUp().then();
         }
 

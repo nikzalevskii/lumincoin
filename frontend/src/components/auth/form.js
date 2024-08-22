@@ -6,7 +6,7 @@ export class Form {
     constructor(page, openNewRoute) {
         this.openNewRoute = openNewRoute;
 
-        if (Auth.getUserInfo(Auth.accessTokenKey)) {
+        if (Auth.getUserInfo(Auth.accessTokenKey) && Auth.getUserInfo(Auth.accessTokenKey).length > 0) {
             return this.openNewRoute('/');
         }
 

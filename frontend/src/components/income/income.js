@@ -35,23 +35,48 @@ export class Income {
     async getIncomes() {
         const result = await CustomHttp.request('/categories/income');
 
-        if (result.redirect) {
-            return this.openNewRoute(result.redirect);
+        if (result) {
+            if (result.redirect) {
+                return this.openNewRoute(result.redirect);
+            }
+
+            if (result.error || result.response.error || !result.response) {
+                return alert('Возникла ошибка при запросе доходов. Обратитесь в поддержку');
+            }
         }
 
-        console.log(result);
 
-        if (result.error || result.response.error || !result.response) {
-            return alert('Возникла ошибка при запросе доходов. Обратитесь в поддержку');
-        }
+        console.log(result.response);
 
-        this.showIncomes(result);
+        this.showIncomes(result.response);
 
 
     }
 
     showIncomes(incomes) {
-        console.log('Show Incomes');
+        const incomesElement = document.getElementById('incomesElement');
+        // console.log(incomesElement);
+        // for (let i = 0; i < incomes.length; i++) {
+        //     const incomeElement = document.createElement('div');
+        //     incomeElement.classList.add('income');
+        //     const pElement = document.createElement('p');
+        //     pElement.classList.add('income-text');
+        //     pElement.innerText = incomes[i].title;
+        //     const actionsElement = document.createElement('div');
+        //     actionsElement.classList.add('income-actions');
+        //     const editElement = document.createElement('a');
+        //     editElement.classList.add('income-category-edit');
+        //     editElement.innerText = 'Редактировать';
+        //     editElement.href = '/income/category-edit/?id=' + incomes[i].id;
+        //     const deleteElement = document.createElement('a');
+        //     deleteElement.classList.add('income-category-delete');
+        //     deleteElement.innerText = 'Удалить';
+        //     actionsElement.appendChild(editElement);
+        //     actionsElement.appendChild(deleteElement);
+        //     incomeElement.appendChild(pElement);
+        //     incomeElement.appendChild(actionsElement);
+        //     incomeElement.appendChild(incomeElement);
+        // }
     }
 
     async toCategoryEdit() {
