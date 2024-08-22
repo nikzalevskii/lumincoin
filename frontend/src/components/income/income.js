@@ -67,7 +67,7 @@ export class Income {
             const editElement = document.createElement('a');
             editElement.classList.add('income-category-edit');
             editElement.innerText = 'Редактировать';
-            editElement.href = '/income/category-edit/?id=' + incomes[i].id;
+            editElement.href = '/income/category-edit?id=' + incomes[i].id;
             const deleteElement = document.createElement('a');
             deleteElement.classList.add('income-category-delete');
             deleteElement.innerText = 'Удалить';

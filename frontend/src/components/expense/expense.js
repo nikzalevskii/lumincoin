@@ -49,7 +49,7 @@ export class Expense {
             const editElement = document.createElement('a');
             editElement.classList.add('expense-category-edit');
             editElement.innerText = 'Редактировать';
-            editElement.href = '/expense/category-edit/?id=' + expenses[i].id;
+            editElement.href = '/expense/category-edit?id=' + expenses[i].id;
             const deleteElement = document.createElement('a');
             deleteElement.classList.add('expense-category-delete');
             deleteElement.innerText = 'Удалить';
