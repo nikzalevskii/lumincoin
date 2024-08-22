@@ -1,6 +1,11 @@
+import {CustomHttp} from "../../services/custom-http";
+import {Auth} from "../../services/auth";
+
 export class Income {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
+
+        this.getIncomes();
 
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this))
 
@@ -18,6 +23,33 @@ export class Income {
         for (let i = 0; i < this.incomesEdit.length; i++) {
             this.incomesEdit[i].addEventListener('click', this.toCategoryEdit.bind(this));
         }
+
+
+
+
+    }
+
+    async getIncomes() {
+
+        // const result = await CustomHttp.request('/categories/income');
+        //
+        // console.log(result);
+        // if (result) {
+        //     if (result.error) {
+        //         return alert('Возникла ошибка при запросе доходов. Обратитесь в поддержку');
+        //     }
+        //
+        //     this.showIncomes(result);
+        //
+        //
+        // } else {
+        //     this.openNewRoute('/');
+        // }
+
+
+    }
+
+    showIncomes(incomes) {
 
     }
 

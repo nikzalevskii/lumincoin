@@ -5,7 +5,7 @@ export class Dashboard {
         this.openNewRoute = openNewRoute;
         // console.log(Auth.getAuthInfo().length === 0);
         if (!Auth.getUserInfo()) {
-            this.toSignUp();
+            this.toSignUp().then();
         }
 
         document.getElementById('user-block').addEventListener('click', function () {

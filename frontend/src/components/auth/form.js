@@ -32,8 +32,8 @@ export class Form {
                 name: 'password',
                 id: 'password',
                 element: null,
-                // regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
-                regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
+                // regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
+                regex: /^(?=.*\d)(?=.*[A-ZА-Я]).{8,}$/,
                 valid: false,
             },
         ];
@@ -50,8 +50,8 @@ export class Form {
                 name: 'password_repeat',
                 id: 'passwordRepeat',
                 element: null,
-                // regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
-                regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
+                // regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
+                regex: /^(?=.*\d)(?=.*[A-ZА-Я]).{8,}$/,
                 equal: this.passwordElement,
                 valid: false,
             });

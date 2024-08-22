@@ -1,5 +1,8 @@
+import {Auth} from "../services/auth";
+
 export class Layout {
     constructor(activatedRoute) {
+
         this.userDropdown = document.getElementsByClassName('dropdown-toggle')[0];
         this.userText = document.getElementById('username-layout');
         this.userBlock = document.getElementById('user-block');
@@ -32,7 +35,7 @@ export class Layout {
             document.getElementById('categories-text').classList.remove('categories-text-active');
         }
         if ('/' + activatedRoute.route.split('/')[1] === '/income') {
-            console.log('/' + activatedRoute.route.split('/')[1]);
+            // console.log('/' + activatedRoute.route.split('/')[1]);
             document.getElementById('incomes-expenses-page').classList.remove('active');
             document.getElementById('main-page').classList.remove('active');
             document.getElementById('incomes-expenses-page').classList.remove('ie-active-off-picture');
@@ -45,7 +48,7 @@ export class Layout {
             document.getElementById('orders-collapse').classList.add('show');
         }
         if ('/' + activatedRoute.route.split('/')[1] === '/expense') {
-            console.log(activatedRoute.route.split('/')[0]);
+            // console.log(activatedRoute.route.split('/')[0]);
             document.getElementById('incomes-expenses-page').classList.remove('active');
             document.getElementById('main-page').classList.remove('active');
             document.getElementById('incomes-expenses-page').classList.remove('ie-active-off-picture');
@@ -59,5 +62,7 @@ export class Layout {
         }
 
     }
+
+
 
 }
