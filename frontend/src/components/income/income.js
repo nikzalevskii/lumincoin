@@ -47,7 +47,7 @@ export class Income {
             }
         }
 
-        // console.log(result.response);
+        console.log(result.response);
         this.showIncomes(result.response);
 
     }
@@ -55,7 +55,6 @@ export class Income {
     showIncomes(incomes) {
         const incomesElement = document.getElementById('incomesElement');
         // incomesElement.innerHTML = '';
-        console.log(incomesElement);
         for (let i = incomes.length - 1; i >= 0 ; i--) {
             this.incomeElement = document.createElement('div');
             this.incomeElement.classList.add('income');
