@@ -53,6 +53,7 @@ export class Expense {
             const deleteElement = document.createElement('a');
             deleteElement.classList.add('expense-category-delete');
             deleteElement.innerText = 'Удалить';
+            deleteElement.href = '/expense/category-expense-delete?id=' + expenses[i].id;
             actionsElement.appendChild(editElement);
             actionsElement.appendChild(deleteElement);
             expenseElement.appendChild(pElement);

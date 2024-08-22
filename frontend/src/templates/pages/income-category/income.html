@@ -41,9 +41,9 @@
                 <p class="income-text"></p>
                 <div class="income-actions">
                     <a href="/income/category-edit" class="income-category-edit">Редактировать</a>
-                    <a class="income-category-delete">Удалить</a>
+                    <a href="income/category-delete?id=" class="income-category-delete">Удалить</a>
                 </div>
-                <a href="/income/category-create" class="income-add text-center">+</a>
+                <a id="income-category-create" href="/income/category-create" class="income-add text-center">+</a>
             </div>
         </div>
 
@@ -51,7 +51,7 @@
         <p class="income-popup-title">Вы действительно хотите удалить категорию? Связанные доходы будут удалены
             навсегда.</p>
         <div class="income-popup-actions">
-            <a href="javascript:void(0)" class="income-popup-delete-yes">Да, удалить</a>
+            <a id="income-category-delete-popup" class="income-popup-delete-yes">Да, удалить</a>
             <a href="/income" class="income-popup-delete-no">Не удалять</a>
         </div>
     </div>

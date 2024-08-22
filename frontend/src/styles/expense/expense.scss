@@ -115,6 +115,7 @@
       justify-content: center;
 
       .expense-popup-delete-yes {
+        cursor: pointer;
         text-decoration: none;
         padding: 16px 12px;
         border-radius: 5px;
@@ -127,6 +128,7 @@
       }
 
       .expense-popup-delete-no {
+        cursor: pointer;
         text-decoration: none;
         padding: 16px 12px;
         border-radius: 5px;

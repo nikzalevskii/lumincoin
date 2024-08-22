@@ -18,14 +18,7 @@ export class Income {
 
         document.getElementById('add-income').addEventListener("click", this.newIncomeCategory.bind(this));
 
-        this.incomesDelete = document.getElementsByClassName('income-category-delete');
-        for (let i = 0; i < this.incomesDelete.length; i++) {
-            this.incomesDelete[i].addEventListener('click', function () {
-                document.getElementById('income-popup').style.display = 'block';
-                document.body.style.boxShadow = '2px 2px 6px 1px #d2d2d2';
-                // document.body.style.backgroundColor = 'black';
-            })
-        }
+
         this.incomesEdit = document.getElementsByClassName('income-category-edit');
         for (let i = 0; i < this.incomesEdit.length; i++) {
             this.incomesEdit[i].addEventListener('click', this.toCategoryEdit.bind(this));
@@ -47,7 +40,7 @@ export class Income {
             }
         }
 
-        console.log(result.response);
+        // console.log(result.response);
         this.showIncomes(result.response);
 
     }
@@ -70,6 +63,7 @@ export class Income {
             const deleteElement = document.createElement('a');
             deleteElement.classList.add('income-category-delete');
             deleteElement.innerText = 'Удалить';
+            deleteElement.href = '/income/category-income-delete?id=' + incomes[i].id;
             actionsElement.appendChild(editElement);
             actionsElement.appendChild(deleteElement);
             this.incomeElement.appendChild(pElement);

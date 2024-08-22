@@ -68,7 +68,7 @@
             <p class="expense-text"></p>
             <div class="expense-actions">
                 <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
+                <a href="income/category-delete?id=" class="expense-category-delete">Удалить</a>
             </div>
             <a href="/expense/category-create" class="expense-add text-center">+</a>
         </div>
@@ -76,7 +76,7 @@
     <div class="expense-popup" id="expense-popup">
         <p class="expense-popup-title">Вы действительно хотите удалить категорию? Связанные расходы будут удалены навсегда.</p>
         <div class="expense-popup-actions">
-            <a href="javascript:void(0)" class="expense-popup-delete-yes">Да, удалить</a>
+            <a id="expense-category-delete-popup" class="expense-popup-delete-yes">Да, удалить</a>
             <a href="/expense" class="expense-popup-delete-no">Не удалять</a>
         </div>
     </div>

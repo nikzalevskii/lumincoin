@@ -12,6 +12,8 @@ import {IncomeCategoryEdit} from "./components/income/income-category-edit";
 import {ExpenseCategoryEdit} from "./components/expense/expense-category-edit";
 import {Layout} from "./components/layout";
 import {FileService} from "./services/file-service";
+import {IncomeCategoryDelete} from "./components/income/income-category-delete";
+import {ExpenseCategoryDelete} from "./components/expense/expense-category-delete";
 
 export class Router {
     constructor() {
@@ -122,17 +124,13 @@ export class Router {
 
             },
             {
-                route: '/income/category-delete',
+                route: '/income/category-income-delete',
                 title: 'Удалить доход',
-                // filePathTemplate: '/templates/pages/income-category/income-category-delete.html',
-                filePathTemplate: '/templates/pages/income-category/income.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
                     new Layout(this.newRoute);
                     new Dashboard();
-                    new Income(this.openNewRoute.bind(this));
-
-
+                    new IncomeCategoryDelete(this.openNewRoute.bind(this));
                 },
                 unload: () => {
 
@@ -195,14 +193,13 @@ export class Router {
 
             },
             {
-                route: '/expense/category-delete',
+                route: '/expense/category-expense-delete',
                 title: 'Удалить категорию расхода',
-                filePathTemplate: '/templates/pages/expense-category/expense-category-delete.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
                     new Layout(this.newRoute);
                     new Dashboard();
-
+                    new ExpenseCategoryDelete(this.openNewRoute.bind(this));
                 },
                 unload: () => {
 
