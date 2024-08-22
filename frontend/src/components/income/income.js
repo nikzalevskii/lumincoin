@@ -4,8 +4,13 @@ import {Auth} from "../../services/auth";
 export class Income {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
+        // let token  = Auth.getAuthInfo(Auth.accessTokenKey);
+        // if (!token) {
+        //     // токена нет
+        //     return this.openNewRoute('/login');
+        // }
 
-        this.getIncomes();
+        this.getIncomes().then();
 
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this))
 
@@ -25,40 +30,38 @@ export class Income {
         }
 
 
-
-
     }
 
     async getIncomes() {
+        const result = await CustomHttp.request('/categories/income');
 
-        // const result = await CustomHttp.request('/categories/income');
-        //
-        // console.log(result);
-        // if (result) {
-        //     if (result.error) {
-        //         return alert('Возникла ошибка при запросе доходов. Обратитесь в поддержку');
-        //     }
-        //
-        //     this.showIncomes(result);
-        //
-        //
-        // } else {
-        //     this.openNewRoute('/');
-        // }
+        if (result.redirect) {
+            return this.openNewRoute(result.redirect);
+        }
+
+        console.log(result);
+
+        if (result.error || result.response.error || !result.response) {
+            return alert('Возникла ошибка при запросе доходов. Обратитесь в поддержку');
+        }
+
+        this.showIncomes(result);
 
 
     }
 
     showIncomes(incomes) {
-
+        console.log('Show Incomes');
     }
 
     async toCategoryEdit() {
         await this.openNewRoute('/income/category-edit');
     }
+
     async toExpense() {
         await this.openNewRoute('/expense');
     }
+
     async newIncomeCategory() {
         await this.openNewRoute('/income/category-create');
     }

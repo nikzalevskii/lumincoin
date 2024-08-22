@@ -105,7 +105,7 @@ export class Form {
             const password = this.passwordElement.value;
             if (this.page === 'signup') {
                 try {
-                    const result = await CustomHttp.request('/signup', 'POST', {
+                    const result = await CustomHttp.request('/signup', 'POST', false, {
                         name: this.nameElement.value.split(' ')[1],
                         lastName: this.nameElement.value.split(' ')[0],
                         email: email,
@@ -115,8 +115,8 @@ export class Form {
 
                     // console.log(result);
                     if (result) {
-                        if (result.error || !result.user.id || !result.user.email || !result.user.name || !result.user.lastName) {
-                            if (result.message === 'User with given email already exist') {
+                        if (result.error || !result.response || (result.response && !result.response.user.id || !result.response.user.email || !result.response.user.name || !result.response.user.lastName)) {
+                            if (result.response.message === 'User with given email already exist') {
                                 this.commonErrorElement.innerText = 'Пользователь с данным email уже существует';
                                 this.commonErrorElement.style.display = 'block';
                                 return;
@@ -133,33 +133,31 @@ export class Form {
                 }
             }
             // else if (this.page === 'login') {
-                try {
-                    const result = await CustomHttp.request('/login', 'POST', {
-                        email: email,
-                        password: password,
-                        rememberMe: this.rememberMeElement.checked
-                    });
+            try {
+                const result = await CustomHttp.request('/login', 'POST', false, {
+                    email: email,
+                    password: password,
+                    rememberMe: this.rememberMeElement.checked
+                });
 
-                    console.log(result);
-                    if (result) {
-                        if (result.error || !result.tokens.accessToken || !result.tokens.refreshToken || !result.user.name || !result.user.lastName || !result.user.id) {
-                            this.commonErrorElement.innerText = result.message;
-                            this.commonErrorElement.style.display = 'block';
-                            // throw new Error(result.message);
-                            return;
-                        }
-
-                        Auth.setTokens(result.tokens.accessToken, result.tokens.refreshToken);
-                        Auth.setUserInfo(result.user.id, result.user.name, result.user.lastName);
-
-                        this.openNewRoute('/');
-                    } else {
+                if (result) {
+                    if (result.error || !result.response || (result.response && !result.response.tokens.accessToken || !result.response.tokens.refreshToken || !result.response.user.name || !result.response.user.lastName || !result.response.user.id)) {
+                        this.commonErrorElement.innerText = result.response.message;
                         this.commonErrorElement.style.display = 'block';
-                        // this.openNewRoute('/login');
+                        // throw new Error(result.message);
+                        return;
                     }
-                } catch (error) {
-                    console.log(error);
+
+                    Auth.setTokens(result.response.tokens.accessToken, result.response.tokens.refreshToken);
+                    Auth.setUserInfo(result.response.user.id, result.response.user.name, result.response.user.lastName);
+                    this.openNewRoute('/');
+                } else {
+                    this.commonErrorElement.style.display = 'block';
+                    // this.openNewRoute('/login');
                 }
+            } catch (error) {
+                console.log(error);
+            }
 
             // }
         }

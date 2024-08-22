@@ -2,21 +2,49 @@ import {Auth} from "./auth";
 import config from "../../config/config";
 
 export class CustomHttp {
-    static async request(url, method = 'GET', body = null) {
+    static async request(url, method = 'GET', useAuth = true, body = null) {
+
+        const result = {
+            error: false,
+            response: null
+        }
+
         const params = {
             method: method,
             headers: {
                 'Content-type': 'application/json',
                 'Accept': 'application/json',
             },
+        };
+        let token = null;
+        if (useAuth) {
+            token  = Auth.getAuthInfo(Auth.accessTokenKey);
+            if (token) {
+                params.headers['x-auth-token'] = token;
+            }
         }
+
         if (body) {
             params.body = JSON.stringify(body);
         }
+        let response = null;
+        try {
+            response = await fetch(config.host + url, params);
+            result.response = await response.json();
+        } catch (e) {
+            result.error = true;
+            return result;
+        }
 
-        const response = await fetch(config.host + url, params);
 
         if (response.status < 200 || response.status >= 300) {
+            result.error = true;
+            if (response.status === 401 && useAuth) {
+                if (!token) {
+                // токена нет
+                    return result.redirect = '/login';
+                }
+            }
             if (response.status === 401) {
                 const result = await Auth.processUnauthorizedResponse();
                 if (result) {
@@ -37,6 +65,6 @@ export class CustomHttp {
             // throw new Error(errorMessage);
         }
 
-        return await response.json();
+        return result;
     }
 }
