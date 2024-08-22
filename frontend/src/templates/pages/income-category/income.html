@@ -1,45 +1,55 @@
 <section class="incomes-section">
     <h1 class="income-title">Доходы</h1>
-    <div class="incomes" id="incomesElement">
-        <div class="income">
-            <p class="income-text">Депозиты</p>
-            <div class="income-actions">
-                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>
-                <a class="income-category-delete">Удалить</a>
+        <div class="incomes" id="incomesElement">
+            <!--        <div class="income">-->
+            <!--            <p class="income-text">Депозиты</p>-->
+            <!--            <div class="income-actions">-->
+            <!--                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>-->
+            <!--                <a class="income-category-delete">Удалить</a>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="income">-->
+            <!--            <p class="income-text">Зарплата</p>-->
+            <!--            <div class="income-actions">-->
+            <!--                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>-->
+            <!--                <a class="income-category-delete">Удалить</a>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="income">-->
+            <!--            <p class="income-text">Сбережения</p>-->
+            <!--            <div class="income-actions">-->
+            <!--                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>-->
+            <!--                <a class="income-category-delete">Удалить</a>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="income">-->
+            <!--            <p class="income-text">Инвестиции</p>-->
+            <!--            <div class="income-actions">-->
+            <!--                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>-->
+            <!--                <a class="income-category-delete">Удалить</a>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="income income-new" id="add-income">-->
+            <!--            <p class="income-text"></p>-->
+            <!--            <div class="income-actions">-->
+            <!--                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>-->
+            <!--                <a class="income-category-delete">Удалить</a>-->
+            <!--            </div>-->
+            <!--            <a href="/income/category-create" class="income-add text-center">+</a>-->
+            <!--        </div>-->
+            <div class="income income-new" id="add-income">
+                <p class="income-text"></p>
+                <div class="income-actions">
+                    <a href="/income/category-edit" class="income-category-edit">Редактировать</a>
+                    <a class="income-category-delete">Удалить</a>
+                </div>
+                <a href="/income/category-create" class="income-add text-center">+</a>
             </div>
         </div>
-        <div class="income">
-            <p class="income-text">Зарплата</p>
-            <div class="income-actions">
-                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>
-                <a class="income-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="income">
-            <p class="income-text">Сбережения</p>
-            <div class="income-actions">
-                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>
-                <a class="income-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="income">
-            <p class="income-text">Инвестиции</p>
-            <div class="income-actions">
-                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>
-                <a class="income-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="income income-new" id="add-income">
-            <p class="income-text"></p>
-            <div class="income-actions">
-                <a href="/income/category-edit" class="income-category-edit">Редактировать</a>
-                <a class="income-category-delete">Удалить</a>
-            </div>
-            <a href="/income/category-create" class="income-add text-center">+</a>
-        </div>
-    </div>
+
     <div class="income-popup" id="income-popup">
-        <p class="income-popup-title">Вы действительно хотите удалить категорию? Связанные доходы будут удалены навсегда.</p>
+        <p class="income-popup-title">Вы действительно хотите удалить категорию? Связанные доходы будут удалены
+            навсегда.</p>
         <div class="income-popup-actions">
             <a href="javascript:void(0)" class="income-popup-delete-yes">Да, удалить</a>
             <a href="/income" class="income-popup-delete-no">Не удалять</a>

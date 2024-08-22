@@ -10,6 +10,8 @@ export class Income {
         //     return this.openNewRoute('/login');
         // }
 
+        this.incomeElement = null;
+
         this.getIncomes().then();
 
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this))
@@ -45,38 +47,36 @@ export class Income {
             }
         }
 
-
-        console.log(result.response);
-
+        // console.log(result.response);
         this.showIncomes(result.response);
-
 
     }
 
     showIncomes(incomes) {
         const incomesElement = document.getElementById('incomesElement');
-        // console.log(incomesElement);
-        // for (let i = 0; i < incomes.length; i++) {
-        //     const incomeElement = document.createElement('div');
-        //     incomeElement.classList.add('income');
-        //     const pElement = document.createElement('p');
-        //     pElement.classList.add('income-text');
-        //     pElement.innerText = incomes[i].title;
-        //     const actionsElement = document.createElement('div');
-        //     actionsElement.classList.add('income-actions');
-        //     const editElement = document.createElement('a');
-        //     editElement.classList.add('income-category-edit');
-        //     editElement.innerText = 'Редактировать';
-        //     editElement.href = '/income/category-edit/?id=' + incomes[i].id;
-        //     const deleteElement = document.createElement('a');
-        //     deleteElement.classList.add('income-category-delete');
-        //     deleteElement.innerText = 'Удалить';
-        //     actionsElement.appendChild(editElement);
-        //     actionsElement.appendChild(deleteElement);
-        //     incomeElement.appendChild(pElement);
-        //     incomeElement.appendChild(actionsElement);
-        //     incomeElement.appendChild(incomeElement);
-        // }
+        // incomesElement.innerHTML = '';
+        console.log(incomesElement);
+        for (let i = incomes.length - 1; i >= 0 ; i--) {
+            this.incomeElement = document.createElement('div');
+            this.incomeElement.classList.add('income');
+            const pElement = document.createElement('p');
+            pElement.classList.add('income-text');
+            pElement.innerText = incomes[i].title;
+            const actionsElement = document.createElement('div');
+            actionsElement.classList.add('income-actions');
+            const editElement = document.createElement('a');
+            editElement.classList.add('income-category-edit');
+            editElement.innerText = 'Редактировать';
+            editElement.href = '/income/category-edit/?id=' + incomes[i].id;
+            const deleteElement = document.createElement('a');
+            deleteElement.classList.add('income-category-delete');
+            deleteElement.innerText = 'Удалить';
+            actionsElement.appendChild(editElement);
+            actionsElement.appendChild(deleteElement);
+            this.incomeElement.appendChild(pElement);
+            this.incomeElement.appendChild(actionsElement);
+            incomesElement.prepend(this.incomeElement);
+        }
     }
 
     async toCategoryEdit() {

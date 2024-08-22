@@ -11,6 +11,7 @@ import {Plots} from "./components/plots";
 import {IncomeCategoryEdit} from "./components/income/income-category-edit";
 import {ExpenseCategoryEdit} from "./components/expense/expense-category-edit";
 import {Layout} from "./components/layout";
+import {FileService} from "./services/file-service";
 
 export class Router {
     constructor() {
@@ -305,6 +306,11 @@ export class Router {
                     document.querySelector(`link[href='/css/${style}']`).remove();
                 });
             }
+            // if (this.currentRoute.scripts && this.currentRoute.scripts.length > 0) {
+            //     this.currentRoute.scripts.forEach(script => {
+            //         document.querySelector(`script[src='/js/${script}']`).remove();
+            //     });
+            // }
             if (this.currentRoute.unload && typeof this.currentRoute.unload === 'function') {
                 this.currentRoute.unload();
             }
@@ -318,12 +324,13 @@ export class Router {
         if (this.newRoute) {
             if (this.newRoute.styles && this.newRoute.styles.length > 0) {
                 this.newRoute.styles.forEach(style => {
-                    const link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = '/css/' + style;
-                    document.head.insertBefore(link, this.bootstrapStyleElement)
-
+                    FileService.loadPageStyle('/css/' + style, this.bootstrapStyleElement)
                 });
+            }
+            if (this.newRoute.scripts && this.newRoute.scripts.length > 0) {
+                for (const script of this.newRoute.scripts) {
+                    // await FileService.loadPageScript('/js/' + script);
+                }
             }
 
             if (this.newRoute.title) {
