@@ -156,6 +156,8 @@ export class Form {
                     // this.openNewRoute('/login');
                 }
             } catch (error) {
+                // this.commonErrorElement.innerText = result.response.message;
+                this.commonErrorElement.style.display = 'block';
                 console.log(error);
             }
 

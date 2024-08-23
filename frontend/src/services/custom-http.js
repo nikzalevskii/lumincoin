@@ -30,6 +30,7 @@ export class CustomHttp {
         let response = null;
         try {
             response = await fetch(config.host + url, params);
+            // console.log(response);
             result.response = await response.json();
         } catch (e) {
             result.error = true;
@@ -51,7 +52,6 @@ export class CustomHttp {
                 if (result) {
                     return await this.request(url, method, useAuth, body);
                 } else {
-                    // return null;
                     result.redirect = '/login';
                     return result;
                 }

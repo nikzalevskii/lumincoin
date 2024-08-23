@@ -14,6 +14,7 @@ import {Layout} from "./components/layout";
 import {FileService} from "./services/file-service";
 import {IncomeCategoryDelete} from "./components/income/income-category-delete";
 import {ExpenseCategoryDelete} from "./components/expense/expense-category-delete";
+import {IncomesExpensesCreateItem} from "./components/incomes-expenses/incomes-expenses-create-item";
 
 export class Router {
     constructor() {
@@ -234,6 +235,7 @@ export class Router {
                 load: () => {
                     new Layout(this.newRoute);
                     new Dashboard();
+                    new IncomesExpensesCreateItem(this.openNewRoute.bind(this));
 
                 },
                 unload: () => {
