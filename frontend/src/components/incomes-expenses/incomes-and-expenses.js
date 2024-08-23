@@ -53,6 +53,7 @@ export class IncomesAndExpenses {
 
             const category = trElement.insertCell();
             category.innerText = operations[i].category.toLowerCase();
+            // category.innerText = operations[i].category;
             category.classList.add('flow-table-text');
 
             const amount = trElement.insertCell();
@@ -68,10 +69,10 @@ export class IncomesAndExpenses {
             comment.classList.add('flow-table-text');
 
             const icons = trElement.insertCell();
-            icons.innerHTML = '<a href="/incomes-expenses/operation-delete?id=">\n' +
+            icons.innerHTML = '<a href="/incomes-expenses/operation-delete?id=' + operations[i].id + '">\n' +
                 '                    <img class="flow-table-icons-delete" src="/images/trash_icon.svg" alt="">\n' +
                 '                </a>\n' +
-                '                <a href="/incomes-expenses/edititem?id=">\n' +
+                '                <a href="/incomes-expenses/edititem?id=' + operations[i].id + '">\n' +
                 '                    <img class="flow-table-icons-edit" src="/images/pen_icon.svg" alt="">\n' +
                 '                </a>';
             icons.classList.add('flow-table-text');

@@ -15,6 +15,8 @@ import {FileService} from "./services/file-service";
 import {IncomeCategoryDelete} from "./components/income/income-category-delete";
 import {ExpenseCategoryDelete} from "./components/expense/expense-category-delete";
 import {IncomesExpensesCreateItem} from "./components/incomes-expenses/incomes-expenses-create-item";
+import {IncomeExpensesDelete} from "./components/incomes-expenses/income-expenses-delete";
+import {IncomeExpensesEdit} from "./components/incomes-expenses/income-expenses-edit";
 
 export class Router {
     constructor() {
@@ -253,6 +255,25 @@ export class Router {
                 load: () => {
                     new Layout(this.newRoute);
                     new Dashboard();
+                    new IncomeExpensesEdit(this.openNewRoute.bind(this));
+
+                },
+                unload: () => {
+
+                },
+                styles: [''],
+                scripts: [''],
+
+            },
+            {
+                route: '/incomes-expenses/operation-delete',
+                title: 'Редактирование дохода/расхода',
+                // filePathTemplate: '/templates/pages/incomes-expenses/edititem.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard();
+                    new IncomeExpensesDelete(this.openNewRoute.bind(this));
 
                 },
                 unload: () => {
