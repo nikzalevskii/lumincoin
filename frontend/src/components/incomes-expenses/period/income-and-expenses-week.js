@@ -1,6 +1,6 @@
-import {CustomHttp} from "../../services/custom-http";
+import {CustomHttp} from "../../../services/custom-http";
 
-export class IncomesAndExpenses {
+export class IncomeAndExpensesWeek {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
 
@@ -16,17 +16,14 @@ export class IncomesAndExpenses {
         const firstDayYear = new Date(y, 0, 2).toISOString().slice(0, 10);
         const lastDayYear = new Date(y, m, date.getDate() + 1).toISOString().slice(0, 10);
 
-        document.getElementById('today').classList.add('flow-period-active');
-        document.getElementById('week').classList.remove('flow-period-active');
+
+        document.getElementById('week').classList.add('flow-period-active');
+        document.getElementById('today').classList.remove('flow-period-active');
         document.getElementById('month').classList.remove('flow-period-active');
         document.getElementById('year').classList.remove('flow-period-active');
         document.getElementById('all-period').classList.remove('flow-period-active');
 
-
-        // this.getOperations(today, today).then();
-        // this.getOperations(firstDayMonth, lastDayMonth).then();
         this.getOperations(firstDayWeek, lastDayWeek).then();
-
 
     }
 
@@ -100,15 +97,15 @@ export class IncomesAndExpenses {
     }
 
     async findCategory(type, id) {
-            const result = await CustomHttp.request('/categories/' + type);
-            if (result) {
-                if (result.redirect) {
-                    return this.openNewRoute(result.redirect);
-                }
-                if (result.error || result.response.error || !result.response) {
-                    return alert('Возникла ошибка при запросе доходов. Обратитесь в поддержку');
-                }
+        const result = await CustomHttp.request('/categories/' + type);
+        if (result) {
+            if (result.redirect) {
+                return this.openNewRoute(result.redirect);
             }
-            return result.response.find(title => title.id === id).title;
+            if (result.error || result.response.error || !result.response) {
+                return alert('Возникла ошибка при запросе доходов. Обратитесь в поддержку');
+            }
+        }
+        return result.response.find(title => title.id === id).title;
     }
 }

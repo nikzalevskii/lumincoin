@@ -41,7 +41,7 @@ export class IncomeExpensesEdit {
                 type: this.typeSelect.options[this.typeSelect.selectedIndex].value,
                 amount: this.amountInput.value,
                 date: this.dateInput.value,
-                comment: this.commentInput.value,
+                comment: this.commentInput.value ? this.commentInput.value : ' ',
                 category_id: parseInt(this.categorySelect.value),
             });
 

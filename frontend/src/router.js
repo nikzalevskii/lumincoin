@@ -17,6 +17,10 @@ import {ExpenseCategoryDelete} from "./components/expense/expense-category-delet
 import {IncomesExpensesCreateItem} from "./components/incomes-expenses/incomes-expenses-create-item";
 import {IncomeExpensesDelete} from "./components/incomes-expenses/income-expenses-delete";
 import {IncomeExpensesEdit} from "./components/incomes-expenses/income-expenses-edit";
+import {IncomeAndExpensesWeek} from "./components/incomes-expenses/period/income-and-expenses-week";
+import {IncomeAndExpensesMonth} from "./components/incomes-expenses/period/income-and-expenses-month";
+import {IncomeAndExpensesYear} from "./components/incomes-expenses/period/income-and-expenses-year";
+import {IncomeAndExpensesAllPeriod} from "./components/incomes-expenses/period/income-and-expenses-all-period";
 
 export class Router {
     constructor() {
@@ -228,6 +232,73 @@ export class Router {
                 styles: [''],
                 scripts: [''],
 
+            },
+            {
+                route: '/incomes-expenses/week',
+                title: 'Доходы и расходы',
+                filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard();
+                    new IncomeAndExpensesWeek(this.openNewRoute.bind(this));
+
+                },
+                unload: () => {
+
+                },
+                styles: [''],
+                scripts: [''],
+
+            },
+            {
+                route: '/incomes-expenses/month',
+                title: 'Доходы и расходы',
+                filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard();
+                    new IncomeAndExpensesMonth(this.openNewRoute.bind(this));
+
+                },
+                unload: () => {
+                },
+                styles: [''],
+                scripts: [''],
+
+            },
+            {
+                route: '/incomes-expenses/year',
+                title: 'Доходы и расходы',
+                filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard();
+                    new IncomeAndExpensesYear(this.openNewRoute.bind(this));
+                },
+                unload: () => {
+
+                },
+                styles: [''],
+                scripts: [''],
+            },
+            {
+                route: '/incomes-expenses/all-period',
+                title: 'Доходы и расходы',
+                filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard();
+                    new IncomeAndExpensesAllPeriod(this.openNewRoute.bind(this));
+                },
+                unload: () => {
+
+                },
+                styles: [''],
+                scripts: [''],
             },
             {
                 route: '/incomes-expenses/createitem',
