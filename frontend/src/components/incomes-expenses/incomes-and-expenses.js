@@ -12,7 +12,7 @@ export class IncomesAndExpenses {
         //         document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         //     })
         // }
-        this.getOperations('2024-08-23', '2024-08-23').then();
+        this.getOperations('2024-08-26', '2024-08-26').then();
 
 
     }
