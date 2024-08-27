@@ -1,23 +1,7 @@
 import {CustomHttp} from "../../../services/custom-http";
 
 export class IncomeAndExpensesPeriods {
-    // constructor(openNewRoute) {
-    //     this.openNewRoute = openNewRoute;
-    //
-    //     const date = new Date(), y = date.getFullYear(), m = date.getMonth();
-    //     const dayAtWeek = date.getDay() - 1;
-    //     const firstDayWeek =  new Date(y, m, date.getDate() - dayAtWeek + 1).toISOString().slice(0, 10);
-    //     const lastDayWeek =  new Date(y, m, date.getDate() + 1).toISOString().slice(0, 10);
-    //
-    //     document.getElementById('week').classList.add('flow-period-active');
-    //     document.getElementById('today').classList.remove('flow-period-active');
-    //     document.getElementById('month').classList.remove('flow-period-active');
-    //     document.getElementById('year').classList.remove('flow-period-active');
-    //     document.getElementById('all-period').classList.remove('flow-period-active');
-    //
-    //     this.getOperations(firstDayWeek, lastDayWeek).then();
-    //
-    // }
+
 
     static async getOperations(dateFrom, dateTo) {
         // 2024-08-23

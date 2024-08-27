@@ -1,8 +1,13 @@
 import {CustomHttp} from "../../services/custom-http";
 import {PlotPeriods} from "./plot-periods";
+import {Auth} from "../../services/auth";
 
 export class Plots {
     constructor() {
+        // this.openNewRoute = openNewRoute;
+        // if (!Auth.getUserInfo(Auth.accessTokenKey) || !Auth.getUserInfo(Auth.refreshTokenKey)) {
+        //     this.openNewRoute('/signup').then();
+        // }
         this.date = new Date();
         const y = this.date.getFullYear();
         const m = this.date.getMonth();
@@ -15,7 +20,10 @@ export class Plots {
         document.getElementById('all-period-main').classList.remove('flow-period-active');
 
         // this.getOperations(this.today, this.today);
-        PlotPeriods.getOperations(this.today, this.today);
+        if (Auth.getUserInfo(Auth.accessTokenKey) && Auth.getUserInfo(Auth.refreshTokenKey)) {
+            PlotPeriods.getOperations(this.today, this.today);
+        }
+
 
     }
 

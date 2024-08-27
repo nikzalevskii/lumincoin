@@ -2,7 +2,8 @@ import {CustomHttp} from "../../services/custom-http";
 import {PlotPeriods} from "./plot-periods";
 
 export class PlotsWeek {
-    constructor() {
+    constructor(openNewRoute) {
+        this.openNewRoute = openNewRoute;
         // this.date = new Date();
         // const y = this.date.getFullYear();
         // const m = this.date.getMonth();

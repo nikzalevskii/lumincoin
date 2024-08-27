@@ -1,16 +1,22 @@
 import {CustomHttp} from "../../services/custom-http";
+import {Auth} from "../../services/auth";
 
 export class PlotPeriods {
-    constructor() {
+    constructor(openNewRoute) {
+        this.openNewRoute = openNewRoute;
+        if (!Auth.getUserInfo(Auth.accessTokenKey) || !Auth.getUserInfo(Auth.refreshTokenKey)) {
+            this.openNewRoute('/signup').then();
+        }
 
     }
 
 
     static async getOperations(dateFrom, dateTo) {
         const result = await CustomHttp.request('/operations?period=interval&dateFrom=' + dateFrom + '&dateTo=' + dateTo);
+
         if (result) {
             if (result.redirect) {
-                return this.openNewRoute(result.redirect);
+                return that.openNewRoute(result.redirect);
             }
             if (result.error || !result.response || result.response.error) {
                 return alert('Возникла ошибка при запросе операций. Обратитесь в поддержку');

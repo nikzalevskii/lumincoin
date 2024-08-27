@@ -25,6 +25,7 @@ import {PlotsWeek} from "./components/main-page/plots-week";
 import {PlotsMonth} from "./components/main-page/plots-month";
 import {PlotsYear} from "./components/main-page/plots-year";
 import {PlotsAllPeriod} from "./components/main-page/plots-all-period";
+import {IncomesExpensesCreateNewItem} from "./components/incomes-expenses/incomes-expenses-create-new-item";
 
 export class Router {
     constructor() {
@@ -365,22 +366,37 @@ export class Router {
                 scripts: [''],
             },
             {
-                route: '/incomes-expenses/createitem',
+                // route: '/incomes-expenses/createitem',
+                route: '/incomes-expenses/create-income',
                 title: 'Создание дохода/расхода',
                 filePathTemplate: '/templates/pages/incomes-expenses/createitem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
                     new Layout(this.newRoute);
                     new Dashboard();
-                    new IncomesExpensesCreateItem(this.openNewRoute.bind(this));
-
+                    // new IncomesExpensesCreateItem(this.openNewRoute.bind(this));
+                    new IncomesExpensesCreateNewItem(this.openNewRoute.bind(this), 'income');
                 },
                 unload: () => {
-
                 },
                 styles: [''],
                 scripts: [''],
-
+            },
+            {
+                route: '/incomes-expenses/create-expense',
+                title: 'Создание дохода/расхода',
+                filePathTemplate: '/templates/pages/incomes-expenses/createitem.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard();
+                    // new IncomesExpensesCreateItem(this.openNewRoute.bind(this));
+                    new IncomesExpensesCreateNewItem(this.openNewRoute.bind(this), 'expense');
+                },
+                unload: () => {
+                },
+                styles: [''],
+                scripts: [''],
             },
             {
                 route: '/incomes-expenses/edititem',
