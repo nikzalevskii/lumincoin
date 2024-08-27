@@ -7,7 +7,7 @@ import {IncomeCategoryCreate} from "./components/income/income-category-create";
 import {Expense} from "./components/expense/expense";
 import {ExpenseCategoryCreate} from "./components/expense/expense-category-create";
 import {IncomesAndExpenses} from "./components/incomes-expenses/incomes-and-expenses";
-import {Plots} from "./components/plots";
+import {Plots} from "./components/main-page/plots";
 import {IncomeCategoryEdit} from "./components/income/income-category-edit";
 import {ExpenseCategoryEdit} from "./components/expense/expense-category-edit";
 import {Layout} from "./components/layout";
@@ -21,6 +21,10 @@ import {IncomeAndExpensesWeek} from "./components/incomes-expenses/period/income
 import {IncomeAndExpensesMonth} from "./components/incomes-expenses/period/income-and-expenses-month";
 import {IncomeAndExpensesYear} from "./components/incomes-expenses/period/income-and-expenses-year";
 import {IncomeAndExpensesAllPeriod} from "./components/incomes-expenses/period/income-and-expenses-all-period";
+import {PlotsWeek} from "./components/main-page/plots-week";
+import {PlotsMonth} from "./components/main-page/plots-month";
+import {PlotsYear} from "./components/main-page/plots-year";
+import {PlotsAllPeriod} from "./components/main-page/plots-all-period";
 
 export class Router {
     constructor() {
@@ -47,6 +51,66 @@ export class Router {
                 styles: [''],
                 scripts: [''],
 
+            },
+            {
+                route: '/week',
+                title: 'Главная',
+                filePathTemplate: '/templates/pages/dashboard.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard(this.openNewRoute.bind(this));
+                    new PlotsWeek();
+                },
+                unload: () => {
+                },
+                styles: [''],
+                scripts: [''],
+            },
+            {
+                route: '/month',
+                title: 'Главная',
+                filePathTemplate: '/templates/pages/dashboard.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard(this.openNewRoute.bind(this));
+                    new PlotsMonth();
+                },
+                unload: () => {
+                },
+                styles: [''],
+                scripts: [''],
+            },
+            {
+                route: '/year',
+                title: 'Главная',
+                filePathTemplate: '/templates/pages/dashboard.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard(this.openNewRoute.bind(this));
+                    new PlotsYear();
+                },
+                unload: () => {
+                },
+                styles: [''],
+                scripts: [''],
+            },
+            {
+                route: '/all-period',
+                title: 'Главная',
+                filePathTemplate: '/templates/pages/dashboard.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute);
+                    new Dashboard(this.openNewRoute.bind(this));
+                    new PlotsAllPeriod();
+                },
+                unload: () => {
+                },
+                styles: [''],
+                scripts: [''],
             },
             {
                 route: '/404',

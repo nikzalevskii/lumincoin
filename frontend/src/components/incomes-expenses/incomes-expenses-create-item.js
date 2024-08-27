@@ -39,7 +39,7 @@ export class IncomesExpensesCreateItem {
             });
 
             if (result) {
-                console.log(result);
+                // console.log(result);
                 // if (result.error || !result.response || (result.response && !result.response.id || !result.response.type || !result.response.amount || !result.response.date || !result.response.comment || !result.response.category)) {
                 if (result.error || !result.response) {
                     alert('Ошибка в добавлении дохода/расхода');
@@ -56,7 +56,7 @@ export class IncomesExpensesCreateItem {
     async viewCategories() {
         document.getElementById('item-create-type').addEventListener('change', async () => {
             this.typeSelectValue = this.typeSelect.options[this.typeSelect.selectedIndex].value;
-            console.log(this.typeSelectValue);
+            // console.log(this.typeSelectValue);
             const categories = await this.findCategory(this.typeSelectValue);
             await this.addCategory(categories);
         });
