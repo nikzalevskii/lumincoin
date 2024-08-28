@@ -5,6 +5,8 @@ export class IncomeAndExpensesInterval {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
 
+        document.getElementById('interval-dates').style.display = 'flex';
+
         document.getElementById('interval').classList.add('flow-period-active');
         document.getElementById('today').classList.remove('flow-period-active');
         document.getElementById('week').classList.remove('flow-period-active');
