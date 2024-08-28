@@ -14,6 +14,7 @@ export class PlotsMonth {
         document.getElementById('today-main').classList.remove('flow-period-active');
         document.getElementById('year-main').classList.remove('flow-period-active');
         document.getElementById('all-period-main').classList.remove('flow-period-active');
+        document.getElementById('interval-main').classList.remove('flow-period-active');
 
         PlotPeriods.getOperations(firstDayMonth, lastDayMonth,  this.openNewRoute);
 

@@ -22,6 +22,7 @@ export class PlotsWeek {
         document.getElementById('month-main').classList.remove('flow-period-active');
         document.getElementById('year-main').classList.remove('flow-period-active');
         document.getElementById('all-period-main').classList.remove('flow-period-active');
+        document.getElementById('interval-main').classList.remove('flow-period-active');
 
         // this.getOperations(this.today, this.today);
         console.log(firstDayWeek);

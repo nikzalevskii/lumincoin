@@ -12,6 +12,7 @@ export class PlotsAllPeriod {
         document.getElementById('week-main').classList.remove('flow-period-active');
         document.getElementById('today-main').classList.remove('flow-period-active');
         document.getElementById('year-main').classList.remove('flow-period-active');
+        document.getElementById('interval-main').classList.remove('flow-period-active');
 
         PlotPeriods.getOperations(startAllPeriod, finishAllPeriod, this.openNewRoute);
         // PlotPeriods.getAllOperations(this.openNewRoute);

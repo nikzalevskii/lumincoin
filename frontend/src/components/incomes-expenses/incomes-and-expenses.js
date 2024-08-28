@@ -13,6 +13,7 @@ export class IncomesAndExpenses {
         document.getElementById('month').classList.remove('flow-period-active');
         document.getElementById('year').classList.remove('flow-period-active');
         document.getElementById('all-period').classList.remove('flow-period-active');
+        document.getElementById('interval').classList.remove('flow-period-active');
 
 
         IncomeAndExpensesPeriods.getOperations(today, today, this.openNewRoute).then();

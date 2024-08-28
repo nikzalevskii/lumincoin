@@ -37,6 +37,7 @@ export class IncomeAndExpensesPeriods {
     static showOperations(operations) {
         // console.log('show operations');
         const tableBlock = document.getElementById('table');
+        tableBlock.innerText = ' ';
         for (let i = 0; i < operations.length; i++) {
             console.log()
             const trElement = document.createElement('tr');

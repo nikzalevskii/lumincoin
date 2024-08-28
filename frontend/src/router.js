@@ -26,6 +26,8 @@ import {PlotsMonth} from "./components/main-page/plots-month";
 import {PlotsYear} from "./components/main-page/plots-year";
 import {PlotsAllPeriod} from "./components/main-page/plots-all-period";
 import {IncomesExpensesCreateNewItem} from "./components/incomes-expenses/incomes-expenses-create-new-item";
+import {PlotsInterval} from "./components/main-page/plots-interval";
+import {IncomeAndExpensesInterval} from "./components/incomes-expenses/period/income-and-expenses-interval";
 
 export class Router {
     constructor() {
@@ -107,6 +109,21 @@ export class Router {
                     new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard(this.openNewRoute.bind(this));
                     new PlotsAllPeriod();
+                },
+                unload: () => {
+                },
+                styles: [''],
+                scripts: [''],
+            },
+            {
+                route: '/interval',
+                title: 'Главная',
+                filePathTemplate: '/templates/pages/dashboard.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
+                    new Dashboard(this.openNewRoute.bind(this));
+                    new PlotsInterval();
                 },
                 unload: () => {
                 },
@@ -358,6 +375,22 @@ export class Router {
                     new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeAndExpensesAllPeriod(this.openNewRoute.bind(this));
+                },
+                unload: () => {
+
+                },
+                styles: [''],
+                scripts: [''],
+            },
+            {
+                route: '/incomes-expenses/interval',
+                title: 'Доходы и расходы',
+                filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
+                useLayout: '/templates/layout.html',
+                load: () => {
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
+                    new Dashboard();
+                    new IncomeAndExpensesInterval(this.openNewRoute.bind(this));
                 },
                 unload: () => {
 

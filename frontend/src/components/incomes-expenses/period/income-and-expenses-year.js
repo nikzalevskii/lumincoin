@@ -14,6 +14,7 @@ export class IncomeAndExpensesYear {
         document.getElementById('week').classList.remove('flow-period-active');
         document.getElementById('today').classList.remove('flow-period-active');
         document.getElementById('all-period').classList.remove('flow-period-active');
+        document.getElementById('interval').classList.remove('flow-period-active');
 
         IncomeAndExpensesPeriods.getOperations(firstDayYear, lastDayYear, this.openNewRoute).then();
 

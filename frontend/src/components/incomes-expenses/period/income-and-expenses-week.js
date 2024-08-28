@@ -18,6 +18,7 @@ export class IncomeAndExpensesWeek {
         document.getElementById('month').classList.remove('flow-period-active');
         document.getElementById('year').classList.remove('flow-period-active');
         document.getElementById('all-period').classList.remove('flow-period-active');
+        document.getElementById('interval').classList.remove('flow-period-active');
 
         // console.log(dayAtWeek);
         // console.log(daylastAtWeek);
