@@ -44,7 +44,7 @@ export class Router {
                 load: () => {
                     new Layout(this.newRoute);
                     new Dashboard(this.openNewRoute.bind(this));
-                    new Plots();
+                    new Plots(this.openNewRoute.bind(this));
                 },
                 unload: () => {
 

@@ -3,8 +3,7 @@ import {Auth} from "../services/auth";
 export class Dashboard {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
-        // console.log(Auth.getAuthInfo().length === 0);
-        if (!Auth.getUserInfo(Auth.accessTokenKey) || !Auth.getUserInfo(Auth.refreshTokenKey)) {
+        if (!Auth.getAuthInfo(Auth.accessTokenKey) || !Auth.getAuthInfo(Auth.refreshTokenKey)) {
             this.toSignUp().then();
         }
 

@@ -2,7 +2,8 @@ import {CustomHttp} from "../../services/custom-http";
 import {PlotPeriods} from "./plot-periods";
 
 export class PlotsMonth {
-    constructor() {
+    constructor(openNewRoute) {
+        this.openNewRoute = openNewRoute;
         const date = new Date(), y = date.getFullYear(), m = date.getMonth();
 
         const firstDayMonth = new Date(y, m, 2).toISOString().slice(0, 10);
@@ -14,7 +15,7 @@ export class PlotsMonth {
         document.getElementById('year-main').classList.remove('flow-period-active');
         document.getElementById('all-period-main').classList.remove('flow-period-active');
 
-        PlotPeriods.getOperations(firstDayMonth, lastDayMonth);
+        PlotPeriods.getOperations(firstDayMonth, lastDayMonth,  this.openNewRoute);
 
     }
 

@@ -3,13 +3,27 @@ import {CustomHttp} from "../../../services/custom-http";
 export class IncomeAndExpensesPeriods {
 
 
-    static async getOperations(dateFrom, dateTo) {
-        // 2024-08-23
+    static async getOperations(dateFrom, dateTo, openNewRoute) {
         const result = await CustomHttp.request('/operations?period=interval&dateFrom=' + dateFrom + '&dateTo=' + dateTo);
         // console.log(result.response);
         if (result) {
             if (result.redirect) {
-                return this.openNewRoute(result.redirect);
+                return openNewRoute(result.redirect);
+            }
+            if (result.error || !result.response || result.response.error) {
+                return alert('Возникла ошибка при запросе операций. Обратитесь в поддержку');
+            }
+        }
+
+        // console.log(result.response);
+        this.showOperations(result.response);
+    }
+    static async getAllOperations(openNewRoute) {
+        const result = await CustomHttp.request('/operations');
+        // console.log(result.response);
+        if (result) {
+            if (result.redirect) {
+                return openNewRoute(result.redirect);
             }
             if (result.error || !result.response || result.response.error) {
                 return alert('Возникла ошибка при запросе операций. Обратитесь в поддержку');

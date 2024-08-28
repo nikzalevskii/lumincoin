@@ -27,7 +27,7 @@ export class PlotsWeek {
         console.log(firstDayWeek);
         console.log(lastDayWeek);
 
-        PlotPeriods.getOperations(firstDayWeek, lastDayWeek);
+        PlotPeriods.getOperations(firstDayWeek, lastDayWeek,  this.openNewRoute);
 
     }
 

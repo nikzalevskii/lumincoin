@@ -1,5 +1,6 @@
 import {CustomHttp} from "../../services/custom-http";
 import {Auth} from "../../services/auth";
+import Chart from 'chart.js/auto';
 
 export class PlotPeriods {
     constructor(openNewRoute) {
@@ -11,12 +12,12 @@ export class PlotPeriods {
     }
 
 
-    static async getOperations(dateFrom, dateTo) {
+    static async getOperations(dateFrom, dateTo, openNewRoute) {
         const result = await CustomHttp.request('/operations?period=interval&dateFrom=' + dateFrom + '&dateTo=' + dateTo);
 
         if (result) {
             if (result.redirect) {
-                return that.openNewRoute(result.redirect);
+                return openNewRoute(result.redirect);
             }
             if (result.error || !result.response || result.response.error) {
                 return alert('Возникла ошибка при запросе операций. Обратитесь в поддержку');

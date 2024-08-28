@@ -2,7 +2,8 @@ import {CustomHttp} from "../../services/custom-http";
 import {PlotPeriods} from "./plot-periods";
 
 export class PlotsAllPeriod {
-    constructor() {
+    constructor(openNewRoute) {
+        this.openNewRoute = openNewRoute;
         const startAllPeriod = '0000-01-01';
         const finishAllPeriod = '9999-12-31';
 
@@ -12,7 +13,7 @@ export class PlotsAllPeriod {
         document.getElementById('today-main').classList.remove('flow-period-active');
         document.getElementById('year-main').classList.remove('flow-period-active');
 
-        PlotPeriods.getOperations(startAllPeriod, finishAllPeriod);
+        PlotPeriods.getOperations(startAllPeriod, finishAllPeriod, this.openNewRoute);
 
     }
 

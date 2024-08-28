@@ -13,7 +13,7 @@ export class PlotsYear {
         document.getElementById('today-main').classList.remove('flow-period-active');
         document.getElementById('all-period-main').classList.remove('flow-period-active');
 
-        PlotPeriods.getOperations(firstDayYear, lastDayYear);
+        PlotPeriods.getOperations(firstDayYear, lastDayYear,  this.openNewRoute);
 
     }
 

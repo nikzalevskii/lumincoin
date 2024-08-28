@@ -16,7 +16,7 @@ export class IncomeAndExpensesMonth {
         document.getElementById('year').classList.remove('flow-period-active');
         document.getElementById('all-period').classList.remove('flow-period-active');
 
-        IncomeAndExpensesPeriods.getOperations(firstDayMonth, lastDayMonth).then();
+        IncomeAndExpensesPeriods.getOperations(firstDayMonth, lastDayMonth, this.openNewRoute).then();
 
     }
 

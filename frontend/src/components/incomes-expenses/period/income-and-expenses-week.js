@@ -24,7 +24,7 @@ export class IncomeAndExpensesWeek {
         // console.log(firstDayWeek);
         // console.log(lastDayWeek);
 
-        IncomeAndExpensesPeriods.getOperations(firstDayWeek, lastDayWeek).then();
+        IncomeAndExpensesPeriods.getOperations(firstDayWeek, lastDayWeek, this.openNewRoute).then();
 
     }
 

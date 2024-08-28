@@ -28,22 +28,35 @@ export class IncomeExpensesEdit {
 
     async editItem() {
         if (this.validateForm()) {
-            console.log('10/02/1993');
-            console.log(this.typeSelect.options[this.typeSelect.selectedIndex].value);
-            console.log(this.amountInput.value);
-            console.log(this.dateInput.value);
-            console.log(this.commentInput.value);
-            console.log(parseInt(this.categorySelect.value));
+            // console.log('10/02/1993');
+            // console.log(this.typeSelect.options[this.typeSelect.selectedIndex].value);
+            // console.log(this.amountInput.value);
+            // console.log(this.dateInput.value);
+            // console.log(this.commentInput.value);
+            // console.log(parseInt(this.categorySelect.value));
 
 
+            let body = {};
+            body.type = this.typeSelect.options[this.typeSelect.selectedIndex].value;
+            body.amount = this.amountInput.value;
+            body.date = this.dateInput.value;
+            body.comment = this.commentInput.value ? this.commentInput.value : ' ';
+            if (!this.categorySelect.value || this.categorySelect.value === '-- Выберите категорию --') {
+                alert('Необходимо выбрать категорию. Попробуйте снова');
+                // this.openNewRoute('/incomes-expenses');
+                return;
+            }
+            body.category_id = parseInt(this.categorySelect.value);
 
-            const result = await CustomHttp.request('/operations/' + this.id, 'PUT', true, {
-                type: this.typeSelect.options[this.typeSelect.selectedIndex].value,
-                amount: this.amountInput.value,
-                date: this.dateInput.value,
-                comment: this.commentInput.value ? this.commentInput.value : ' ',
-                category_id: parseInt(this.categorySelect.value),
-            });
+            const result = await CustomHttp.request('/operations/' + this.id, 'PUT', true, body)
+
+            // const result = await CustomHttp.request('/operations/' + this.id, 'PUT', true, {
+            //     type: this.typeSelect.options[this.typeSelect.selectedIndex].value,
+            //     amount: this.amountInput.value,
+            //     date: this.dateInput.value,
+            //     comment: this.commentInput.value ? this.commentInput.value : ' ',
+            //     category_id: parseInt(this.categorySelect.value),
+            // });
 
             if (result) {
                 console.log(result);
@@ -81,6 +94,7 @@ export class IncomeExpensesEdit {
         // console.log(result.response);
         // return result.response;
         const item = result.response;
+        console.log(item);
 
         this.showItem(item);
     }
@@ -88,7 +102,7 @@ export class IncomeExpensesEdit {
 
     async showItem(item) {
         // this.typeSelect.options[this.typeSelect.selectedIndex].value = item.amount;
-        const categories = await this.findCategory(item.type);
+        let categories = await this.findCategory(item.type);
         await this.addCategory(categories);
         this.typeSelect.value = item.type;
         const selectedCategory = categories.find(category => category.title === item.category);
@@ -98,6 +112,13 @@ export class IncomeExpensesEdit {
         this.amountInput.value = item.amount;
         this.dateInput.value = item.date;
         this.commentInput.value = item.comment;
+
+
+        document.getElementById('item-create-type').addEventListener('change', async () => {
+            this.typeSelectValue = this.typeSelect.options[this.typeSelect.selectedIndex].value;
+            categories = await this.findCategory(this.typeSelect.value);
+            await this.addCategory(categories);
+        });
 
 
     }
@@ -121,6 +142,10 @@ export class IncomeExpensesEdit {
     //
     async addCategory(categories) {
         const categoryBlock = document.getElementById('item-create-category');
+        categoryBlock.innerHTML = '';
+        const option = document.createElement('option');
+        option.innerText = '-- Выберите категорию --';
+        categoryBlock.appendChild(option);
         if (categories) {
             for (let i = 0; i < categories.length; i++) {
                 const option = document.createElement('option');
@@ -128,11 +153,6 @@ export class IncomeExpensesEdit {
                 option.value = categories[i].id;
                 categoryBlock.appendChild(option);
             }
-        } else {
-            categoryBlock.innerHTML = '';
-            const option = document.createElement('option');
-            option.innerText = '-- Выберите категорию --';
-            categoryBlock.appendChild(option);
         }
     }
 

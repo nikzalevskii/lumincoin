@@ -15,7 +15,7 @@ export class IncomesAndExpenses {
         document.getElementById('all-period').classList.remove('flow-period-active');
 
 
-        IncomeAndExpensesPeriods.getOperations(today, today).then();
+        IncomeAndExpensesPeriods.getOperations(today, today, this.openNewRoute).then();
 
 
     }

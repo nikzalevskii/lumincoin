@@ -33,13 +33,27 @@ export class IncomesExpensesCreateNewItem {
         // console.log(this.dateInput.value);
         if (this.validateForm()) {
 
-            const result = await CustomHttp.request('/operations', 'POST', true, {
-                type: this.typeSelect.options[this.typeSelect.selectedIndex].value,
-                amount: this.amountInput.value,
-                date: this.dateInput.value,
-                comment: this.commentInput.value ? this.commentInput.value : ' ',
-                category_id: parseInt(this.categorySelect.value),
-            });
+            let body = {};
+            body.type = this.typeSelect.options[this.typeSelect.selectedIndex].value;
+            body.amount = this.amountInput.value;
+            body.date = this.dateInput.value;
+            body.comment = this.commentInput.value ? this.commentInput.value : ' ';
+            if (!this.categorySelect.value || this.categorySelect.value === '-- Выберите категорию --') {
+                alert('Необходимо выбрать категорию. Попробуйте снова');
+                // this.openNewRoute('/incomes-expenses');
+                return;
+            }
+            body.category_id = parseInt(this.categorySelect.value);
+
+
+            // const result = await CustomHttp.request('/operations', 'POST', true, {
+            //     type: this.typeSelect.options[this.typeSelect.selectedIndex].value,
+            //     amount: this.amountInput.value,
+            //     date: this.dateInput.value,
+            //     comment: this.commentInput.value ? this.commentInput.value : ' ',
+            //     category_id: parseInt(this.categorySelect.value),
+            // });
+            const result = await CustomHttp.request('/operations', 'POST', true, body);
 
             if (result) {
                 // console.log(result);
@@ -58,11 +72,11 @@ export class IncomesExpensesCreateNewItem {
 
     async viewCategories(type) {
         this.typeSelect.value = type;
-        const categories = await this.findCategory(this.typeSelect.value);
+        let categories = await this.findCategory(this.typeSelect.value);
         await this.addCategory(categories);
         document.getElementById('item-create-type').addEventListener('change', async () => {
             this.typeSelectValue = this.typeSelect.options[this.typeSelect.selectedIndex].value;
-            const categories = await this.findCategory(this.typeSelect.value);
+            categories = await this.findCategory(this.typeSelect.value);
             await this.addCategory(categories);
         });
 
@@ -87,6 +101,11 @@ export class IncomesExpensesCreateNewItem {
 
     async addCategory(categories) {
         const categoryBlock = document.getElementById('item-create-category');
+        categoryBlock.innerHTML = '';
+        const option = document.createElement('option');
+        option.innerText = '-- Выберите категорию --';
+        categoryBlock.appendChild(option);
+        // categoryBlock.innerHTML = ' ';
         if (categories) {
             for (let i = 0; i < categories.length; i++) {
                 const option = document.createElement('option');
@@ -94,11 +113,6 @@ export class IncomesExpensesCreateNewItem {
                 option.value = categories[i].id;
                 categoryBlock.appendChild(option);
             }
-        } else {
-            categoryBlock.innerHTML = '';
-            const option = document.createElement('option');
-            option.innerText = '-- Выберите категорию --';
-            categoryBlock.appendChild(option);
         }
     }
 
