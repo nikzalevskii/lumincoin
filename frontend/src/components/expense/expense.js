@@ -37,7 +37,10 @@ export class Expense {
 
     showExpenses(expenses) {
         const expensesElement = document.getElementById('expensesElement');
-        console.log(expensesElement);
+        // console.log(expensesElement);
+        const addElementBlock = document.getElementById('add-expense');
+        expensesElement.innerHTML = '';
+        expensesElement.appendChild(addElementBlock);
         for (let i = expenses.length - 1; i >= 0 ; i--) {
             const expenseElement = document.createElement('div');
             expenseElement.classList.add('expense');
