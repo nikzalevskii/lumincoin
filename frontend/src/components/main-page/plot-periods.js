@@ -46,11 +46,24 @@ export class PlotPeriods {
             expensePlotAmount.push(item.amount);
         });
 
+        // let chartIncome = null;
+
+        this.getChart(incomePlotCategory, incomePlotAmount, expensePlotCategory, expensePlotAmount);
+
+    }
+
+    static getChart(incomePlotCategory, incomePlotAmount, expensePlotCategory, expensePlotAmount) {
 
         // chart JS
-        const ctxIncome = document.getElementById('myChartIncome');
+        let chartIncome = Chart.getChart('myChartIncome');
+        if (chartIncome) {
+            chartIncome.destroy();
+        }
 
-        new Chart(ctxIncome, {
+        const ctxIncome = document.getElementById('myChartIncome');
+        ctxIncome.innerHTML = ' ';
+
+        chartIncome = new Chart(ctxIncome, {
             type: 'pie',
             data: {
                 // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Orange'],
@@ -76,11 +89,16 @@ export class PlotPeriods {
             },
 
         });
+
+
         // chart JS Expense
-
+        let chartExpense = Chart.getChart('myChartExpense');
+        if (chartExpense) {
+            chartExpense.destroy();
+        }
         const ctxExpense = document.getElementById('myChartExpense');
-
-        new Chart(ctxExpense, {
+        ctxExpense.innerHTML = ' ';
+        chartExpense = new Chart(ctxExpense, {
             type: 'pie',
             data: {
                 // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Orange'],
@@ -106,7 +124,6 @@ export class PlotPeriods {
             },
 
         });
-
     }
 
     static async getAllOperations(openNewRoute) {
