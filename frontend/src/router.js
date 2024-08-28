@@ -42,7 +42,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/dashboard.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard(this.openNewRoute.bind(this));
                     new Plots(this.openNewRoute.bind(this));
                 },
@@ -59,7 +59,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/dashboard.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard(this.openNewRoute.bind(this));
                     new PlotsWeek();
                 },
@@ -74,7 +74,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/dashboard.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard(this.openNewRoute.bind(this));
                     new PlotsMonth();
                 },
@@ -89,7 +89,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/dashboard.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard(this.openNewRoute.bind(this));
                     new PlotsYear();
                 },
@@ -104,7 +104,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/dashboard.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard(this.openNewRoute.bind(this));
                     new PlotsAllPeriod();
                 },
@@ -149,7 +149,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/income-category/income.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new Income(this.openNewRoute.bind(this));
                 },
@@ -166,7 +166,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/income-category/income-category-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeCategoryCreate(this.openNewRoute.bind(this));
                 },
@@ -183,7 +183,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/income-category/income-category-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeCategoryEdit(this.openNewRoute.bind(this));
 
@@ -200,7 +200,7 @@ export class Router {
                 title: 'Удалить доход',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeCategoryDelete(this.openNewRoute.bind(this));
                 },
@@ -217,7 +217,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/expense-category/expense.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new Expense(this.openNewRoute.bind(this));
                 },
@@ -234,7 +234,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/expense-category/expense-category-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new ExpenseCategoryCreate(this.openNewRoute.bind(this));
                 },
@@ -251,7 +251,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/expense-category/expense-category-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new ExpenseCategoryEdit(this.openNewRoute.bind(this));
 
@@ -269,7 +269,7 @@ export class Router {
                 title: 'Удалить категорию расхода',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new ExpenseCategoryDelete(this.openNewRoute.bind(this));
                 },
@@ -286,7 +286,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomesAndExpenses(this.openNewRoute.bind(this));
 
@@ -304,7 +304,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeAndExpensesWeek(this.openNewRoute.bind(this));
 
@@ -322,7 +322,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeAndExpensesMonth(this.openNewRoute.bind(this));
 
@@ -339,7 +339,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeAndExpensesYear(this.openNewRoute.bind(this));
                 },
@@ -355,7 +355,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/incomes-expenses.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeAndExpensesAllPeriod(this.openNewRoute.bind(this));
                 },
@@ -372,7 +372,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/createitem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     // new IncomesExpensesCreateItem(this.openNewRoute.bind(this));
                     new IncomesExpensesCreateNewItem(this.openNewRoute.bind(this), 'income');
@@ -388,7 +388,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/createitem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     // new IncomesExpensesCreateItem(this.openNewRoute.bind(this));
                     new IncomesExpensesCreateNewItem(this.openNewRoute.bind(this), 'expense');
@@ -404,7 +404,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/incomes-expenses/edititem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeExpensesEdit(this.openNewRoute.bind(this));
 
@@ -422,7 +422,7 @@ export class Router {
                 // filePathTemplate: '/templates/pages/incomes-expenses/edititem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Layout(this.newRoute);
+                    new Layout(this.newRoute, this.openNewRoute.bind(this));
                     new Dashboard();
                     new IncomeExpensesDelete(this.openNewRoute.bind(this));
 

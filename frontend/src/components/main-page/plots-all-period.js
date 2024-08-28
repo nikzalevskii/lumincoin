@@ -14,6 +14,7 @@ export class PlotsAllPeriod {
         document.getElementById('year-main').classList.remove('flow-period-active');
 
         PlotPeriods.getOperations(startAllPeriod, finishAllPeriod, this.openNewRoute);
+        // PlotPeriods.getAllOperations(this.openNewRoute);
 
     }
 

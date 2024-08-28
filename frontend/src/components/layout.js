@@ -1,7 +1,9 @@
 import {Auth} from "../services/auth";
+import {CustomHttp} from "../services/custom-http";
 
 export class Layout {
-    constructor(activatedRoute) {
+    constructor(activatedRoute, openNewRoute) {
+        this.openNewRoute = openNewRoute;
 
         this.userDropdown = document.getElementsByClassName('dropdown-toggle')[0];
         this.userText = document.getElementById('username-layout');
@@ -60,6 +62,27 @@ export class Layout {
             document.getElementById('category-block').classList.add('category-expense-active');
             document.getElementById('orders-collapse').classList.add('show');
         }
+
+        this.getBalance().then();
+
+    }
+
+    async getBalance() {
+        const balanceItem = document.getElementById('balance-value');
+        const result = await CustomHttp.request('/balance');
+
+        if (result) {
+            if (result.redirect) {
+                return this.openNewRoute(result.redirect);
+            }
+            if (result.error || !result.response || result.response.error) {
+                return alert('Возникла ошибка при запросе баланса. Обратитесь в поддержку');
+            }
+
+       balanceItem.innerText = result.response.balance + '$';
+
+        }
+
 
     }
 
