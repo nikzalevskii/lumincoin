@@ -38,7 +38,15 @@ export class IncomeExpensesEdit {
 
             let body = {};
             body.type = this.typeSelect.options[this.typeSelect.selectedIndex].value;
-            body.amount = this.amountInput.value;
+            if (!this.amountInput.value) {
+                alert('Необходимо ввести сумму. Попробуйте снова');
+                return;
+            }
+            body.amount = parseInt(this.amountInput.value);
+            if (!this.dateInput.value) {
+                alert('Необходимо выбрать дату. Попробуйте снова');
+                return;
+            }
             body.date = this.dateInput.value;
             body.comment = this.commentInput.value ? this.commentInput.value : ' ';
             if (!this.categorySelect.value || this.categorySelect.value === '-- Выберите категорию --') {
