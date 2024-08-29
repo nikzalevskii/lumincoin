@@ -29,6 +29,7 @@ import {IncomesExpensesCreateNewItem} from "./components/incomes-expenses/income
 import {PlotsInterval} from "./components/main-page/plots-interval";
 import {IncomeAndExpensesInterval} from "./components/incomes-expenses/period/income-and-expenses-interval";
 
+
 export class Router {
     constructor() {
         this.titlePageElement = document.getElementById('title');
@@ -52,7 +53,8 @@ export class Router {
 
                 },
                 styles: [''],
-                scripts: [''],
+                // scripts: ['chart.umd.js', 'chart.js'],
+                scripts: ['chart.umd.js'],
 
             },
             {
@@ -68,7 +70,8 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                scripts: [''],
+                // scripts: ['chart.js'],
+                scripts: ['chart.umd.js'],
             },
             {
                 route: '/month',
@@ -83,7 +86,8 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                scripts: [''],
+                // scripts: ['chart.js'],
+                scripts: ['chart.umd.js'],
             },
             {
                 route: '/year',
@@ -98,7 +102,8 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                scripts: [''],
+                // scripts: ['chart.js'],
+                scripts: ['chart.umd.js'],
             },
             {
                 route: '/all-period',
@@ -113,7 +118,8 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                scripts: [''],
+                // scripts: ['chart.js'],
+                scripts: ['chart.umd.js'],
             },
             {
                 route: '/interval',
@@ -127,8 +133,10 @@ export class Router {
                 },
                 unload: () => {
                 },
-                styles: [''],
-                scripts: [''],
+                styles: ['pikaday.css'],
+                // scripts: ['chart.js', 'moment.min.js', 'pikaday.js'],
+                scripts: ['chart.umd.js', 'moment.min.js', 'pikaday.js'],
+                // scripts: ['chart.umd.js'],
             },
             {
                 route: '/404',
@@ -395,8 +403,8 @@ export class Router {
                 unload: () => {
 
                 },
-                styles: [''],
-                scripts: [''],
+                styles: ['pikaday.css'],
+                scripts: ['moment.min.js','pikaday.js'],
             },
             {
                 // route: '/incomes-expenses/createitem',
@@ -508,16 +516,16 @@ export class Router {
         if (oldRoute) {
             // this.previousRoute = this.routes.find(item => item.route === oldRoute);
             this.currentRoute = this.routes.find(item => item.route === oldRoute);
-            if (this.currentRoute.styles && this.currentRoute.styles.length > 0) {
+            if (this.currentRoute.styles && this.currentRoute.styles.length > 0 && this.currentRoute.styles[0] !== '') {
                 this.currentRoute.styles.forEach(style => {
                     document.querySelector(`link[href='/css/${style}']`).remove();
                 });
             }
-            // if (this.currentRoute.scripts && this.currentRoute.scripts.length > 0) {
-            //     this.currentRoute.scripts.forEach(script => {
-            //         document.querySelector(`script[src='/js/${script}']`).remove();
-            //     });
-            // }
+            if (this.currentRoute.scripts && this.currentRoute.scripts.length > 0 && this.currentRoute.scripts[0] !== '') {
+                this.currentRoute.scripts.forEach(script => {
+                    document.querySelector(`script[src='/js/${script}']`).remove();
+                });
+            }
             if (this.currentRoute.unload && typeof this.currentRoute.unload === 'function') {
                 this.currentRoute.unload();
             }
@@ -529,14 +537,14 @@ export class Router {
         // console.log(this.newRoute);
 
         if (this.newRoute) {
-            if (this.newRoute.styles && this.newRoute.styles.length > 0) {
+            if (this.newRoute.styles && this.newRoute.styles.length > 0 && this.newRoute.styles[0] !== '') {
                 this.newRoute.styles.forEach(style => {
                     FileService.loadPageStyle('/css/' + style, this.bootstrapStyleElement)
                 });
             }
-            if (this.newRoute.scripts && this.newRoute.scripts.length > 0) {
+            if (this.newRoute.scripts && this.newRoute.scripts.length > 0 && this.newRoute.scripts[0] !== '') {
                 for (const script of this.newRoute.scripts) {
-                    // await FileService.loadPageScript('/js/' + script);
+                    await FileService.loadPageScript('/js/' + script);
                 }
             }
 

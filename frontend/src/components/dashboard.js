@@ -7,6 +7,11 @@ export class Dashboard {
             this.toSignUp().then();
         }
 
+        if (document.getElementsByClassName('pika-single')) {
+            const pikaElements = Array.from(document.getElementsByClassName('pika-single'));
+            pikaElements.forEach(el => el.remove());
+        }
+
         document.getElementById('user-block').addEventListener('click', function () {
             document.getElementById('drop-logout').classList.add('dropdown-menu-show');
         })
@@ -18,9 +23,6 @@ export class Dashboard {
 
     }
 
-    // async toIncome() {
-    //     await this.openNewRoute('/income');
-    // }
 
     async toSignUp() {
         await this.openNewRoute('/signup');
