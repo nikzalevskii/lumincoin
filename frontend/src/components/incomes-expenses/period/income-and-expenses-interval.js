@@ -17,6 +17,13 @@ export class IncomeAndExpensesInterval {
         let pickerFrom = new Pikaday({
             field: document.getElementById('dateFrom'),
             format: 'D MMM YYYY',
+            i18n: {
+                previousMonth : 'Предыдущий Месяц',
+                nextMonth     : 'Следующий Месяц',
+                months        : ['Январь','Февраль','Март','April','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+                weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
+            },
             onSelect: function() {
                 // console.log(this.getMoment().format('YYYY-MM-DD'));
             }
@@ -24,6 +31,13 @@ export class IncomeAndExpensesInterval {
         let pickerTo = new Pikaday({
             field: document.getElementById('dateTo'),
             format: 'D MMM YYYY',
+            i18n: {
+                previousMonth : 'Предыдущий Месяц',
+                nextMonth     : 'Следующий Месяц',
+                months        : ['Январь','Февраль','Март','April','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+                weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
+            },
             onSelect: function() {
                 // console.log(this.getMoment().format('YYYY-MM-DD'));
             }

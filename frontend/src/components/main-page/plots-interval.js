@@ -18,6 +18,13 @@ export class PlotsInterval {
         let pickerFrom = new Pikaday({
             field: document.getElementById('dateFrom-main'),
             format: 'D MMM YYYY',
+            i18n: {
+                previousMonth : 'Предыдущий Месяц',
+                nextMonth     : 'Следующий Месяц',
+                months        : ['Январь','Февраль','Март','April','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+                weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
+            },
             onSelect: function() {
                 // console.log(this.getMoment().format('YYYY-MM-DD'));
             }
@@ -25,6 +32,13 @@ export class PlotsInterval {
         let pickerTo = new Pikaday({
             field: document.getElementById('dateTo-main'),
             format: 'D MMM YYYY',
+            i18n: {
+                previousMonth : 'Предыдущий Месяц',
+                nextMonth     : 'Следующий Месяц',
+                months        : ['Январь','Февраль','Март','April','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+                weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
+            },
             onSelect: function() {
                 // console.log(this.getMoment().format('YYYY-MM-DD'));
             }
