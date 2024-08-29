@@ -25,8 +25,8 @@ export class PlotPeriods {
         }
 
         const items = result.response;
-        const incomes = items.filter(item => item.type === 'income');
-        const expenses = items.filter(item => item.type === 'expense');
+        const incomes = items.filter(item => item.category && item.type === 'income');
+        const expenses = items.filter(item => item.category && item.type === 'expense');
         const incomesRes = this.getItems(incomes);
         const expensesRes = this.getItems(expenses);
         let incomePlotCategory = [];

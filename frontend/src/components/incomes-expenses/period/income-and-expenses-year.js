@@ -7,7 +7,8 @@ export class IncomeAndExpensesYear {
 
         const date = new Date(), y = date.getFullYear(), m = date.getMonth();
         const firstDayYear = new Date(y, 0, 2).toISOString().slice(0, 10);
-        const lastDayYear = new Date(y, m, date.getDate() + 1).toISOString().slice(0, 10);
+        // const lastDayYear = new Date(y, m, date.getDate() + 1).toISOString().slice(0, 10);
+        const lastDayYear = new Date(y, 11, 32).toISOString().slice(0, 10);
 
         document.getElementById('year').classList.add('flow-period-active');
         document.getElementById('month').classList.remove('flow-period-active');

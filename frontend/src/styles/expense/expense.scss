@@ -21,6 +21,7 @@
       padding: 20px;
       border-radius: 12px;
       border: 1px solid #CED4DA;
+
       .expense-text {
         color: #290661;
         font-size: 28px;
@@ -28,9 +29,11 @@
         line-height: normal;
         margin-bottom: 10px;
       }
+
       .expense-actions {
         display: flex;
         column-gap: 10px;
+
         .expense-category-edit {
           text-decoration: none;
           padding: 12px 16px;
@@ -45,6 +48,7 @@
           font-weight: 500;
           line-height: normal;
         }
+
         .expense-category-delete {
           text-decoration: none;
           padding: 12px 16px;
@@ -71,12 +75,15 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+
       .expense-text {
         display: none;
       }
+
       .expense-actions {
         display: none;
       }
+
       .expense-add {
         text-decoration: none;
       }
@@ -87,9 +94,20 @@
   }
 
 
+}
+
+.expense-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.2);
+
   .expense-popup {
-    display: none;
-    position: absolute;
+    //display: none;
+    position: fixed;
     z-index: 2;
     top: calc(50% - 92px);
     left: calc(50% - 265px);
@@ -100,6 +118,7 @@
     padding: 40px;
     width: 530px;
     height: 184px;
+
     .expense-popup-title {
       max-width: 450px;
       color: #290661;
@@ -109,6 +128,7 @@
       line-height: normal;
       margin-bottom: 20px;
     }
+
     .expense-popup-actions {
       display: flex;
       column-gap: 12px;
@@ -143,8 +163,6 @@
 
     }
 
-
   }
-
 }
 

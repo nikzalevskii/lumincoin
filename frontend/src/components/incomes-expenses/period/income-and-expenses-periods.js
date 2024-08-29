@@ -18,6 +18,7 @@ export class IncomeAndExpensesPeriods {
         // console.log(result.response);
         this.showOperations(result.response);
     }
+
     static async getAllOperations(openNewRoute) {
         const result = await CustomHttp.request('/operations');
         // console.log(result.response);
@@ -40,46 +41,49 @@ export class IncomeAndExpensesPeriods {
         tableBlock.innerText = ' ';
         for (let i = 0; i < operations.length; i++) {
             console.log()
-            const trElement = document.createElement('tr');
-            trElement.classList.add('flow-table-block');
-            // trElement.insertCell().innerText = i + 1;
-            const number = trElement.insertCell();
-            number.innerText = i + 1;
-            number.classList.add('flow-table-text');
+            if (operations[i].category) {
+                const trElement = document.createElement('tr');
+                trElement.classList.add('flow-table-block');
+                // trElement.insertCell().innerText = i + 1;
+                const number = trElement.insertCell();
+                number.innerText = i + 1;
+                number.classList.add('flow-table-text');
 
-            const type = trElement.insertCell();
-            type.innerText = operations[i].type === 'income' ? 'доход' : 'расход';
-            type.style.color = operations[i].type === 'income' ? 'green' : 'red';
-            type.classList.add('flow-table-text');
+                const type = trElement.insertCell();
+                type.innerText = operations[i].type === 'income' ? 'доход' : 'расход';
+                type.style.color = operations[i].type === 'income' ? 'green' : 'red';
+                type.classList.add('flow-table-text');
 
-            const category = trElement.insertCell();
-            category.innerText = operations[i].category.toLowerCase();
-            // category.innerText = operations[i].category;
-            category.classList.add('flow-table-text');
+                const category = trElement.insertCell();
+                category.innerText = operations[i].category.toLowerCase();
+                // category.innerText = operations[i].category;
+                category.classList.add('flow-table-text');
 
-            const amount = trElement.insertCell();
-            amount.innerText = operations[i].amount + '$';
-            amount.classList.add('flow-table-text');
 
-            const date = trElement.insertCell();
-            date.innerText = operations[i].date;
-            date.classList.add('flow-table-text');
+                const amount = trElement.insertCell();
+                amount.innerText = operations[i].amount + '$';
+                amount.classList.add('flow-table-text');
 
-            const comment = trElement.insertCell();
-            comment.innerText = operations[i].comment;
-            comment.classList.add('flow-table-text');
+                const date = trElement.insertCell();
+                date.innerText = operations[i].date;
+                date.classList.add('flow-table-text');
 
-            const icons = trElement.insertCell();
-            icons.innerHTML = '<a href="/incomes-expenses/operation-delete?id=' + operations[i].id + '">\n' +
-                '                    <img class="flow-table-icons-delete" src="/images/trash_icon.svg" alt="">\n' +
-                '                </a>\n' +
-                '                <a href="/incomes-expenses/edititem?id=' + operations[i].id + '">\n' +
-                '                    <img class="flow-table-icons-edit" src="/images/pen_icon.svg" alt="">\n' +
-                '                </a>';
-            icons.classList.add('flow-table-text');
-            icons.classList.add('flow-table-icons');
+                const comment = trElement.insertCell();
+                comment.innerText = operations[i].comment;
+                comment.classList.add('flow-table-text');
 
-            tableBlock.appendChild(trElement);
+                const icons = trElement.insertCell();
+                icons.innerHTML = '<a href="/incomes-expenses/operation-delete?id=' + operations[i].id + '">\n' +
+                    '                    <img class="flow-table-icons-delete" src="/images/trash_icon.svg" alt="">\n' +
+                    '                </a>\n' +
+                    '                <a href="/incomes-expenses/edititem?id=' + operations[i].id + '">\n' +
+                    '                    <img class="flow-table-icons-edit" src="/images/pen_icon.svg" alt="">\n' +
+                    '                </a>';
+                icons.classList.add('flow-table-text');
+                icons.classList.add('flow-table-icons');
+
+                tableBlock.appendChild(trElement);
+            }
         }
 
 
