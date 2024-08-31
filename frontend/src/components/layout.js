@@ -82,8 +82,6 @@ export class Layout {
        balanceItem.innerText = result.response.balance + '$';
 
         }
-
-
     }
 
 

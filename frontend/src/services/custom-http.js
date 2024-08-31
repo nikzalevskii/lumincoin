@@ -18,7 +18,7 @@ export class CustomHttp {
         };
         let token = null;
         if (useAuth) {
-            token  = Auth.getAuthInfo(Auth.accessTokenKey);
+            token = Auth.getAuthInfo(Auth.accessTokenKey);
             if (token) {
                 params.headers['x-auth-token'] = token;
             }
@@ -42,30 +42,23 @@ export class CustomHttp {
             result.error = true;
             if (response.status === 401 && useAuth) {
                 if (!token) {
-                // токена нет
+                    // токена нет
                     result.redirect = '/login';
-                    return result;
-                }
-            }
-            if (response.status === 401) {
-                const result = await Auth.processUnauthorizedResponse();
-                if (result) {
-                    return await this.request(url, method, useAuth, body);
                 } else {
-                    result.redirect = '/login';
-                    return result;
+                    if (!Auth.isTokenRefreshing) {
+                        //2-  токен устарел/невалидный (надо обновить)
+                        const updateTokenResult = await Auth.processUnauthorizedResponse();
+                        if (updateTokenResult) {
+                            // запрос повторно
+                            return await this.request(url, method, useAuth, body);
+                        } else {
+                            result.redirect = '/login';
+                        }
+                    } else {
+                        return await this.request(url, method, useAuth, body);
+                    }
                 }
             }
-            // console.log(response.message);
-            // return null;
-            // let errorMessage;
-            // try {
-            //     const errorData = await response.json();
-            //     errorMessage = errorData.message || 'Something went wrong';
-            // } catch (e) {
-            //     errorMessage = 'Unexpected error format';
-            // }
-            // throw new Error(errorMessage);
         }
 
         return result;

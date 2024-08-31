@@ -1,6 +1,7 @@
 import {CustomHttp} from "../../services/custom-http";
 import {PlotPeriods} from "./plot-periods";
 import {Auth} from "../../services/auth";
+import {Balance} from "../../services/balance";
 
 export class Plots {
     constructor(openNewRoute) {
@@ -22,13 +23,18 @@ export class Plots {
 
         // this.getOperations(this.today, this.today);
         if (Auth.getUserInfo(Auth.accessTokenKey) && Auth.getUserInfo(Auth.refreshTokenKey)) {
-            PlotPeriods.getOperations(this.today, this.today,  this.openNewRoute);
+            PlotPeriods.getOperations(this.today, this.today, this.openNewRoute);
+            // Balance.getBalance(this.openNewRoute).then();
+            // this.initAll.bind(this);
         }
 
 
     }
 
-
+    async initAll() {
+        await PlotPeriods.getOperations(this.today, this.today, this.openNewRoute);
+        await Balance.getBalance(this.openNewRoute);
+    }
 
 }
 

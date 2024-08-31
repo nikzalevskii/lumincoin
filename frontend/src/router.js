@@ -53,7 +53,6 @@ export class Router {
 
                 },
                 styles: [''],
-                // scripts: ['chart.umd.js', 'chart.js'],
                 scripts: ['chart.umd.js'],
 
             },
@@ -70,7 +69,6 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                // scripts: ['chart.js'],
                 scripts: ['chart.umd.js'],
             },
             {
@@ -86,7 +84,6 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                // scripts: ['chart.js'],
                 scripts: ['chart.umd.js'],
             },
             {
@@ -102,7 +99,6 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                // scripts: ['chart.js'],
                 scripts: ['chart.umd.js'],
             },
             {
@@ -118,7 +114,6 @@ export class Router {
                 unload: () => {
                 },
                 styles: [''],
-                // scripts: ['chart.js'],
                 scripts: ['chart.umd.js'],
             },
             {
@@ -133,10 +128,8 @@ export class Router {
                 },
                 unload: () => {
                 },
-                styles: ['pikaday.css'],
-                // scripts: ['chart.js', 'moment.min.js', 'pikaday.js'],
+                styles: [''],
                 scripts: ['chart.umd.js', 'moment.min.js', 'pikaday.js'],
-                // scripts: ['chart.umd.js'],
             },
             {
                 route: '/404',
@@ -403,7 +396,7 @@ export class Router {
                 unload: () => {
 
                 },
-                styles: ['pikaday.css'],
+                styles: [''],
                 scripts: ['moment.min.js','pikaday.js'],
             },
             {
@@ -460,7 +453,6 @@ export class Router {
             {
                 route: '/incomes-expenses/operation-delete',
                 title: 'Редактирование дохода/расхода',
-                // filePathTemplate: '/templates/pages/incomes-expenses/edititem.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
                     new Layout(this.newRoute, this.openNewRoute.bind(this));
@@ -503,7 +495,6 @@ export class Router {
 
             const currentRoute = window.location.pathname;
             const url = element.href.replace(window.location.origin, '');
-            // if (!url || url === '/#' || url.startsWith('javascript:void(0)')) {
             if (!url || (currentRoute === url.replace('#', '')) || url.startsWith('javascript:void(0)')) {
                 return;
             }
@@ -514,7 +505,6 @@ export class Router {
 
     async activateRoute(e, oldRoute = null) {
         if (oldRoute) {
-            // this.previousRoute = this.routes.find(item => item.route === oldRoute);
             this.currentRoute = this.routes.find(item => item.route === oldRoute);
             if (this.currentRoute.styles && this.currentRoute.styles.length > 0 && this.currentRoute.styles[0] !== '') {
                 this.currentRoute.styles.forEach(style => {
@@ -533,8 +523,6 @@ export class Router {
 
         const urlRoute = window.location.pathname;
         this.newRoute = this.routes.find(item => item.route === urlRoute);
-        // this.previousRoute = this.routes.find(item => item.route === oldRoute);
-        // console.log(this.newRoute);
 
         if (this.newRoute) {
             if (this.newRoute.styles && this.newRoute.styles.length > 0 && this.newRoute.styles[0] !== '') {
@@ -568,8 +556,6 @@ export class Router {
             const accessToken = localStorage.getItem(Auth.accessTokenKey);
             if (userInfo && accessToken) {
                 this.profileNameElement = document.getElementById('username-layout');
-                // console.log(userInfo.name);
-                // console.log(userInfo.lastName);
                 if (this.profileNameElement) {
                     this.profileNameElement.innerText = userInfo.name + ' ' + userInfo.lastName;
                 }

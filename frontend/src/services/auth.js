@@ -4,10 +4,13 @@ export class Auth {
     static accessTokenKey = 'accessToken';
     static refreshTokenKey = 'refreshToken';
     static userInfoKey = 'userInfo';
+    static isTokenRefreshing = false;
 
 
     static async processUnauthorizedResponse() {
-        const refreshToken = localStorage.getItem(this.refreshTokenKey);
+        this.isTokenRefreshing = true;
+        // const refreshToken = localStorage.getItem(this.refreshTokenKey);
+        const refreshToken = this.getAuthInfo(this.refreshTokenKey);
         if (refreshToken) {
             const response = await fetch(config.host + '/refresh', {
                 method: 'POST',
@@ -15,11 +18,15 @@ export class Auth {
                     'Content-type': 'application/json',
                     'Accept': 'application/json',
                 },
-                body: JSON.stringify({refreshToken: refreshToken})
+                body: JSON.stringify({
+                    refreshToken: refreshToken
+                }),
             });
+            this.isTokenRefreshing = false;
 
             if (response && response.status === 200) {
                 const result = await response.json();
+                console.log(result);
                 if (result && !result.error) {
                     this.setTokens(result.tokens.accessToken, result.tokens.refreshToken);
                     return true;
