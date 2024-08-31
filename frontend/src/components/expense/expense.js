@@ -30,14 +30,12 @@ export class Expense {
             }
         }
 
-        // console.log(result.response);
         this.showExpenses(result.response);
 
     }
 
     showExpenses(expenses) {
         const expensesElement = document.getElementById('expensesElement');
-        // console.log(expensesElement);
         const addElementBlock = document.getElementById('add-expense');
         expensesElement.innerHTML = '';
         expensesElement.appendChild(addElementBlock);

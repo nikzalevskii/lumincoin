@@ -113,7 +113,6 @@ export class Form {
                         passwordRepeat: this.passwordRepeatElement.value
                     });
 
-                    // console.log(result);
                     if (result) {
                         if (result.error || !result.response || (result.response && !result.response.user.id || !result.response.user.email || !result.response.user.name || !result.response.user.lastName)) {
                             if (result.response.message === 'User with given email already exist') {

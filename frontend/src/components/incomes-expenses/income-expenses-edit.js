@@ -28,13 +28,6 @@ export class IncomeExpensesEdit {
 
     async editItem() {
         if (this.validateForm()) {
-            // console.log('10/02/1993');
-            // console.log(this.typeSelect.options[this.typeSelect.selectedIndex].value);
-            // console.log(this.amountInput.value);
-            // console.log(this.dateInput.value);
-            // console.log(this.commentInput.value);
-            // console.log(parseInt(this.categorySelect.value));
-
 
             let body = {};
             body.type = this.typeSelect.options[this.typeSelect.selectedIndex].value;
@@ -58,16 +51,8 @@ export class IncomeExpensesEdit {
 
             const result = await CustomHttp.request('/operations/' + this.id, 'PUT', true, body)
 
-            // const result = await CustomHttp.request('/operations/' + this.id, 'PUT', true, {
-            //     type: this.typeSelect.options[this.typeSelect.selectedIndex].value,
-            //     amount: this.amountInput.value,
-            //     date: this.dateInput.value,
-            //     comment: this.commentInput.value ? this.commentInput.value : ' ',
-            //     category_id: parseInt(this.categorySelect.value),
-            // });
 
             if (result) {
-                console.log(result);
                 // if (result.error || !result.response || (result.response && !result.response.id || !result.response.type || !result.response.amount || !result.response.date || !result.response.comment || !result.response.category)) {
                 if (result.error || !result.response) {
                     alert('Ошибка в редактировании дохода/расхода');
@@ -99,10 +84,7 @@ export class IncomeExpensesEdit {
                 return alert('Возникла ошибка при запросе дохода/расхода. Обратитесь в поддержку');
             }
         }
-        // console.log(result.response);
-        // return result.response;
         const item = result.response;
-        console.log(item);
 
         this.showItem(item);
     }
@@ -114,7 +96,6 @@ export class IncomeExpensesEdit {
         await this.addCategory(categories);
         this.typeSelect.value = item.type;
         const selectedCategory = categories.find(category => category.title === item.category);
-        // console.log(selectedCategory);
         this.categorySelect.value = selectedCategory.id;
 
         this.amountInput.value = item.amount;

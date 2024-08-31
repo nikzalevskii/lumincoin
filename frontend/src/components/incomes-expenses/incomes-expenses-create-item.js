@@ -3,7 +3,6 @@ import {CustomHttp} from "../../services/custom-http";
 export class IncomesExpensesCreateItem {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
-        // console.log('create');
         this.typeSelect = document.getElementById('item-create-type');
         this.categorySelect = document.getElementById('item-create-category');
         this.amountInput = document.getElementById('item-create-amount');
@@ -27,7 +26,6 @@ export class IncomesExpensesCreateItem {
     }
 
     async createNewItem() {
-        // console.log(this.dateInput.value);
         if (this.validateForm()) {
 
             const result = await CustomHttp.request('/operations', 'POST', true, {
@@ -39,8 +37,6 @@ export class IncomesExpensesCreateItem {
             });
 
             if (result) {
-                // console.log(result);
-                // if (result.error || !result.response || (result.response && !result.response.id || !result.response.type || !result.response.amount || !result.response.date || !result.response.comment || !result.response.category)) {
                 if (result.error || !result.response) {
                     alert('Ошибка в добавлении дохода/расхода');
                     this.openNewRoute('/');
@@ -56,7 +52,6 @@ export class IncomesExpensesCreateItem {
     async viewCategories() {
         document.getElementById('item-create-type').addEventListener('change', async () => {
             this.typeSelectValue = this.typeSelect.options[this.typeSelect.selectedIndex].value;
-            // console.log(this.typeSelectValue);
             const categories = await this.findCategory(this.typeSelectValue);
             await this.addCategory(categories);
         });

@@ -24,17 +24,11 @@ export class Plots {
         // this.getOperations(this.today, this.today);
         if (Auth.getUserInfo(Auth.accessTokenKey) && Auth.getUserInfo(Auth.refreshTokenKey)) {
             PlotPeriods.getOperations(this.today, this.today, this.openNewRoute);
-            // Balance.getBalance(this.openNewRoute).then();
-            // this.initAll.bind(this);
         }
 
 
     }
 
-    async initAll() {
-        await PlotPeriods.getOperations(this.today, this.today, this.openNewRoute);
-        await Balance.getBalance(this.openNewRoute);
-    }
 
 }
 

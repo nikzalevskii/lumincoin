@@ -26,7 +26,6 @@ export class Auth {
 
             if (response && response.status === 200) {
                 const result = await response.json();
-                console.log(result);
                 if (result && !result.error) {
                     this.setTokens(result.tokens.accessToken, result.tokens.refreshToken);
                     return true;

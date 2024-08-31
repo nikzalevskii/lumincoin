@@ -4,15 +4,11 @@ export class IncomesExpensesCreateNewItem {
     constructor(openNewRoute, type) {
         this.openNewRoute = openNewRoute;
         this.type = type;
-        console.log('create income');
         this.typeSelect = document.getElementById('item-create-type');
         this.categorySelect = document.getElementById('item-create-category');
         this.amountInput = document.getElementById('item-create-amount');
         this.dateInput = document.getElementById('item-create-date');
         this.commentInput = document.getElementById('item-create-comment');
-
-        // this.typeSelectValue = this.typeSelect.options[this.typeSelect.selectedIndex].value;
-
 
 
         this.viewCategories(this.type).then();
@@ -30,7 +26,6 @@ export class IncomesExpensesCreateNewItem {
     }
 
     async createNewItem() {
-        // console.log(this.dateInput.value);
         if (this.validateForm()) {
 
             let body = {};
@@ -53,19 +48,9 @@ export class IncomesExpensesCreateNewItem {
             }
             body.category_id = parseInt(this.categorySelect.value);
 
-
-            // const result = await CustomHttp.request('/operations', 'POST', true, {
-            //     type: this.typeSelect.options[this.typeSelect.selectedIndex].value,
-            //     amount: this.amountInput.value,
-            //     date: this.dateInput.value,
-            //     comment: this.commentInput.value ? this.commentInput.value : ' ',
-            //     category_id: parseInt(this.categorySelect.value),
-            // });
             const result = await CustomHttp.request('/operations', 'POST', true, body);
 
             if (result) {
-                // console.log(result);
-                // if (result.error || !result.response || (result.response && !result.response.id || !result.response.type || !result.response.amount || !result.response.date || !result.response.comment || !result.response.category)) {
                 if (result.error || !result.response) {
                     alert('Ошибка в добавлении дохода/расхода');
                     this.openNewRoute('/');

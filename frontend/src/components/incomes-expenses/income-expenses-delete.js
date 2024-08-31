@@ -9,7 +9,6 @@ export class IncomeExpensesDelete {
         if (!this.id) {
             return this.openNewRoute('/');
         }
-        console.log(this.id);
 
         this.deleteItem().then();
 
@@ -22,8 +21,6 @@ export class IncomeExpensesDelete {
             alert('Возникла ошибка при удалении дохода/расхода. Обратитесь в поддержку');
             this.openNewRoute('/');
         }
-        // console.log(result);
-        console.log(result.response);
         this.openNewRoute('/incomes-expenses');
     }
 
