@@ -17,7 +17,7 @@ export class PlotsInterval {
 
         let pickerFrom = new Pikaday({
             field: document.getElementById('dateFrom-main'),
-            format: 'D MMM YYYY',
+            format: 'DD-MM-YYYY',
             i18n: {
                 previousMonth : 'Предыдущий Месяц',
                 nextMonth     : 'Следующий Месяц',
@@ -26,12 +26,11 @@ export class PlotsInterval {
                 weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
             },
             onSelect: function() {
-                // console.log(this.getMoment().format('YYYY-MM-DD'));
             }
         });
         let pickerTo = new Pikaday({
             field: document.getElementById('dateTo-main'),
-            format: 'D MMM YYYY',
+            format: 'DD-MM-YYYY',
             i18n: {
                 previousMonth : 'Предыдущий Месяц',
                 nextMonth     : 'Следующий Месяц',
@@ -40,7 +39,6 @@ export class PlotsInterval {
                 weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
             },
             onSelect: function() {
-                // console.log(this.getMoment().format('YYYY-MM-DD'));
             }
         });
 
@@ -64,10 +62,6 @@ export class PlotsInterval {
                 PlotPeriods.getOperations(this.dateFrom, this.dateTo, openNewRoute).then();
             }
         })
-
-        // console.log(this.dateFrom);
-        // console.log(this.dateTo);
-
 
 
     }

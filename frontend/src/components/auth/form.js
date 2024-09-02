@@ -32,7 +32,6 @@ export class Form {
                 name: 'password',
                 id: 'password',
                 element: null,
-                // regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
                 regex: /^(?=.*\d)(?=.*[A-ZА-Я]).{8,}$/,
                 valid: false,
             },
@@ -50,7 +49,6 @@ export class Form {
                 name: 'password_repeat',
                 id: 'passwordRepeat',
                 element: null,
-                // regex: /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/,
                 regex: /^(?=.*\d)(?=.*[A-ZА-Я]).{8,}$/,
                 equal: this.passwordElement,
                 valid: false,
@@ -122,7 +120,6 @@ export class Form {
                             }
                             this.commonErrorElement.innerText = result.message;
                             this.commonErrorElement.style.display = 'block';
-                            // throw new Error(result.message);
                             return;
                         }
                         this.openNewRoute('/login');
@@ -131,7 +128,6 @@ export class Form {
                     return console.log(error);
                 }
             }
-            // else if (this.page === 'login') {
             try {
                 const result = await CustomHttp.request('/login', 'POST', false, {
                     email: email,
@@ -143,7 +139,6 @@ export class Form {
                     if (result.error || !result.response || (result.response && !result.response.tokens.accessToken || !result.response.tokens.refreshToken || !result.response.user.name || !result.response.user.lastName || !result.response.user.id)) {
                         this.commonErrorElement.innerText = result.response.message;
                         this.commonErrorElement.style.display = 'block';
-                        // throw new Error(result.message);
                         return;
                     }
 
@@ -152,15 +147,12 @@ export class Form {
                     this.openNewRoute('/');
                 } else {
                     this.commonErrorElement.style.display = 'block';
-                    // this.openNewRoute('/login');
                 }
             } catch (error) {
-                // this.commonErrorElement.innerText = result.response.message;
                 this.commonErrorElement.style.display = 'block';
                 console.log(error);
             }
 
-            // }
         }
     }
 

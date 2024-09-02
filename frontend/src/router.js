@@ -397,7 +397,7 @@ export class Router {
 
                 },
                 styles: [''],
-                scripts: ['moment.min.js','pikaday.js'],
+                scripts: ['moment.min.js', 'pikaday.js'],
             },
             {
                 // route: '/incomes-expenses/createitem',
@@ -468,7 +468,10 @@ export class Router {
 
             },
         ];
+
     }
+
+    inProgress = false;
 
     initEvents() {
         window.addEventListener('DOMContentLoaded', this.activateRoute.bind(this));
@@ -483,6 +486,8 @@ export class Router {
     }
 
     async clickHandler(e) {
+
+
         let element = null;
         if (e.target.nodeName === 'A') {
 
@@ -500,77 +505,85 @@ export class Router {
             }
 
             await this.openNewRoute(url);
+
         }
+
     }
 
     async activateRoute(e, oldRoute = null) {
-        if (oldRoute) {
-            this.currentRoute = this.routes.find(item => item.route === oldRoute);
-            if (this.currentRoute.styles && this.currentRoute.styles.length > 0 && this.currentRoute.styles[0] !== '') {
-                this.currentRoute.styles.forEach(style => {
-                    document.querySelector(`link[href='/css/${style}']`).remove();
-                });
-            }
-            if (this.currentRoute.scripts && this.currentRoute.scripts.length > 0 && this.currentRoute.scripts[0] !== '') {
-                this.currentRoute.scripts.forEach(script => {
-                    document.querySelector(`script[src='/js/${script}']`).remove();
-                });
-            }
-            if (this.currentRoute.unload && typeof this.currentRoute.unload === 'function') {
-                this.currentRoute.unload();
-            }
-        }
+        if (!this.inProgress) {
+            this.inProgress = true;
 
-        const urlRoute = window.location.pathname;
-        this.newRoute = this.routes.find(item => item.route === urlRoute);
-
-        if (this.newRoute) {
-            if (this.newRoute.styles && this.newRoute.styles.length > 0 && this.newRoute.styles[0] !== '') {
-                this.newRoute.styles.forEach(style => {
-                    FileService.loadPageStyle('/css/' + style, this.bootstrapStyleElement)
-                });
-            }
-            if (this.newRoute.scripts && this.newRoute.scripts.length > 0 && this.newRoute.scripts[0] !== '') {
-                for (const script of this.newRoute.scripts) {
-                    await FileService.loadPageScript('/js/' + script);
+            if (oldRoute) {
+                this.currentRoute = this.routes.find(item => item.route === oldRoute);
+                if (this.currentRoute.styles && this.currentRoute.styles.length > 0 && this.currentRoute.styles[0] !== '') {
+                    this.currentRoute.styles.forEach(style => {
+                        document.querySelector(`link[href='/css/${style}']`).remove();
+                    });
+                }
+                if (this.currentRoute.scripts && this.currentRoute.scripts.length > 0 && this.currentRoute.scripts[0] !== '') {
+                    this.currentRoute.scripts.forEach(script => {
+                        document.querySelector(`script[src='/js/${script}']`).remove();
+                    });
+                }
+                if (this.currentRoute.unload && typeof this.currentRoute.unload === 'function') {
+                    this.currentRoute.unload();
                 }
             }
 
-            if (this.newRoute.title) {
-                this.titlePageElement.innerText = this.newRoute.title + ' | Lumincoin';
-            }
+            const urlRoute = window.location.pathname;
+            this.newRoute = this.routes.find(item => item.route === urlRoute);
 
-            if (this.newRoute.filePathTemplate) {
-                let contentBlock = this.contentPageElement;
-                if (this.newRoute.useLayout) {
-                    if (!this.currentRoute || !this.currentRoute.useLayout) {
-                        this.contentPageElement.innerHTML = await fetch(this.newRoute.useLayout).then(response => response.text());
+            if (this.newRoute) {
+                if (this.newRoute.styles && this.newRoute.styles.length > 0 && this.newRoute.styles[0] !== '') {
+                    this.newRoute.styles.forEach(style => {
+                        FileService.loadPageStyle('/css/' + style, this.bootstrapStyleElement)
+                    });
+                }
+                if (this.newRoute.scripts && this.newRoute.scripts.length > 0 && this.newRoute.scripts[0] !== '') {
+                    for (const script of this.newRoute.scripts) {
+                        await FileService.loadPageScript('/js/' + script);
                     }
-                    contentBlock = document.getElementById('content-layout');
-                }
-                contentBlock.innerHTML = await fetch(this.newRoute.filePathTemplate).then(response => response.text());
-
-            }
-
-            const userInfo = Auth.getUserInfo();
-            const accessToken = localStorage.getItem(Auth.accessTokenKey);
-            if (userInfo && accessToken) {
-                this.profileNameElement = document.getElementById('username-layout');
-                if (this.profileNameElement) {
-                    this.profileNameElement.innerText = userInfo.name + ' ' + userInfo.lastName;
                 }
 
+                if (this.newRoute.title) {
+                    this.titlePageElement.innerText = this.newRoute.title + ' | Lumincoin';
+                }
+
+                if (this.newRoute.filePathTemplate) {
+                    let contentBlock = this.contentPageElement;
+                    if (this.newRoute.useLayout) {
+                        if (!this.currentRoute || !this.currentRoute.useLayout) {
+                            this.contentPageElement.innerHTML = await fetch(this.newRoute.useLayout).then(response => response.text());
+                        }
+                        contentBlock = document.getElementById('content-layout');
+                    }
+                    contentBlock.innerHTML = await fetch(this.newRoute.filePathTemplate).then(response => response.text());
+
+                }
+
+                const userInfo = Auth.getUserInfo();
+                const accessToken = localStorage.getItem(Auth.accessTokenKey);
+                if (userInfo && accessToken) {
+                    this.profileNameElement = document.getElementById('username-layout');
+                    if (this.profileNameElement) {
+                        this.profileNameElement.innerText = userInfo.name + ' ' + userInfo.lastName;
+                    }
+
+                }
+
+                if (this.newRoute.load && typeof this.newRoute.load === 'function') {
+                    this.newRoute.load();
+                    this.inProgress = false;
+                }
+
+
+            } else {
+                console.log('Route not found');
+                history.pushState({}, '', '/404');
+                this.inProgress = false;
+                await this.activateRoute();
             }
-
-            if (this.newRoute.load && typeof this.newRoute.load === 'function') {
-                this.newRoute.load();
-            }
-
-
-        } else {
-            console.log('Route not found');
-            history.pushState({}, '', '/404');
-            await this.activateRoute();
         }
 
     }

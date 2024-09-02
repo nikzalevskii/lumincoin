@@ -20,7 +20,6 @@ export class Logout {
 
         Auth.removeTokens();
         Auth.removeUserInfo();
-        // console.log(result);
         this.openNewRoute('/login');
     }
 

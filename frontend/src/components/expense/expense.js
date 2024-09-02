@@ -11,7 +11,6 @@ export class Expense {
         for (let i = 0; i < this.expensesDelete.length; i++) {
             this.expensesDelete[i].addEventListener('click', function () {
                 document.getElementById('expense-popup').style.display = 'block';
-                // document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.45)';
             })
         }
 

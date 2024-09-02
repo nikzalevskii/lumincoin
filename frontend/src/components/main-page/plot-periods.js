@@ -66,11 +66,9 @@ export class PlotPeriods {
         chartIncome = new Chart(ctxIncome, {
             type: 'pie',
             data: {
-                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Orange'],
                 labels: incomePlotCategory,
                 datasets: [{
-                    label: '# of Votes',
-                    // data: [12, 19, 3, 5, 3],
+                    label: 'значение ',
                     data:  incomePlotAmount,
                     borderWidth: 1
                 }]
@@ -101,11 +99,9 @@ export class PlotPeriods {
         chartExpense = new Chart(ctxExpense, {
             type: 'pie',
             data: {
-                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Orange'],
                 labels: expensePlotCategory,
                 datasets: [{
-                    label: '# of Votes',
-                    // data: [12, 19, 3, 2, 3],
+                    label: 'значение ',
                     data: expensePlotAmount,
                     borderWidth: 1
                 }]

@@ -91,7 +91,6 @@ export class IncomeExpensesEdit {
 
 
     async showItem(item) {
-        // this.typeSelect.options[this.typeSelect.selectedIndex].value = item.amount;
         let categories = await this.findCategory(item.type);
         await this.addCategory(categories);
         this.typeSelect.value = item.type;

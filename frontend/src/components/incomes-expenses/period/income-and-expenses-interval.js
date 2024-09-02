@@ -1,4 +1,3 @@
-import {PlotPeriods} from "../../main-page/plot-periods";
 import {IncomeAndExpensesPeriods} from "./income-and-expenses-periods";
 
 export class IncomeAndExpensesInterval {
@@ -16,7 +15,7 @@ export class IncomeAndExpensesInterval {
 
         let pickerFrom = new Pikaday({
             field: document.getElementById('dateFrom'),
-            format: 'D MMM YYYY',
+            format: 'DD-MM-YYYY',
             i18n: {
                 previousMonth : 'Предыдущий Месяц',
                 nextMonth     : 'Следующий Месяц',
@@ -25,12 +24,11 @@ export class IncomeAndExpensesInterval {
                 weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
             },
             onSelect: function() {
-                // console.log(this.getMoment().format('YYYY-MM-DD'));
             }
         });
         let pickerTo = new Pikaday({
             field: document.getElementById('dateTo'),
-            format: 'D MMM YYYY',
+            format: 'DD-MM-YYYY',
             i18n: {
                 previousMonth : 'Предыдущий Месяц',
                 nextMonth     : 'Следующий Месяц',
@@ -39,7 +37,6 @@ export class IncomeAndExpensesInterval {
                 weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
             },
             onSelect: function() {
-                // console.log(this.getMoment().format('YYYY-MM-DD'));
             }
         });
 
@@ -64,14 +61,8 @@ export class IncomeAndExpensesInterval {
             }
         })
 
-        // this.getData().then();
     }
 
-    // async getData(){
-    //     if (this.dateFrom && this.dateTo) {
-    //         IncomeAndExpensesPeriods.getOperations(this.dateFrom, this.dateTo, this.openNewRoute).then();
-    //     }
-    // }
 
 
 }
