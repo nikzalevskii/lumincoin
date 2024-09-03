@@ -9,7 +9,6 @@ export class Auth {
 
     static async processUnauthorizedResponse(responseFrom) {
         this.isTokenRefreshing = true;
-        // const refreshToken = localStorage.getItem(this.refreshTokenKey);
         const refreshToken = this.getAuthInfo(this.refreshTokenKey);
         if (refreshToken) {
             const response = await fetch(config.host + '/refresh', {
@@ -22,18 +21,20 @@ export class Auth {
                     refreshToken: refreshToken
                 }),
             });
-            this.isTokenRefreshing = false;
+
             console.log('Запрос на обновление токена прошел. AUTH.JS');
             console.log(responseFrom);
             if (response && response.status === 200) {
                 const result = await response.json();
                 if (result && !result.error) {
                     this.setTokens(result.tokens.accessToken, result.tokens.refreshToken);
+                    this.isTokenRefreshing = false;
                     return true;
                 }
             }
         }
         this.removeTokens();
+        this.isTokenRefreshing = false;
         return false;
     }
 
