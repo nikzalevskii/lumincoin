@@ -45,20 +45,14 @@ export class PlotsInterval {
         this.dateFrom = null;
         this.dateTo = null;
         document.getElementById('dateFrom-main').addEventListener('change', () => {
-            console.log(pickerFrom.getMoment().format('YYYY-MM-DD'));
             this.dateFrom = pickerFrom.getMoment().format('YYYY-MM-DD');
             if (this.dateFrom && this.dateTo) {
-                console.log(this.dateFrom);
-                console.log(this.dateTo);
                 PlotPeriods.getOperations(this.dateFrom, this.dateTo, openNewRoute).then();
             }
         })
         document.getElementById('dateTo-main').addEventListener('change', () => {
-            console.log(pickerTo.getMoment().format('YYYY-MM-DD'));
             this.dateTo = pickerTo.getMoment().format('YYYY-MM-DD');
             if (this.dateFrom && this.dateTo) {
-                console.log(this.dateFrom);
-                console.log(this.dateTo);
                 PlotPeriods.getOperations(this.dateFrom, this.dateTo, openNewRoute).then();
             }
         })

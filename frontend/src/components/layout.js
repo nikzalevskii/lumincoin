@@ -1,4 +1,3 @@
-import {Auth} from "../services/auth";
 import {CustomHttp} from "../services/custom-http";
 
 export class Layout {
@@ -75,11 +74,10 @@ export class Layout {
                 return alert('Возникла ошибка при запросе баланса. Обратитесь в поддержку');
             }
 
-       balanceItem.innerText = result.response.balance + '$';
+            balanceItem.innerText = result.response.balance + '$';
 
         }
     }
-
 
 
 }

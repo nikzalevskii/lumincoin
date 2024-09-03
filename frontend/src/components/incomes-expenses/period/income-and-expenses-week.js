@@ -8,9 +8,7 @@ export class IncomeAndExpensesWeek {
         const date = new Date(), y = date.getFullYear(), m = date.getMonth();
         const dayAtWeek = date.getDay() - 1;
         const dayLastAtWeek = 7 - date.getDay();
-        // const firstDayWeek =  new Date(y, m, date.getDate() - dayAtWeek + 1).toISOString().slice(0, 10);
         const firstDayWeek =  new Date(y, m, date.getDate() - dayAtWeek + 1).toISOString().slice(0, 10);
-        // const lastDayWeek =  new Date(y, m, date.getDate() + 1).toISOString().slice(0, 10);
         const lastDayWeek =  new Date(y, m, date.getDate() + 1 + dayLastAtWeek).toISOString().slice(0, 10);
 
         document.getElementById('week').classList.add('flow-period-active');
@@ -20,10 +18,6 @@ export class IncomeAndExpensesWeek {
         document.getElementById('all-period').classList.remove('flow-period-active');
         document.getElementById('interval').classList.remove('flow-period-active');
 
-        // console.log(dayAtWeek);
-        // console.log(daylastAtWeek);
-        // console.log(firstDayWeek);
-        // console.log(lastDayWeek);
 
         IncomeAndExpensesPeriods.getOperations(firstDayWeek, lastDayWeek, this.openNewRoute).then();
 

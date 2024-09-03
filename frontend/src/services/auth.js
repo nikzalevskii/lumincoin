@@ -7,7 +7,7 @@ export class Auth {
     static isTokenRefreshing = false;
 
 
-    static async processUnauthorizedResponse(responseFrom) {
+    static async processUnauthorizedResponse() {
         this.isTokenRefreshing = true;
         const refreshToken = this.getAuthInfo(this.refreshTokenKey);
         if (refreshToken) {
@@ -21,9 +21,6 @@ export class Auth {
                     refreshToken: refreshToken
                 }),
             });
-
-            console.log('Запрос на обновление токена прошел. AUTH.JS');
-            console.log(responseFrom);
             if (response && response.status === 200) {
                 const result = await response.json();
                 if (result && !result.error) {

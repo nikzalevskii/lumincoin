@@ -5,7 +5,6 @@ export class IncomeAndExpensesPeriods {
 
     static async getOperations(dateFrom, dateTo, openNewRoute) {
         const result = await CustomHttp.request('/operations?period=interval&dateFrom=' + dateFrom + '&dateTo=' + dateTo);
-        // console.log(result.response);
         if (result) {
             if (result.redirect) {
                 return openNewRoute(result.redirect);
@@ -15,13 +14,11 @@ export class IncomeAndExpensesPeriods {
             }
         }
 
-        // console.log(result.response);
         this.showOperations(result.response);
     }
 
     static async getAllOperations(openNewRoute) {
         const result = await CustomHttp.request('/operations');
-        // console.log(result.response);
         if (result) {
             if (result.redirect) {
                 return openNewRoute(result.redirect);
@@ -31,20 +28,16 @@ export class IncomeAndExpensesPeriods {
             }
         }
 
-        // console.log(result.response);
         this.showOperations(result.response);
     }
 
     static showOperations(operations) {
-        // console.log('show operations');
         const tableBlock = document.getElementById('table');
         tableBlock.innerText = ' ';
         for (let i = 0; i < operations.length; i++) {
-            console.log()
             if (operations[i].category) {
                 const trElement = document.createElement('tr');
                 trElement.classList.add('flow-table-block');
-                // trElement.insertCell().innerText = i + 1;
                 const number = trElement.insertCell();
                 number.innerText = i + 1;
                 number.classList.add('flow-table-text');
@@ -56,7 +49,6 @@ export class IncomeAndExpensesPeriods {
 
                 const category = trElement.insertCell();
                 category.innerText = operations[i].category.toLowerCase();
-                // category.innerText = operations[i].category;
                 category.classList.add('flow-table-text');
 
 

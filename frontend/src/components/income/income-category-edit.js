@@ -11,9 +11,6 @@ export class IncomeCategoryEdit {
         if (!this.id) {
             return this.openNewRoute('/');
         }
-        console.log(this.id);
-
-        // this.editCategory().then();
 
         this.getIncome().then();
         document.getElementById('save-category-income').addEventListener('click', this.editCategory.bind(this));
@@ -22,11 +19,9 @@ export class IncomeCategoryEdit {
         document.getElementById('income-block').addEventListener('click', this.toIncome.bind(this))
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this));
 
-        // console.log('INCOME-CREATE')
     }
 
     async editCategory() {
-        console.log(this.incomeValueInput.value);
         const result = await CustomHttp.request('/categories/income/' + this.id, 'PUT', true, {
             title: this.incomeValueInput.value,
         });
@@ -35,8 +30,6 @@ export class IncomeCategoryEdit {
             alert('Возникла ошибка при редактировании дохода. Обратитесь в поддержку');
             this.openNewRoute('/');
         }
-        console.log(result);
-        console.log(result.response);
         this.openNewRoute('/income');
     }
 

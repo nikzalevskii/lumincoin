@@ -1,14 +1,8 @@
 import {CustomHttp} from "../../services/custom-http";
-import {Auth} from "../../services/auth";
 
 export class Income {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
-        // let token  = Auth.getAuthInfo(Auth.accessTokenKey);
-        // if (!token) {
-        //     // токена нет
-        //     return this.openNewRoute('/login');
-        // }
 
         this.incomeElement = null;
 

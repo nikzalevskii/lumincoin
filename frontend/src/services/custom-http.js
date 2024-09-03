@@ -37,9 +37,6 @@ export class CustomHttp {
             return result;
         }
 
-
-        console.log(result.response);
-        console.log(response);
         if (response.status < 200 || response.status >= 300) {
             result.error = true;
             if (response.status === 401 && useAuth) {
@@ -48,23 +45,15 @@ export class CustomHttp {
                     result.redirect = '/login';
                 } else {
                     if (!Auth.isTokenRefreshing) {
-                        console.log('Токен не в процессе обвноления. Можно делать запрос на обновление');
-                        console.log(response);
                         //2-  токен устарел/невалидный (надо обновить)
-                        const updateTokenResult = await Auth.processUnauthorizedResponse(response);
+                        const updateTokenResult = await Auth.processUnauthorizedResponse();
                         if (updateTokenResult) {
-                            console.log('Токен успешно обновился');
-                            console.log(response);
                             // запрос повторно
                             return await this.request(url, method, useAuth, body);
                         } else {
-                            console.log('ОШИБКА. Токен не обновился!!!');
-                            console.log(response);
                             result.redirect = '/login';
                         }
                     } else {
-                        console.log('Токен в процессе обвноления. Нельзя делать запрос на обновление');
-                        console.log(response);
                         return await this.request(url, method, useAuth, body);
                     }
                 }

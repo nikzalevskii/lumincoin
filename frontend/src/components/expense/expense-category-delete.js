@@ -12,7 +12,6 @@ export class ExpenseCategoryDelete {
         if (!this.id) {
             return this.openNewRoute('/');
         }
-        // console.log(this.id);
 
         document.getElementById('expense-wrap').style.display = 'block';
         document.body.style.boxShadow = '2px 2px 6px 1px #d2d2d2';
@@ -34,12 +33,9 @@ export class ExpenseCategoryDelete {
                 return alert('Возникла ошибка при запросе расходов. Обратитесь в поддержку');
             }
         }
-        // console.log(result.response);
         const category = result.response.find(item => parseInt(item.id) === parseInt(this.id));
         const items = await this.getItems(this.startAllPeriod, this.finishAllPeriod, this.openNewRoute);
-        // console.log(items)
         const incomesItemsToDelete = items.filter(item => item.category === category.title);
-        // console.log(incomesItemsToDelete);
         for (const item of incomesItemsToDelete) {
             const result = await CustomHttp.request('/operations/' + item.id, 'DELETE', true);
 
@@ -47,9 +43,6 @@ export class ExpenseCategoryDelete {
                 alert('Возникла ошибка при удалении дохода/расхода. Обратитесь в поддержку');
                 this.openNewRoute('/');
             }
-            // console.log(result);
-            // console.log(result.response);
-            // this.openNewRoute('/incomes-expenses');
         }
         // this.openNewRoute('/income');
         await this.deleteCategory();
@@ -62,8 +55,6 @@ export class ExpenseCategoryDelete {
             alert('Возникла ошибка при удалении расхода. Обратитесь в поддержку');
             this.openNewRoute('/');
         }
-        // console.log(result);
-        // console.log(result.response);
         this.openNewRoute('/expense');
     }
 

@@ -11,7 +11,6 @@ export class ExpenseCategoryEdit {
         if (!this.id) {
             return this.openNewRoute('/');
         }
-        // console.log(this.id);
 
         this.getExpense().then();
         document.getElementById('save-category-expense').addEventListener('click', this.editCategory.bind(this));
@@ -19,11 +18,9 @@ export class ExpenseCategoryEdit {
         document.getElementById('income-block').addEventListener('click', this.toIncome.bind(this))
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this));
 
-        console.log('EXPENSE-EDIT')
     }
 
     async editCategory() {
-        console.log(this.expenseValueInput.value);
         const result = await CustomHttp.request('/categories/expense/' + this.id, 'PUT', true, {
             title: this.expenseValueInput.value,
         });
@@ -32,8 +29,6 @@ export class ExpenseCategoryEdit {
             alert('Возникла ошибка при редактировании расхода. Обратитесь в поддержку');
             this.openNewRoute('/');
         }
-        console.log(result);
-        console.log(result.response);
         this.openNewRoute('/expense');
     }
 

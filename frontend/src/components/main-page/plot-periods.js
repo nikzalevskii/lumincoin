@@ -34,8 +34,6 @@ export class PlotPeriods {
         let expensePlotCategory = [];
         let expensePlotAmount = [];
 
-        // console.log(incomes);
-        // console.log(expenses);
 
         incomesRes.forEach(item => {
             incomePlotCategory.push(item.category);
@@ -46,7 +44,6 @@ export class PlotPeriods {
             expensePlotAmount.push(item.amount);
         });
 
-        // let chartIncome = null;
 
         this.getChart(incomePlotCategory, incomePlotAmount, expensePlotCategory, expensePlotAmount);
 
@@ -144,8 +141,6 @@ export class PlotPeriods {
         let expensePlotCategory = [];
         let expensePlotAmount = [];
 
-        // console.log(incomes);
-        // console.log(expenses);
 
         incomesRes.forEach(item => {
             incomePlotCategory.push(item.category);
@@ -229,8 +224,6 @@ export class PlotPeriods {
             return acc;
         }, {});
         const res = Object.values(resObj);
-        // console.log(resObj);
-        // console.log(res3);
 
         return res;
 

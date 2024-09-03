@@ -14,7 +14,6 @@ import {Layout} from "./components/layout";
 import {FileService} from "./services/file-service";
 import {IncomeCategoryDelete} from "./components/income/income-category-delete";
 import {ExpenseCategoryDelete} from "./components/expense/expense-category-delete";
-import {IncomesExpensesCreateItem} from "./components/incomes-expenses/incomes-expenses-create-item";
 import {IncomeExpensesDelete} from "./components/incomes-expenses/income-expenses-delete";
 import {IncomeExpensesEdit} from "./components/incomes-expenses/income-expenses-edit";
 import {IncomeAndExpensesWeek} from "./components/incomes-expenses/period/income-and-expenses-week";

@@ -12,7 +12,6 @@ export class ExpenseCategoryCreate {
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this));
 
 
-        console.log('INCOME-CREATE')
     }
 
     async createNewExpenseCategory() {
