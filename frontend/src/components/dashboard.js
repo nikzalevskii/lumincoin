@@ -10,13 +10,9 @@ export class Dashboard {
         document.getElementById('user-block').addEventListener('click', function () {
             document.getElementById('drop-logout').classList.add('dropdown-menu-show');
         })
-        document.getElementById('categories').addEventListener('click', function () {
-            document.getElementById('drop-logout').classList.add('dropdown-menu-show');
-        })
 
 
     }
-
 
 
 }

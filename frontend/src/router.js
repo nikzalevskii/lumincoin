@@ -35,6 +35,8 @@ export class Router {
         this.contentPageElement = document.getElementById('content');
         this.bootstrapStyleElement = document.getElementById('bootstrap_style');
 
+
+
         this.initEvents();
 
         this.routes = [
