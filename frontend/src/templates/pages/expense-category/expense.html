@@ -1,83 +1,31 @@
 <section class="expenses-section">
     <h1 class="expense-title">Расходы</h1>
-    <div class="expenses">
-        <div class="expense">
-            <p class="expense-text">Еда</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Жильё</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Здоровье</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Кафе</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Авто</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Одежда</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Развлечения</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Счета</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
-        <div class="expense">
-            <p class="expense-text">Спорт</p>
-            <div class="expense-actions">
-                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
-            </div>
-        </div>
+    <div class="expenses" id="expensesElement">
+        <!--        <div class="expense">-->
+        <!--            <p class="expense-text">Еда</p>-->
+        <!--            <div class="expense-actions">-->
+        <!--                <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>-->
+        <!--                <a class="expense-category-delete">Удалить</a>-->
+        <!--            </div>-->
+        <!--        </div>-->
         <div class="expense expense-new" id="add-expense">
             <p class="expense-text"></p>
             <div class="expense-actions">
                 <a href="/expense/category-edit" class="expense-category-edit">Редактировать</a>
-                <a class="expense-category-delete">Удалить</a>
+                <a href="income/category-delete?id=" class="expense-category-delete">Удалить</a>
             </div>
             <a href="/expense/category-create" class="expense-add text-center">+</a>
         </div>
     </div>
+
+</section>
+<div class="expense-wrap" id="expense-wrap">
     <div class="expense-popup" id="expense-popup">
-        <p class="expense-popup-title">Вы действительно хотите удалить категорию? Связанные расходы будут удалены навсегда.</p>
+        <p class="expense-popup-title">Вы действительно хотите удалить категорию? Связанные расходы будут удалены
+            навсегда.</p>
         <div class="expense-popup-actions">
-            <a href="javascript:void(0)" class="expense-popup-delete-yes">Да, удалить</a>
+            <a id="expense-category-delete-popup" class="expense-popup-delete-yes">Да, удалить</a>
             <a href="/expense" class="expense-popup-delete-no">Не удалять</a>
         </div>
     </div>
-</section>
+</div>

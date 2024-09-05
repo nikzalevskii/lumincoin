@@ -8,6 +8,7 @@ module.exports = {
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
     devServer: {
         static: {
@@ -32,23 +33,25 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
+            baseUrl: '/',
         }),
         new CopyPlugin({
             patterns: [
                 { from: "./src/templates", to: "templates" },
                 { from: "./src/static/images", to: "images" },
-                { from: "./modules/all.min.css", to: "css" },
-                { from: "./modules/webfonts", to: "webfonts" },
+                { from: "./node_modules/fontawesome-free/css/all.min.css", to: "css" },
+                { from: "./node_modules/fontawesome-free/webfonts", to: "webfonts" },
                 { from: "./node_modules/bootstrap/dist/css/bootstrap.min.css", to: "css" },
                 { from: "./node_modules/bootstrap-icons/font/bootstrap-icons.min.css", to: "css" },
-                { from: "./modules/fontawesome.min.js", to: "js" },
+                { from: "./node_modules/fontawesome-free/js/fontawesome.min.js", to: "js" },
                 { from: "./node_modules/bootstrap/dist/js/bootstrap.min.js", to: "js" },
                 { from: "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", to: "js" },
-                { from: "./modules/sidebars.css", to: "css" },
-                { from: "./modules/sidebars.js", to: "js" },
-                // { from: "./node_modules/chart.js/dist/chart.js", to: "js" },
-                { from: "./modules/chart.js", to: "js" },
-                // { from: "./src/components/layout.js", to: "js" },
+                { from: "./node_modules/startbootstrap-simple-sidebar/dist/css/styles.css", to: "css" },
+                { from: "./node_modules/startbootstrap-simple-sidebar/dist/js/scripts.js", to: "js" },
+                { from: "./node_modules/chart.js/dist/chart.umd.js", to: "js" },
+                { from: "./node_modules/pikaday/pikaday.js", to: "js" },
+                { from: "./node_modules/moment/min/moment.min.js", to: "js" },
+                { from: "./node_modules/pikaday/css/pikaday.css", to: "css" },
             ],
         }),
     ],

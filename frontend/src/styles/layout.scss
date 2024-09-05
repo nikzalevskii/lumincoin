@@ -5,8 +5,13 @@
     box-sizing: border-box;
     font-size: 14px;
 
+
     .aside-div {
-      height: 100vh;
+      //height: 100vh;
+      //height: 100%;
+      height: max(100%, 100vh);
+      position: relative;
+
       border-right: 1px solid #D9D9D9;
       //font-size: 14px;
       width: 224px;
@@ -84,29 +89,26 @@
         }
 
 
-
         .category-block {
 
           .category {
-            //display: block;
-            //text-decoration: none;
-            padding: 12px 16px;
             cursor: pointer;
-
+            //position: relative;
 
             .category-div {
-              //padding: 12px 16px;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
               position: relative;
               cursor: pointer;
+              width: inherit;
+
 
               .categories-text {
+                padding: 12px 16px;
                 position: relative;
                 text-decoration: none;
                 display: block;
                 color: black;
+                width: inherit;
+                box-sizing: border-box;
 
               }
 
@@ -131,16 +133,19 @@
             }
           }
 
+
         }
 
         .category-block-active {
           border: 1px solid #0D6EFD;
-          border-radius: 0px 0px 5px 5px;
+          //border-radius: 0px 0px 5px 5px;
+          border-radius: 5px;
           background-color: #0D6EFD;
 
           .category-div {
             #categories-text {
               color: white;
+
               .categories-text:after {
                 background-image: url("../static/images/sidebar_category-arrow-active.svg");
                 transform: rotate(90deg);
@@ -188,6 +193,7 @@
               }
             }
           }
+
           .show {
             display: block;
           }
@@ -199,6 +205,7 @@
             #income-block {
               background-color: #0D6EFD;
               color: white;
+
               #income-block-link {
                 color: white;
               }
@@ -299,6 +306,8 @@
       .dropdown-toggle {
         cursor: pointer;
         margin-left: 20px;
+        //white-space: normal;
+        width: min-content;
 
         .username {
           color: #052C65;
@@ -311,7 +320,6 @@
 
     }
   }
-
 
 
 }

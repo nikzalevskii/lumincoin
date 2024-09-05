@@ -1,20 +1,50 @@
+import {UrlUtils} from "../../utils/url-utils";
+import {CustomHttp} from "../../services/custom-http";
+
 export class ExpenseCategoryEdit {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
 
-        document.getElementById('categories').classList.add('collapsed');
-        document.getElementById('orders-collapse').classList.add('show');
-        document.getElementById('category-block').classList.add('category-block-active');
-        document.getElementById('category-block').classList.add('category-expense-active');
-        document.getElementById('categories-text').classList.add('categories-text-active');
+        this.expenseValueInput = document.getElementById('category-expense-value');
+        this.id = UrlUtils.getUrlParam('id');
 
-        document.getElementById('main-page').classList.remove('active');
-        document.getElementById('main-page').classList.add('main-active-off-picture');
+        if (!this.id) {
+            return this.openNewRoute('/');
+        }
+
+        this.getExpense().then();
+        document.getElementById('save-category-expense').addEventListener('click', this.editCategory.bind(this));
 
         document.getElementById('income-block').addEventListener('click', this.toIncome.bind(this))
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this));
 
-        console.log('EXPENSE-EDIT')
+    }
+
+    async editCategory() {
+        const result = await CustomHttp.request('/categories/expense/' + this.id, 'PUT', true, {
+            title: this.expenseValueInput.value,
+        });
+
+        if (result.redirect || result.error || !result.response || (result.response && (result.response.error))) {
+            alert('Возникла ошибка при редактировании расхода. Обратитесь в поддержку');
+            this.openNewRoute('/');
+        }
+        this.openNewRoute('/expense');
+    }
+
+    async getExpense() {
+        const result = await CustomHttp.request('/categories/expense/' + this.id);
+        if (result) {
+            if (result.redirect) {
+                return this.openNewRoute(result.redirect);
+            }
+            if (result.error || result.response.error || !result.response) {
+                return alert('Возникла ошибка при запросе расхода. Обратитесь в поддержку');
+            }
+            this.expenseValueInput.value = result.response.title;
+        }
+        return result.response;
+
     }
 
     async toIncome() {

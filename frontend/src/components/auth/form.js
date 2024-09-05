@@ -1,12 +1,11 @@
 import {CustomHttp} from "../../services/custom-http";
 import {Auth} from "../../services/auth";
-import config from "../../../config/config";
 
 export class Form {
     constructor(page, openNewRoute) {
         this.openNewRoute = openNewRoute;
 
-        if (Auth.getUserInfo(Auth.accessTokenKey)) {
+        if (Auth.getUserInfo(Auth.accessTokenKey) && Auth.getUserInfo(Auth.accessTokenKey).length > 0) {
             return this.openNewRoute('/');
         }
 
@@ -32,7 +31,7 @@ export class Form {
                 name: 'password',
                 id: 'password',
                 element: null,
-                regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                regex: /^(?=.*\d)(?=.*[A-ZА-Я]).{8,}$/,
                 valid: false,
             },
         ];
@@ -49,7 +48,7 @@ export class Form {
                 name: 'password_repeat',
                 id: 'passwordRepeat',
                 element: null,
-                regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                regex: /^(?=.*\d)(?=.*[A-ZА-Я]).{8,}$/,
                 equal: this.passwordElement,
                 valid: false,
             });
@@ -103,7 +102,7 @@ export class Form {
             const password = this.passwordElement.value;
             if (this.page === 'signup') {
                 try {
-                    const result = await CustomHttp.request('/signup', 'POST', {
+                    const result = await CustomHttp.request('/signup', 'POST', false, {
                         name: this.nameElement.value.split(' ')[1],
                         lastName: this.nameElement.value.split(' ')[0],
                         email: email,
@@ -111,11 +110,15 @@ export class Form {
                         passwordRepeat: this.passwordRepeatElement.value
                     });
 
-                    console.log(result);
                     if (result) {
-                        if (result.error || !result.user.id || !result.user.email || !result.user.name || !result.user.lastName) {
+                        if (result.error || !result.response || (result.response && !result.response.user.id || !result.response.user.email || !result.response.user.name || !result.response.user.lastName)) {
+                            if (result.response.message === 'User with given email already exist') {
+                                this.commonErrorElement.innerText = 'Пользователь с данным email уже существует';
+                                this.commonErrorElement.style.display = 'block';
+                                return;
+                            }
+                            this.commonErrorElement.innerText = result.message;
                             this.commonErrorElement.style.display = 'block';
-                            // throw new Error(result.message);
                             return;
                         }
                         this.openNewRoute('/login');
@@ -124,35 +127,31 @@ export class Form {
                     return console.log(error);
                 }
             }
-            // else if (this.page === 'login') {
-                try {
-                    const result = await CustomHttp.request('/login', 'POST', {
-                        email: email,
-                        password: password,
-                        rememberMe: this.rememberMeElement.checked
-                    });
+            try {
+                const result = await CustomHttp.request('/login', 'POST', false, {
+                    email: email,
+                    password: password,
+                    rememberMe: this.rememberMeElement.checked
+                });
 
-                    console.log(result);
-                    if (result) {
-                        if (result.error || !result.tokens.accessToken || !result.tokens.refreshToken || !result.user.name || !result.user.lastName || !result.user.id) {
-                            this.commonErrorElement.style.display = 'block';
-                            // throw new Error(result.message);
-                            return;
-                        }
-
-                        Auth.setTokens(result.tokens.accessToken, result.tokens.refreshToken);
-                        Auth.setUserInfo(result.user.id, result.user.name, result.user.lastName);
-
-                        this.openNewRoute('/');
-                    } else {
+                if (result) {
+                    if (result.error || !result.response || (result.response && !result.response.tokens.accessToken || !result.response.tokens.refreshToken || !result.response.user.name || !result.response.user.lastName || !result.response.user.id)) {
+                        this.commonErrorElement.innerText = result.response.message;
                         this.commonErrorElement.style.display = 'block';
-                        // this.openNewRoute('/login');
+                        return;
                     }
-                } catch (error) {
-                    console.log(error);
-                }
 
-            // }
+                    Auth.setTokens(result.response.tokens.accessToken, result.response.tokens.refreshToken);
+                    Auth.setUserInfo(result.response.user.id, result.response.user.name, result.response.user.lastName);
+                    this.openNewRoute('/');
+                } else {
+                    this.commonErrorElement.style.display = 'block';
+                }
+            } catch (error) {
+                this.commonErrorElement.style.display = 'block';
+                console.log(error);
+            }
+
         }
     }
 

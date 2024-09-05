@@ -1,22 +1,35 @@
+import {CustomHttp} from "../../services/custom-http";
+
 export class ExpenseCategoryCreate {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
 
+        this.categoryValueElement = document.getElementById('new-expense-category-name');
 
-        document.getElementById('categories').classList.add('collapsed');
-        document.getElementById('orders-collapse').classList.add('show');
-        document.getElementById('category-block').classList.add('category-block-active');
-        document.getElementById('category-block').classList.add('category-expense-active');
-        document.getElementById('categories-text').classList.add('categories-text-active');
-
-        document.getElementById('main-page').classList.remove('active');
-        document.getElementById('main-page').classList.add('main-active-off-picture');
+        document.getElementById('create-expense-category').addEventListener('click', this.createNewExpenseCategory.bind(this));
 
         document.getElementById('income-block').addEventListener('click', this.toIncome.bind(this));
         document.getElementById('expense-block').addEventListener('click', this.toExpense.bind(this));
 
 
-        console.log('INCOME-CREATE')
+    }
+
+    async createNewExpenseCategory() {
+        const result = await CustomHttp.request('/categories/expense', 'POST', true, {
+            title: this.categoryValueElement.value,
+        });
+
+        if (result) {
+            if (result.error || !result.response || (result.response && !result.response.id || !result.response.title)) {
+                alert('Ошибка в добавлении категории');
+                this.openNewRoute('/');
+                return;
+            }
+            this.openNewRoute('/expense');
+
+
+        }
+
     }
 
     async toIncome() {

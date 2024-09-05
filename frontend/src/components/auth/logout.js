@@ -14,13 +14,12 @@ export class Logout {
     }
 
     async logout() {
-        const result = await CustomHttp.request('/logout', 'POST', {
+        const result = await CustomHttp.request('/logout', 'POST', false, {
             refreshToken: Auth.getAuthInfo(Auth.refreshTokenKey),
         });
 
         Auth.removeTokens();
         Auth.removeUserInfo();
-        console.log(result);
         this.openNewRoute('/login');
     }
 

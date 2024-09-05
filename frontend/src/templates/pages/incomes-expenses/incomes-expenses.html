@@ -1,0 +1,78 @@
+<section class="flow-section">
+    <h1 class="flow-title">Доходы и расходы</h1>
+    <div class="flow-action">
+        <a href="/incomes-expenses/create-income" class="flow-create-income">Создать доход</a>
+        <a href="/incomes-expenses/create-expense" class="flow-create-expense">Создать расход</a>
+    </div>
+    <div class="flow-period">
+        <a href="/incomes-expenses" id="today" class="flow-period-common flow-period-today flow-period-active">Сегодня</a>
+        <a href="/incomes-expenses/week" id="week" class="flow-period-common flow-period-week">Неделя</a>
+        <a href="/incomes-expenses/month" id="month" class="flow-period-common flow-period-month">Месяц</a>
+        <a href="/incomes-expenses/year" id="year" class="flow-period-common flow-period-year">Год</a>
+        <a href="/incomes-expenses/all-period" id="all-period" class="flow-period-common flow-period-year">Все</a>
+        <a href="/incomes-expenses/interval" id="interval" class="flow-period-common flow-period-interval">Интервал</a>
+        <div class="flow-period-select" id="interval-dates">
+            <div class="flow-period-select-since-text">c</div>
+            <input type="text" id="dateFrom" class="flow-period-select-since-data" placeholder="Выберите дату">
+            <div class="flow-period-select-to-text">по</div>
+            <input type="text" id="dateTo" class="flow-period-select-since-data" placeholder="Выберите дату">
+        </div>
+    </div>
+
+
+    <table class="table flow-table">
+        <thead class="flow-table-header">
+        <tr class="flow-table-header-block">
+            <th class="flow-table-header-text">№ Операции</th>
+            <th class="flow-table-header-text">Тип</th>
+            <th class="flow-table-header-text">Категория</th>
+            <th class="flow-table-header-text">Сумма</th>
+            <th class="flow-table-header-text">Дата</th>
+            <th class="flow-table-header-text">Комментарий</th>
+            <th class="flow-table-header-text"></th>
+        </tr>
+        </thead>
+        <tbody id="table">
+<!--        <tr class="flow-table-block">-->
+<!--            <td class="flow-table-text flow-table-text-1">1</td>-->
+<!--            <td class="flow-table-text flow-income">доход</td>-->
+<!--            <td class="flow-table-text">зарплата</td>-->
+<!--            <td class="flow-table-text">500$</td>-->
+<!--            <td class="flow-table-text">15.08.2024</td>-->
+<!--            <td class="flow-table-text"></td>-->
+<!--            <td class="flow-table-text flow-table-icons">-->
+<!--                <a>-->
+<!--                    <img class="flow-table-icons-delete" src="/images/trash_icon.svg" alt="">-->
+<!--                </a>-->
+<!--                <a href="/incomes-expenses/edititem">-->
+<!--                    <img class="flow-table-icons-edit" src="/images/pen_icon.svg" alt="">-->
+<!--                </a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="flow-table-block">-->
+<!--            <td class="flow-table-text" scope="row">2</td>-->
+<!--            <td class="flow-table-text flow-expense">расход</td>-->
+<!--            <td class="flow-table-text">жильё</td>-->
+<!--            <td class="flow-table-text">2 500$</td>-->
+<!--            <td class="flow-table-text">20.08.2024</td>-->
+<!--            <td class="flow-table-text"></td>-->
+<!--            <td class="flow-table-text flow-table-icons">-->
+<!--                <a>-->
+<!--                    <img class="flow-table-icons-delete" src="/images/trash_icon.svg" alt="">-->
+<!--                </a>-->
+<!--                <a href="/incomes-expenses/edititem">-->
+<!--                    <img class="flow-table-icons-edit" src="/images/pen_icon.svg" alt="">-->
+<!--                </a>-->
+<!--            </td>-->
+<!--        </tr>-->
+        </tbody>
+    </table>
+</section>
+
+<div class="item-popup" id="item-popup">
+    <p class="item-popup-title">Вы действительно хотите удалить операцию?</p>
+    <div class="item-popup-actions">
+        <a href="javascript:void(0)" class="item-popup-delete-yes">Да, удалить</a>
+        <a href="" class="item-popup-delete-no">Не удалять</a>
+    </div>
+</div>

@@ -42,7 +42,7 @@
 
     .flow-period-select {
 
-      display: flex;
+      display: none;
       align-items: center;
       flex-wrap: wrap;
       gap: 15px;
@@ -60,12 +60,17 @@
         cursor: pointer;
         color: #6C757D;
         text-align: center;
-        font-size: 16px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
         letter-spacing: 0.457px;
-        text-decoration: underline;
+        //text-decoration: underline;
+        outline: none;
+        max-width: 150px;
+        box-sizing: border-box;
+        border-radius: 2px;
+        border: 1px solid #6C757D;
       }
     }
   }

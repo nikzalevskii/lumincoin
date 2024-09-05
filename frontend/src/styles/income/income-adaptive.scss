@@ -28,9 +28,11 @@
 
           margin-bottom: 10px;
         }
+
         .income-actions {
 
           column-gap: 10px;
+
           .income-category-edit {
 
             padding: 12px 16px;
@@ -39,6 +41,7 @@
             font-size: 14px;
 
           }
+
           .income-category-delete {
 
             padding: 12px 16px;
@@ -58,9 +61,11 @@
         .income-text {
 
         }
+
         .income-actions {
 
         }
+
         .income-add {
 
         }
@@ -78,11 +83,13 @@
       padding: 40px;
       width: 530px;
       height: 184px;
+
       .income-popup-title {
         max-width: 450px;
         font-size: 20px;
         margin-bottom: 20px;
       }
+
       .income-popup-actions {
         column-gap: 12px;
 
@@ -105,8 +112,6 @@
     }
 
   }
-
-
 
 
 }
@@ -141,9 +146,11 @@
 
           margin-bottom: 10px;
         }
+
         .income-actions {
 
           column-gap: 8px;
+
           .income-category-edit {
 
             padding: 6px 8px;
@@ -152,6 +159,7 @@
             font-size: 12px;
 
           }
+
           .income-category-delete {
 
             padding: 6px 8px;
@@ -171,9 +179,11 @@
         .income-text {
 
         }
+
         .income-actions {
 
         }
+
         .income-add {
 
         }
@@ -183,32 +193,39 @@
 
     }
 
+
+  }
+
+  .income-wrap {
+
     .income-popup {
       z-index: 2;
-      top: calc(50% - 92px);
-      left: calc(50% - 265px);
+      top: calc(50% - 80px);
+      left: calc(50% - 220px);
       border-radius: 12px;
-      padding: 40px;
-      width: 530px;
-      height: 184px;
+      padding: 30px;
+      width: 440px;
+      height: 160px;
+
       .income-popup-title {
         max-width: 450px;
-        font-size: 20px;
+        font-size: 16px;
         margin-bottom: 20px;
       }
+
       .income-popup-actions {
         column-gap: 12px;
 
         .income-popup-delete-yes {
-          padding: 16px 12px;
-          border-radius: 5px;
-          font-size: 14px;
+          padding: 14px 10px;
+          border-radius: 4px;
+          font-size: 12px;
         }
 
         .income-popup-delete-no {
-          padding: 16px 12px;
-          border-radius: 5px;
-          font-size: 14px;
+          padding: 14px 10px;
+          border-radius: 4px;
+          font-size: 12px;
 
         }
 
@@ -216,10 +233,7 @@
 
 
     }
-
   }
-
-
 
 
 }
@@ -254,9 +268,11 @@
 
           margin-bottom: 8px;
         }
+
         .income-actions {
 
           column-gap: 8px;
+
           .income-category-edit {
 
             padding: 3px 5px;
@@ -265,6 +281,7 @@
             font-size: 8px;
 
           }
+
           .income-category-delete {
 
             padding: 3px 5px;
@@ -284,9 +301,11 @@
         .income-text {
 
         }
+
         .income-actions {
 
         }
+
         .income-add {
 
         }
@@ -296,43 +315,47 @@
 
     }
 
-    .income-popup {
-      z-index: 2;
-      top: calc(50% - 92px);
-      left: calc(50% - 265px);
-      border-radius: 12px;
-      padding: 40px;
-      width: 530px;
-      height: 184px;
-      .income-popup-title {
-        max-width: 450px;
-        font-size: 20px;
-        margin-bottom: 20px;
-      }
-      .income-popup-actions {
-        column-gap: 12px;
-
-        .income-popup-delete-yes {
-          padding: 16px 12px;
-          border-radius: 5px;
-          font-size: 14px;
-        }
-
-        .income-popup-delete-no {
-          padding: 16px 12px;
-          border-radius: 5px;
-          font-size: 14px;
-
-        }
-
-      }
-
-
-    }
 
   }
 
+  .income-wrap {
 
+  .income-popup {
+    z-index: 2;
+    top: calc(50% - 50px);
+    left: calc(50% - 130px);
+    border-radius: 10px;
+    padding: 15px;
+    width: 260px;
+    height: 100px;
+
+    .income-popup-title {
+      max-width: 280px;
+      font-size: 10px;
+      margin-bottom: 15px;
+    }
+
+    .income-popup-actions {
+      column-gap: 12px;
+
+      .income-popup-delete-yes {
+        padding: 10px 6px;
+        border-radius: 4px;
+        font-size: 9px;
+      }
+
+      .income-popup-delete-no {
+        padding: 10px 6px;
+        border-radius: 4px;
+        font-size: 9px;
+
+      }
+
+    }
+
+
+  }
+}
 
 
 }

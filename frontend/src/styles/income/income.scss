@@ -8,6 +8,7 @@
     line-height: normal;
   }
 
+
   .incomes {
     margin-top: 40px;
     display: flex;
@@ -21,6 +22,7 @@
       padding: 20px;
       border-radius: 12px;
       border: 1px solid #CED4DA;
+
       .income-text {
         color: #290661;
         font-size: 28px;
@@ -28,9 +30,11 @@
         line-height: normal;
         margin-bottom: 10px;
       }
+
       .income-actions {
         display: flex;
         column-gap: 10px;
+
         .income-category-edit {
           cursor: pointer;
           text-decoration: none;
@@ -46,6 +50,7 @@
           font-weight: 500;
           line-height: normal;
         }
+
         .income-category-delete {
           cursor: pointer;
           text-decoration: none;
@@ -73,12 +78,15 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+
       .income-text {
         display: none;
       }
+
       .income-actions {
         display: none;
       }
+
       .income-add {
         text-decoration: none;
       }
@@ -88,9 +96,23 @@
 
   }
 
+
+}
+
+.income-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.2);
+
   .income-popup {
-    display: none;
-    position: absolute;
+
+    //position: absolute;
+
+    position: fixed;
     z-index: 2;
     top: calc(50% - 92px);
     left: calc(50% - 265px);
@@ -98,9 +120,11 @@
     border: 1px #CED4DA;
     box-sizing: border-box;
     background: #FFF;
+
     padding: 40px;
     width: 530px;
     height: 184px;
+
     .income-popup-title {
       max-width: 450px;
       color: #290661;
@@ -110,12 +134,14 @@
       line-height: normal;
       margin-bottom: 20px;
     }
+
     .income-popup-actions {
       display: flex;
       column-gap: 12px;
       justify-content: center;
 
       .income-popup-delete-yes {
+        cursor: pointer;
         text-decoration: none;
         padding: 16px 12px;
         border-radius: 5px;
@@ -128,6 +154,7 @@
       }
 
       .income-popup-delete-no {
+        cursor: pointer;
         text-decoration: none;
         padding: 16px 12px;
         border-radius: 5px;
@@ -144,6 +171,5 @@
 
 
   }
-
 }
 
