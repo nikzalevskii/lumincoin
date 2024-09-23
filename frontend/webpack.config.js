@@ -4,7 +4,28 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: 'development',
-    entry: './src/app.js',
+    entry: './src/app.ts',
+    devtool: 'inline-source-map',
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
+            },
+        ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'dist'),
@@ -17,18 +38,6 @@ module.exports = {
         compress: true,
         port: 9001,
         historyApiFallback: true,
-    },
-    module: {
-        rules: [
-            {
-                test: /\.scss$/i,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader",
-                ],
-            },
-        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
