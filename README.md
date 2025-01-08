@@ -1,8 +1,6 @@
 # **Finance Manager**  
 A comprehensive web application for managing personal finances, including income and expense tracking, category management, and dynamic content updates.
 
-**Live Demo:** [https://yourdemo.onrender.com/](https://yourdemo.onrender.com/)
-
 ---
 
 ## **About**  
