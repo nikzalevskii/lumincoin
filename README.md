@@ -6,26 +6,27 @@ A comprehensive web application for managing personal finances, including income
 ## **About**  
 **Finance Manager** is a web-based platform designed to help users manage their financial activities effectively. The application allows users to track income and expenses, manage categories, view real-time financial data, and visualize trends through dynamic charts.  
 
-The project is built with Angular and TypeScript, offering a modern and intuitive user experience. This static site does not have a backend, but it fetches data dynamically from the backend (if needed). It includes a comprehensive frontend using Angular Material for a responsive and modern design.  
+The frontend is developed using **vanilla JavaScript** with **Bootstrap** for building a responsive and modern user interface. Webpack is used for bundling and optimizing the code, ensuring smooth performance across various devices.
 
 ---
 
 ## **Key Features**  
 - **User Authentication**: Secure login and registration process with form validation.  
-- **Income and Expense Tracking**: Manage and view transactions in organized tables.  
+- **Income and Expense Tracking**: Manage and view financial transactions in organized tables.  
 - **Category Management**: Create, edit, and delete financial categories for income and expenses.  
-- **Dynamic Charts**: Visual representation of financial data using Chart.js, with income and expense trends.  
-- **Real-Time Data**: Automatic updates of financial data fetched from backend (if available).  
-- **Responsive Design**: Mobile-friendly design using Angular Material for optimal viewing on any device.  
+- **Real-Time Updates**: Automatic updates of financial data fetched from the backend using **Express.js**.  
+- **Dynamic Charts**: Visual representation of financial trends using **Chart.js**.  
+- **Responsive Design**: Mobile-friendly design using **Bootstrap** for optimal user interaction.  
 - **Dynamic Filtering**: Filter transactions by date, category, or other custom criteria.  
+- **Webpack Build**: Efficient bundling and optimization using Webpack, improving load times.  
+- **Backend**: Node.js with **Express.js** for handling API requests and simple file-based storage.  
 
 ---
 
 ## **Technology Stack**  
-- **Frontend**: Angular, TypeScript, Angular Material  
-- **Styling**: Chart.js, Bootstrap, Animate.css  
-- **Libraries**: jQuery, Magnific-popup, Slick-carousel  
-- **Static Backend**: No backend in this project, using static files and client-side data handling.  
-- **Deployment**: Render for hosting and GitHub for version control  
-
----
+- **Frontend**: Vanilla JavaScript, Bootstrap  
+- **Backend**: Node.js, Express.js  
+- **Styling**: Chart.js, Bootstrap  
+- **Build Tool**: Webpack for bundling and optimizing the frontend assets  
+- **Libraries**: jQuery, Magnific-popup  
+- **Deployment**: Render for backend, GitHub for version control  
