@@ -6,7 +6,7 @@ A comprehensive web application for managing personal finances, including income
 ## **About**  
 **Finance Manager** is a web-based platform designed to help users manage their financial activities effectively. The application allows users to track income and expenses, manage categories, view real-time financial data, and visualize trends through dynamic charts.  
 
-The frontend is developed using **vanilla JavaScript** with **Bootstrap** for building a responsive and modern user interface. Webpack is used for bundling and optimizing the code, ensuring smooth performance across various devices.
+The frontend is developed using **JavaScript** with **Bootstrap** for building a responsive and modern user interface. Webpack is used for bundling and optimizing the code, ensuring smooth performance across various devices.
 
 ---
 
@@ -24,7 +24,7 @@ The frontend is developed using **vanilla JavaScript** with **Bootstrap** for bu
 ---
 
 ## **Technology Stack**  
-- **Frontend**: Vanilla JavaScript, Bootstrap  
+- **Frontend**: JavaScript, Bootstrap  
 - **Backend**: Node.js, Express.js  
 - **Styling**: Chart.js, Bootstrap  
 - **Build Tool**: Webpack for bundling and optimizing the frontend assets  
