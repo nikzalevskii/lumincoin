@@ -4,8 +4,6 @@ A comprehensive web application for managing personal finances, including income
 ![Clip2net_250109092326](https://github.com/user-attachments/assets/a810a4b7-588a-4d8b-8fb3-e8d6d3e4cfb0)
 
 
-![image](https://github.com/user-attachments/assets/b7994c74-3cec-4e27-8603-954bdcfcea8b)
-
 ---
 
 ## **About**  
