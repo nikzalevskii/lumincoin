@@ -1,6 +1,9 @@
 # **Finance Manager**  
 A comprehensive web application for managing personal finances, including income and expense tracking, category management, and dynamic content updates.
 
+![image](https://github.com/user-attachments/assets/b7994c74-3cec-4e27-8603-954bdcfcea8b)
+
+
 ![image](https://github.com/user-attachments/assets/c4f192f0-4c48-4ac6-bd06-882b59b2425b)
 
 ---
