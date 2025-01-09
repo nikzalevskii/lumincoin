@@ -3,6 +3,7 @@ A comprehensive web application for managing personal finances, including income
 
 ![image](https://github.com/user-attachments/assets/acf2e4f4-3f7e-4a82-949c-578e1b8c14b6)
 
+![image](https://github.com/user-attachments/assets/c4f192f0-4c48-4ac6-bd06-882b59b2425b)
 
 ---
 
